@@ -1,0 +1,68 @@
+
+.advantage {
+	background-color: $lightColor;
+	@include adaptiveValue("padding-bottom", 120, 80);
+
+	// .advantage__container
+	&__container {
+	}
+	// .advantage__title
+	&__title {
+		@extend .services__title;
+	}
+	// .advantage__body
+	&__body {
+		display: flex;
+		gap: toRem(24);
+		flex-wrap: wrap;
+
+		@media (max-width: toEm(670)) {
+			flex-direction: column;
+		}
+	}
+	// .advantage__left
+	&__left {
+		flex: 1 1 flBasis(2,24, 384); /*  31.8% 384/1206 */
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: toRem(15);
+		position: relative;
+
+		@media (max-width: $tablet) {
+			flex: 1 1 flBasis(2, 24);
+		}
+	}
+	// .advantage__right
+	&__right {
+
+	}
+}
+
+.right-advantage {
+	flex: 1 1 65.671642%; /* 792/1206 */
+	display: flex;
+	flex-wrap: wrap;
+	gap: toRem(24);
+
+	@media (max-width: $tablet) {
+		flex: 1 1 flBasis(2, 24);
+		
+	}
+	// .right-advantage__top
+	&__top {
+		flex-grow: 1;
+		position: relative;
+		min-height: toRem(234);
+		overflow: hidden;
+		min-width: toRem(632);
+
+		@media (max-width: $mobile) {
+			min-width: auto;
+		}
+	}
+	
+	// .right-advantage__item
+	&__item {
+	}
+}

@@ -1,0 +1,338 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.buttons {
+	display: flex;
+	column-gap: toRem(12);
+	row-gap: toRem(30);
+	flex-wrap: wrap;
+
+	.hero &,
+	.pledge &,
+	.items-precision & {
+		@media (max-width: toEm(575)) {
+			justify-content: center;
+		}
+	}
+	.offer-card & {
+		row-gap: toRem(20);
+	}
+
+	// .buttons__button
+	&__button {
+	}
+}
+/*
+	<div class="header-block__buttons buttons">
+		<a href="#" class="buttons__button button button--transparent button--icon _icon-carriers">
+			Learn more
+		</a>
+		<a href="#" class="buttons__button button">
+			Get started
+		</a>
+	</div>
+*/
+.button {
+	color: var(--text-inverse);
+	font-weight: 600;
+	line-height: 1.5;
+	padding: toRem(10) toRem(16);
+	border-radius: toRem(8);
+	background-color: var(--bg-accent);
+	box-shadow: 0 toRem(1) toRem(1) 0 rgba(16, 24, 40, 0.05);
+	transition: background-color 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--hover);
+		}
+	}
+
+	.hero & {
+		padding: toRem(16) toRem(22);
+		font-size: toRem(18);
+		font-weight: 600;
+		line-height: 1.55;
+		min-height: toRem(60);
+	}
+	.offer-card & {
+		flex-grow: 1;
+	}
+	// .button--transparent
+	&--transparent {
+		border: toRem(1) solid #d0d5dd;
+		background-color: transparent;
+		box-shadow: 0 toRem(1) toRem(2) 0 rgba(16, 24, 40, 0.05);
+		color: var(--text-fourth);
+
+		.hero & {
+			@media (max-width: $tablet) {
+				color: var(--text-inverse);
+			}
+		}
+		.header-block--white & {
+			background-color: var(--bg-third);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: rgba(124, 212, 253, 1);
+			}
+		}
+	}
+	// .button--icon
+	&--icon {
+		display: flex;
+		gap: toRem(10);
+		align-items: center;
+
+		.hero &::before {
+			font-size: toRem(24);
+		}
+	}
+	// .button--arr
+	&--arr {
+		background-color: transparent;
+		color: var(--text-secondary);
+		padding: 0;
+		display: flex;
+		gap: toRem(8);
+		align-items: center;
+		box-shadow: none;
+		transition: color 0.3s;
+		justify-content: flex-start;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: transparent;
+				color: var(--text-accent);
+			}
+		}
+		&::after {
+			content: '\e901';
+			@extend %ic;
+		}
+
+		&[data-showmore-button] {
+			@media (min-width: toEm(575)) {
+				display: none;
+			}
+		}
+
+		.hero & {
+			color: var(--text-primary);
+			padding: 0;
+
+			@media (max-width: $tablet) {
+				color: var(--text-inverse);
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					color: var(--hover);
+				}
+			}
+		}
+	}
+}
+
+.logo {
+	width: toRem(142);
+	height: toRem(31);
+	position: relative;
+	z-index: 5;
+
+	.footer & {
+		@media (max-width: toEm(920)) {
+			order: -1;
+			flex-grow: 1;
+			flex-basis: 100%;
+			text-align: center;
+		}
+	}
+}
+
+.header-block {
+	@media (max-width: toEm(575)) {
+		text-align: center;
+	}
+
+	// .header-block--white
+	&--white {
+	}
+
+	// .header-block--border
+	&--border {
+		@include adaptiveValue('margin-bottom', 32, 15);
+		@include adaptiveValue('padding-bottom', 40, 20);
+
+		border-bottom: toRem(1) solid #eaecf0;
+	}
+
+	// .header-block--center
+	&--center {
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	// .header-block__label
+	&__label {
+		color: var(--text-secondary);
+		font-weight: 600;
+		line-height: 1.5;
+		font-size: toRem(14);
+		display: inline-block;
+
+		&:not(:last-child) {
+			margin-bottom: toEm(12, 16);
+		}
+
+		.header-block--white & {
+			color: var(--text-inverse);
+		}
+		.pledge & {
+			&:not(:last-child) {
+				@include adaptiveValue('margin-bottom', 24, 12);
+			}
+		}
+		// .header-block__label--border
+		&--border {
+			color: var(--text-fourth);
+			padding: toRem(4) toRem(10) toRem(4) toRem(10);
+			width: fit-content;
+			display: flex;
+			align-items: center;
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: toRem(8);
+			border: 1px solid var(--Gray-300, #d0d5dd);
+			border: toRem(1) solid #d0d5dd;
+			gap: toEm(6, 14);
+
+			&::before {
+				content: '';
+				width: toEm(6, 14);
+				height: toEm(6, 14);
+				border-radius: 50%;
+				background-color: #0ba5ec;
+			}
+		}
+	}
+	// .header-block__title
+	&__title {
+		color: var(--text-accent);
+		@include adaptiveValue('font-size', 36, 24);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: toRem(-0.72);
+
+		&:not(:last-child) {
+			margin-bottom: toEm(20, 36);
+		}
+		.header-block--white & {
+			color: var(--text-inverse);
+		}
+		.pledge & {
+			&:not(:last-child) {
+				@include adaptiveValue('margin-bottom', 24, 12);
+			}
+		}
+	}
+	// .header-block__text
+	&__text {
+		@include adaptiveValue('font-size', 20, 16);
+		line-height: 1.5;
+		&:not(:last-child) {
+			margin-bottom: toRem(20);
+		}
+
+		.header-block--white & {
+			color: var(--text-fifth);
+		}
+
+		.pledge & {
+			@include adaptiveValue('font-size', 18, 16);
+			font-family: Roboto, sans-serif;
+			&:not(:last-child) {
+				@include adaptiveValue('margin-bottom', 48, 30);
+			}
+		}
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+			.pledge & {
+				&:not(:last-child) {
+					@include adaptiveValue('margin-bottom', 30, 15);
+				}
+			}
+		}
+	}
+}
+/*
+	<div class="strategy__header header-block">
+		<div class="header-block__label">
+			Our Strategy
+		</div>
+		<h2 class="header-block__title">
+			Barrier Breaking Solutions
+		</h2>
+		<div class="header-block__text">
+			<p>
+				Customized logistics and transportation solutions designed to optimize your supply
+				chain. Committed to reliability and efficiency, we're the trusted partner for businesses
+				nationwide.
+			</p>
+		</div>
+	</div>
+*/
+
+.circle-icon {
+	width: toRem(56);
+	height: toRem(56);
+	border-radius: 50%;
+	background-color: var(--bg-fourth);
+	border: toRem(8) solid var(--bg-fifth);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: toRem(20);
+	color: var(--text-seventh);
+	@media (max-width: toEm(575)) {
+		margin: 0 auto;
+	}
+}
+
+.social {
+	color: var(--text-sixth);
+	display: flex;
+	gap: toRem(24);
+	flex-wrap: wrap;
+	justify-content: center;
+
+	// .social__link
+	&__link {
+		font-size: toRem(24);
+		transition: color 0.3s;
+		padding: toRem(5);
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--text-inverse);
+			}
+		}
+	}
+}
+
+/*
+		<div class="footer__social social">
+			<a href="#" aria-label="social X" class="social__link _icon-x"></a>
+			<a href="#" aria-label="linkedin" class="social__link _icon-linkedin"></a>
+			<a href="#" aria-label="facebook" class="social__link _icon-facebook"></a>
+			<a href="#" aria-label="git" class="social__link _icon-git"></a>
+			<a href="#" aria-label="angellist" class="social__link _icon-angellist"></a>
+			<a href="#" aria-label="dribble" class="social__link _icon-dribble"></a>
+		</div>
+*/

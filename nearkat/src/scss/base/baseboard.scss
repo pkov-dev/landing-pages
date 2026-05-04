@@ -1,0 +1,93 @@
+// Тінь навколо тексту заголовку
+
+/*
+text-shadow:
+toEm(8, 335) toEm(8, 335) 0 #000,
+toEm(-8, 335) toEm(-8, 335) 0 #000,
+toEm(8, 335) toEm(-8, 335) 0 #000,
+toEm(-8, 335) toEm(8, 335) 0 #000,
+0 toEm(8, 335) 0 #000,
+0 toEm(-8, 335) 0 #000,
+toEm(-8, 335) 0 0 #000,
+toEm(8, 335) 0 0 #000,
+toEm(-8, 335) toEm(14, 335) 0 #000,
+toEm(8, 335) toEm(14, 335) 0 #000,
+0 toEm(14, 335) 0 #000;
+*/
+
+//========================================================================================================================================================
+// Обводка навколо тексту від Руслана
+/*
+color: #fff;
+text-shadow: 0px toEm(6, 218) 0px #000;
+-webkit-text-stroke-width: toEm(4, 218);
+
+це випробувати
+paint-order: stroke fill;
+-webkit-text-stroke-color: #000;
+*/
+
+//========================================================================================================================================================
+// Блюр сторінки при відкритому меню хедер
+/*
+<div class="wrapper">
+		<div class="menu-open-bg"></div>
+*/
+/*
+.menu-open-bg {
+	pointer-events: none;
+	position: fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(toRem(6));
+	opacity: 0;
+	transition: opacity 0.3s ease 0s;
+	.menu-open & {
+		opacity: 1;
+	}
+}
+	*/
+/*
+const heroSection = document.querySelector('.hero');
+const parallaxItems = [
+  { element: document.querySelector('.hero__parallax--bg'), factor: 1.2 },
+  {
+    element: document.querySelector('.hero__parallax--buildings'),
+    factor: 1.4,
+  },
+  { element: document.querySelector('.hero__parallax--logo'), factor: 1.6 },
+  { element: document.querySelector('.hero__parallax--cat'), factor: 1.8 },
+  { element: document.querySelector('.hero__parallax--light'), factor: 1.3 },
+  { element: document.querySelector('.hero__parallax--rain'), factor: 2.2 },
+  { element: document.querySelector('.hero__container'), factor: 2.4 },
+];
+
+const heroSectionHeight = heroSection.offsetHeight * 1.2;
+let lastScrollY = 0;
+let ticking = false;
+
+function updateParallax() {
+  const scrollYPercent = Math.min(lastScrollY / heroSectionHeight, 1);
+
+  parallaxItems.forEach(({ element, factor }) => {
+    element.style.transform = translateY(${(scrollYPercent * heroSectionHeight) / factor}px);
+  });
+
+  ticking = false;
+}
+
+function onScroll() {
+  lastScrollY = window.scrollY;
+
+  if (!ticking && lastScrollY <= heroSectionHeight) {
+    ticking = true;
+    requestAnimationFrame(updateParallax);
+  }
+}
+
+window.addEventListener('scroll', onScroll);
+*/

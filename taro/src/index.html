@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Maru Taro"
+})
+
+<body>
+	<div class="wrapper">
+		<div class="menu-open-bg"></div>
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="page__hero hero">
+				<div class="hero__bg">
+					<img src="@img/hero/bg.png" loading="eager" fetchpriority="high" decoding="async" alt="">
+				</div>
+				<div class="hero__container">
+					<div class="hero__title">
+						<h1>Maru taro</h1>
+						<div class="hero__dec-title">
+							<img src="@img/hero/title-dec.png" loading="eager" fetchpriority="high" decoding="async"
+								alt="">
+						</div>
+						<div class="hero__img-title">
+							<img src="@img/hero/title.png" loading="eager" fetchpriority="high" decoding="async" alt="">
+						</div>
+					</div>
+					<div class="hero__bottom">
+						<a href="https://raydium.io/swap/?inputMint=sol&outputMint=8cvjcGD1CcSHXfc82FfHSrLzeooJJmjB2Dp1pV81pump"
+							class="hero__button button">
+							<span>
+								Buy now
+							</span>
+						</a>
+						<div class="hero__img">
+							<img class="ibg" src="@img/hero/dog.png" loading="eager" fetchpriority="high"
+								decoding="async" alt="">
+						</div>
+						<div class="hero__social">
+							<a href="https://x.com/i/flow/login?redirect_after_login=%2Ftarosolanajp"
+								aria-label="socil X" target="_blank" rel="noopener noreferrer"
+								class="hero__social-link social-link social-link--x">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 32" fill="none">
+									<path
+										d="M26.6334 0.883789H31.7702L20.5474 13.6915L33.751 31.1164H23.4131L15.3171 20.5469L6.05125 31.1164H0.911644L12.9162 17.4167L0.25 0.885183H10.8503L18.1688 10.546L26.6334 0.883789ZM24.8313 28.0475H27.6775L9.30364 3.79235H6.24947L24.8313 28.0475Z"
+										fill="white" />
+								</svg>
+							</a>
+							<a href="https://t.me/tarothesolanadog" aria-label="social telegram" target="_blank"
+								rel="noopener noreferrer" class="hero__social-link social-link social-link--tg">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32" fill="none">
+									<path fill-rule="evenodd" clip-rule="evenodd"
+										d="M31.9274 1.09062C32.3594 0.907482 32.8322 0.844319 33.2967 0.907705C33.7611 0.97109 34.2002 1.15871 34.5683 1.45103C34.9363 1.74335 35.2198 2.12968 35.3893 2.56982C35.5588 3.00996 35.6081 3.48782 35.532 3.95365L31.5673 28.1767C31.1827 30.5133 28.6374 31.8533 26.51 30.6894C24.7304 29.7157 22.0872 28.2155 19.7098 26.6501C18.521 25.8666 14.8797 23.3575 15.3272 21.572C15.7118 20.0454 21.8302 14.3088 25.3265 10.8982C26.6988 9.55822 26.0729 8.78524 24.4524 10.0178C20.4282 13.078 13.9672 17.7318 11.831 19.0418C9.94649 20.1969 8.96404 20.3941 7.7893 20.1969C5.6461 19.8377 3.65848 19.2813 2.03622 18.6034C-0.155925 17.6878 -0.0492895 14.6522 2.03447 13.7683L31.9274 1.09062Z"
+										fill="white" />
+								</svg>
+							</a>
+							<a href="https://www.instagram.com/marutaro/" aria-label="social instagram" target="_blank"
+								rel="noopener noreferrer" class="hero__social-link social-link social-link--inst">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+									<path
+										d="M13.0337 3.41113H26.9684C32.2769 3.41113 36.59 7.72426 36.59 13.0327V26.9674C36.59 29.5192 35.5763 31.9665 33.7719 33.7709C31.9675 35.5753 29.5202 36.589 26.9684 36.589H13.0337C7.72523 36.589 3.41211 32.2759 3.41211 26.9674V13.0327C3.41211 10.4809 4.42581 8.03363 6.23021 6.22923C8.0346 4.42483 10.4819 3.41113 13.0337 3.41113ZM12.7019 6.72892C11.118 6.72892 9.59903 7.35811 8.47906 8.47809C7.35909 9.59806 6.7299 11.1171 6.7299 12.7009V27.2992C6.7299 30.6004 9.40072 33.2712 12.7019 33.2712H27.3002C28.8841 33.2712 30.4031 32.642 31.523 31.5221C32.643 30.4021 33.2722 28.8831 33.2722 27.2992V12.7009C33.2722 9.39974 30.6014 6.72892 27.3002 6.72892H12.7019ZM28.7102 9.21726C29.2602 9.21726 29.7876 9.43573 30.1765 9.82461C30.5654 10.2135 30.7839 10.7409 30.7839 11.2909C30.7839 11.8408 30.5654 12.3683 30.1765 12.7571C29.7876 13.146 29.2602 13.3645 28.7102 13.3645C28.1603 13.3645 27.6329 13.146 27.244 12.7571C26.8551 12.3683 26.6366 11.8408 26.6366 11.2909C26.6366 10.7409 26.8551 10.2135 27.244 9.82461C27.6329 9.43573 28.1603 9.21726 28.7102 9.21726ZM20.0011 11.7056C22.2009 11.7056 24.3106 12.5795 25.8661 14.135C27.4216 15.6905 28.2955 17.8002 28.2955 20.0001C28.2955 22.1999 27.4216 24.3096 25.8661 25.8652C24.3106 27.4207 22.2009 28.2945 20.0011 28.2945C17.8012 28.2945 15.6915 27.4207 14.136 25.8652C12.5805 24.3096 11.7066 22.1999 11.7066 20.0001C11.7066 17.8002 12.5805 15.6905 14.136 14.135C15.6915 12.5795 17.8012 11.7056 20.0011 11.7056ZM20.0011 15.0234C18.6812 15.0234 17.4153 15.5477 16.482 16.481C15.5487 17.4143 15.0244 18.6802 15.0244 20.0001C15.0244 21.32 15.5487 22.5858 16.482 23.5191C17.4153 24.4524 18.6812 24.9768 20.0011 24.9768C21.3209 24.9768 22.5868 24.4524 23.5201 23.5191C24.4534 22.5858 24.9777 21.32 24.9777 20.0001C24.9777 18.6802 24.4534 17.4143 23.5201 16.481C22.5868 15.5477 21.3209 15.0234 20.0011 15.0234Z"
+										fill="white" />
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="line">
+				<div class="line__row">
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+				</div>
+				<div class="line__row">
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+				</div>
+				<div class="line__row">
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+					<div class="line__item">
+						This isn't just a meme coin, it's a COMMUNITY TAKEOVER forged by the unstoppable spirit of Maru
+						Taro!
+					</div>
+				</div>
+			</div>
+			<section data-watch="navigator" class="page__about about">
+				<div class="about__bg">
+					<img src="@img/about/bg.png" loading="lazy" decoding="async" alt="">
+				</div>
+				<div class="about__container">
+					<div data-watch-once data-watch-threshold="0.4" data-watch class="about__img-box">
+						<img class="from-left" src="@img/about/dog.png" loading="lazy" decoding="async" alt="">
+						<div class="about__title fall">
+							<h2>About</h2>
+							<img src="@img/about/title.png" loading="lazy" decoding="async" alt="">
+						</div>
+						<div class="about__img-dec">
+						</div>
+					</div>
+					<div class="about__content">
+						<div data-watch-once data-watch-threshold="0.3" data-watch class="about__content-wrapper">
+							<div class="about__text-wrp ">
+								<div class="about__decor">
+									<img src="@img/about/dog-dec-text.png" loading="lazy" decoding="async" alt="">
+								</div>
+								<div class="about__text from-right">
+									<div class="about__dec-text">
+										<img src="@img/about/label.png" loading="lazy" decoding="async" alt="">
+									</div>
+									<h3>
+										GMaru! $Taro is here! 
+									</h3>
+									<p>
+										The beloved round Shiba Inu rolling onto Solana like a wrecking ball of joy!
+									</p>
+									<p>
+										Here to remind the crypto community to smile, stay meme and don't just touch
+										grass... frolic!
+									</p>
+									<p>
+										The mission is simple... bring joy and light to a sometimes heavy crypto
+										space... in tribute to Maru Taro
+									</p>
+								</div>
+							</div>
+							<a data-watch-once data-watch-threshold="0.5" data-watch
+								href="https://raydium.io/swap/?inputMint=sol&outputMint=8cvjcGD1CcSHXfc82FfHSrLzeooJJmjB2Dp1pV81pump"
+								class="about__button button  button--blue from-right">
+								<span>
+									Buy now
+								</span>
+							</a>
+							<div data-watch-once data-watch-threshold="0.4" data-watch class="about__small-img">
+								<img class="ibg from-right" src="@img/about/dog-small.png" alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__legend legend">
+				<div class="legend__bg">
+					<img src="@img/legend/bg.png" loading="lazy" decoding="async" alt="">
+				</div>
+				<div class="legend__container">
+					<div data-watch-once data-watch-threshold="0.5" data-watch class="legend__title">
+						<img class="fall" src="@img/legend/title.png" loading="lazy" decoding="async" alt="">
+						<h2>The legend of maru taru</h2>
+					</div>
+					<div class="legend__images images-block">
+						<div data-watch-once data-watch-threshold="0.5" data-watch class="images-block__img">
+							<img class="from-left" src="@img/legend/1.png" loading="lazy" decoding="async" alt="">
+						</div>
+						<div data-watch-once data-watch-threshold="0.5" data-watch class="images-block__img">
+							<img class="from-right" src="@img/legend/2.png" loading="lazy" decoding="async" alt="">
+						</div>
+						<div data-watch-once data-watch-threshold="0.5" data-watch class="images-block__img">
+							<img class="from-left" src="@img/legend/3.png" loading="lazy" decoding="async" alt="">
+						</div>
+						<div data-watch-once data-watch-threshold="0.5" data-watch class="images-block__img">
+							<img class="from-right" src="@img/legend/4.png" loading="lazy" decoding="async" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section data-watch="navigator" class="page__buy buy">
+				<div class="buy__bg">
+					<img src="@img/buy/bg.png" loading="lazy" decoding="async" alt="">
+				</div>
+				<div class="buy__container">
+					<div data-watch-once data-watch-threshold="0.5" data-watch class="buy__tile">
+						<img class="fall" src="@img/buy/title.png" loading="lazy" decoding="async" alt="">
+						<h2>How to buy</h2>
+					</div>
+					<div class="buy__body">
+						<div class="buy__top">
+							<div data-watch-once data-watch-threshold="0.4" data-watch
+								class="buy__item item-buy from-left">
+								<h3 class="item-buy__title">
+									<span class="red">step 1:</span>
+									<span> First you’ll need a Solana Wallet</span>
+								</h3>
+								<p class="item-buy__text">
+									Download and install a Solana-compatible wallet like Phantom or Solflare.
+									Set up your wallet by creating a new account, remember to keep your recovery
+									phrase safe
+									and secret.
+								</p>
+							</div>
+							<div data-watch-once data-watch-threshold="0.5" data-watch
+								class="buy__item item-buy from-right">
+								<h3 class="item-buy__title">
+									<span class="red">step 2:</span>
+									<span> Then you’ll need some SOL to swap for TARO</span>
+								</h3>
+								<p class="item-buy__text">
+									Buy SOL from an exchange or swap cross chain and send to your wallet
+								</p>
+							</div>
+						</div>
+						<div data-watch-once data-watch-threshold="0.4" data-watch class="buy__bottom">
+							<div class="buy__item item-buy from-left">
+								<h3 class="item-buy__title">
+									<span class="red">step 3:</span>
+									<span>
+										Now you're gonna need a DEX
+									</span>
+								</h3>
+								<p class="item-buy__text">
+									Go to a Solana DEX, like Raydium or Orca and connect your wallet by clicking the
+									"Connect
+									Wallet" button on the DEX. Always double check you're on the RIGHT SITE.
+								</p>
+							</div>
+							<div data-watch-once data-watch-threshold="0.4" data-watch class="buy__right from-right">
+								<div class="buy__item item-buy">
+									<h3 class="item-buy__title">
+										<span class="red">step 4:</span>
+										<span>
+											Time to Swap
+										</span>
+									</h3>
+									<p class="item-buy__text">
+										Swap SOL for TARO, review the transaction carefully and approve the swap in
+										your wallet.
+									</p>
+								</div>
+								<div class="buy__item item-buy">
+									<div data-watch-once data-watch-threshold="0.5" data-watch class="buy-img">
+										<img class="fall" src="@img/buy/dog.png" loading="lazy" decoding="async" alt="">
+									</div>
+									<h3 class="item-buy__title">
+										<span class="red">step 5:</span>
+										<span>
+											Now go frolic and celebrate having some TARO in your wallet!
+										</span>
+									</h3>
+								</div>
+
+							</div>
+						</div>
+						<div class="buy__img-small">
+							<img src="@img/buy/dogSmall.png" loading="lazy" decoding="async" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__tokenomics tokenomics">
+				<div class="tokenomics__bg">
+					<img src="@img/tokenomics/bg.png" loading="lazy" decoding="async" alt="">
+				</div>
+				<div data-watch="navigator" class="tokenomics__container">
+					<div data-watch-once data-watch-threshold="0.4" data-watch class="tokenomics__img">
+						<img class="ibg from-left" src="@img/tokenomics/dog-main.png" loading="lazy" decoding="async"
+							alt="">
+					</div>
+					<div class="tokenomics__content">
+						<div data-watch-once data-watch-threshold="0.4" data-watch class="tokenomics__title">
+							<h2>Tokenomics</h2>
+							<img class="fall" src="@img/tokenomics/title.png" loading="lazy" decoding="async" alt="">
+						</div>
+						<div data-watch-once data-watch-threshold="0.4" data-watch class="tokenomics__card from-right">
+							<div class="tokenomics__top">
+								<div class="tokenomics__item">
+									<div class="tokenomics__label">
+										Total supply:
+									</div>
+									<div class="tokenomics__value">
+										$1b
+									</div>
+								</div>
+								<div class="tokenomics__item">
+									<div class="tokenomics__label">
+										Sell/buy tax:
+									</div>
+									<div class="tokenomics__value">
+										0/0
+									</div>
+								</div>
+							</div>
+							<div class="tokenomics__item">
+								<div class="tokenomics__value">
+									lp Burned
+								</div>
+							</div>
+						</div>
+						<div data-watch-once data-watch-threshold="0.4" data-watch data-clipboard class="cn ">
+							<div class="cn__left">
+								<span>
+									ca:
+								</span>
+								<span data-clipboardEl class="cn__address">
+									8cvjcGD1CcSHXfc82FfHSrLzeooJJmjB2Dp1pV81pump
+								</span>
+							</div>
+							<button type="button" data-clipboardBtn aria-label="copy text" class="cn__button">
+								<svg viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd"
+										d="M29.1285 0.564611L5.13003 0.454786L5.105 5.92452L0.367547 5.90284L0.239912 33.7929L23.6803 33.9001L23.7003 29.5241L28.9959 29.5483L29.1285 0.564611ZM23.7141 26.5164L25.9401 26.5266L26.0452 3.55831L8.18584 3.47658L8.17458 5.93856L23.8079 6.01011L23.7141 26.5164ZM3.32325 30.7992L3.42336 8.92463L20.7246 9.00381L20.6245 30.8783L3.32325 30.7992Z"
+										fill="black" />
+								</svg>
+
+							</button>
+							<div data-cnHint class="cn__hint">Copied to clipboard</div>
+						</div>
+						<div data-watch-once data-watch-threshold="0.4" data-watch class="tokenomics__small-img ">
+							<img class="ibg from-right" src="@img/tokenomics/dog-small.png" loading="lazy"
+								decoding="async" alt="">
+						</div>
+					</div>
+
+				</div>
+			</section>
+			<section class="page__join join">
+				<div class="join__bg">
+					<img src="@img/join/bg.png" loading="lazy" decoding="async" alt="">
+				</div>
+				<div class="join__container">
+					<div class="join__title">
+						<div data-watch-once data-watch-threshold="0.4" data-watch class="join__top-title">
+							<img class="fall" src="@img/join/title-top.png" loading="lazy" decoding="async" alt="">
+							<h2>Join</h2>
+						</div>
+						<div data-watch-once data-watch-threshold="0.4" data-watch class="join__mid-title">
+							<img class="fall" src="@img/join/tilte-middle.png" loading="lazy" decoding="async" alt="">
+						</div>
+					</div>
+					<div class="join__body">
+						<div data-watch-once data-watch-threshold="0.4" data-watch class="join__left">
+							<img class="ibg from-left" src="@img/join/1.png" loading="lazy" decoding="async" alt="">
+						</div>
+						<div data-watch-once data-watch-threshold="0.4" data-watch class="join__right ">
+							<div data-watch-once data-watch-threshold="0.4" data-watch class="join__img-rg">
+								<img class="ibg from-right" src="@img/join/2.png" loading="lazy" decoding="async"
+									alt="">
+							</div>
+							<div data-watch-once data-watch-threshold="0.4" data-watch
+								data-da=".join__container, 991.98" class="join__right-bot">
+								<a href="https://raydium.io/swap/?inputMint=sol&outputMint=8cvjcGD1CcSHXfc82FfHSrLzeooJJmjB2Dp1pV81pump"
+									class="join__button button">
+									<span>
+										Buy now
+									</span>
+								</a>
+								<div class="join__social">
+									<a href="https://x.com/tarosolanajp" aria-label="social X" target="_blank"
+										rel="noopener noreferrer" class="join__social-link social-link social-link--x">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 32" fill="none">
+											<path
+												d="M26.6334 0.883789H31.7702L20.5474 13.6915L33.751 31.1164H23.4131L15.3171 20.5469L6.05125 31.1164H0.911644L12.9162 17.4167L0.25 0.885183H10.8503L18.1688 10.546L26.6334 0.883789ZM24.8313 28.0475H27.6775L9.30364 3.79235H6.24947L24.8313 28.0475Z"
+												fill="white" />
+										</svg>
+									</a>
+									<a href="https://t.me/tarothesolanadog" aria-label="social telegram" target="_blank"
+										rel="noopener noreferrer" class="join__social-link social-link social-link--tg">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32" fill="none">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M31.9274 1.09062C32.3594 0.907482 32.8322 0.844319 33.2967 0.907705C33.7611 0.97109 34.2002 1.15871 34.5683 1.45103C34.9363 1.74335 35.2198 2.12968 35.3893 2.56982C35.5588 3.00996 35.6081 3.48782 35.532 3.95365L31.5673 28.1767C31.1827 30.5133 28.6374 31.8533 26.51 30.6894C24.7304 29.7157 22.0872 28.2155 19.7098 26.6501C18.521 25.8666 14.8797 23.3575 15.3272 21.572C15.7118 20.0454 21.8302 14.3088 25.3265 10.8982C26.6988 9.55822 26.0729 8.78524 24.4524 10.0178C20.4282 13.078 13.9672 17.7318 11.831 19.0418C9.94649 20.1969 8.96404 20.3941 7.7893 20.1969C5.6461 19.8377 3.65848 19.2813 2.03622 18.6034C-0.155925 17.6878 -0.0492895 14.6522 2.03447 13.7683L31.9274 1.09062Z"
+												fill="white" />
+										</svg>
+									</a>
+									<a href="https://www.instagram.com/marutaro/" aria-label="social instagram"
+										target="_blank" rel="noopener noreferrer"
+										class="join__social-link social-link social-link--inst">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+											<path
+												d="M13.0337 3.41113H26.9684C32.2769 3.41113 36.59 7.72426 36.59 13.0327V26.9674C36.59 29.5192 35.5763 31.9665 33.7719 33.7709C31.9675 35.5753 29.5202 36.589 26.9684 36.589H13.0337C7.72523 36.589 3.41211 32.2759 3.41211 26.9674V13.0327C3.41211 10.4809 4.42581 8.03363 6.23021 6.22923C8.0346 4.42483 10.4819 3.41113 13.0337 3.41113ZM12.7019 6.72892C11.118 6.72892 9.59903 7.35811 8.47906 8.47809C7.35909 9.59806 6.7299 11.1171 6.7299 12.7009V27.2992C6.7299 30.6004 9.40072 33.2712 12.7019 33.2712H27.3002C28.8841 33.2712 30.4031 32.642 31.523 31.5221C32.643 30.4021 33.2722 28.8831 33.2722 27.2992V12.7009C33.2722 9.39974 30.6014 6.72892 27.3002 6.72892H12.7019ZM28.7102 9.21726C29.2602 9.21726 29.7876 9.43573 30.1765 9.82461C30.5654 10.2135 30.7839 10.7409 30.7839 11.2909C30.7839 11.8408 30.5654 12.3683 30.1765 12.7571C29.7876 13.146 29.2602 13.3645 28.7102 13.3645C28.1603 13.3645 27.6329 13.146 27.244 12.7571C26.8551 12.3683 26.6366 11.8408 26.6366 11.2909C26.6366 10.7409 26.8551 10.2135 27.244 9.82461C27.6329 9.43573 28.1603 9.21726 28.7102 9.21726ZM20.0011 11.7056C22.2009 11.7056 24.3106 12.5795 25.8661 14.135C27.4216 15.6905 28.2955 17.8002 28.2955 20.0001C28.2955 22.1999 27.4216 24.3096 25.8661 25.8652C24.3106 27.4207 22.2009 28.2945 20.0011 28.2945C17.8012 28.2945 15.6915 27.4207 14.136 25.8652C12.5805 24.3096 11.7066 22.1999 11.7066 20.0001C11.7066 17.8002 12.5805 15.6905 14.136 14.135C15.6915 12.5795 17.8012 11.7056 20.0011 11.7056ZM20.0011 15.0234C18.6812 15.0234 17.4153 15.5477 16.482 16.481C15.5487 17.4143 15.0244 18.6802 15.0244 20.0001C15.0244 21.32 15.5487 22.5858 16.482 23.5191C17.4153 24.4524 18.6812 24.9768 20.0011 24.9768C21.3209 24.9768 22.5868 24.4524 23.5201 23.5191C24.4534 22.5858 24.9777 21.32 24.9777 20.0001C24.9777 18.6802 24.4534 17.4143 23.5201 16.481C22.5868 15.5477 21.3209 15.0234 20.0011 15.0234Z"
+												fill="white" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_preloader.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

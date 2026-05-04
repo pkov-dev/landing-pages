@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"HomePage"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page-home">
+			<section class="page-home__hero hero-home">
+				<div class="hero-home__container">
+					<div class="hero-home__content">
+						<div class="hero-home__header header-block">
+							<div class="header-block__label">
+								In our clinic awaits you
+							</div>
+							<h2 class="header-block__title">
+								Quality & professionalism
+							</h2>
+						</div>
+						<div class="hero-home__items">
+							<article class="hero-home__item item-service">
+								<img class="item-service__icon" src="@img/services/01.svg" alt="Image">
+								<div class="item-service__content">
+									<h2 class="item-service__title">
+										Preventive care
+									</h2>
+									<p class="item-service__text">
+										It will help to avoid discomfort and expensive treatment.
+									</p>
+								</div>
+							</article>
+							<article class="hero-home__item item-service">
+								<img class="item-service__icon" src="@img/services/02.svg" alt="Image">
+								<div class="item-service__content">
+									<h2 class="item-service__title">
+										Complex services
+									</h2>
+									<p class="item-service__text">
+										A wide range of services, including sealing and orthodontics
+									</p>
+								</div>
+							</article>
+						</div>
+						<a href="#" class="hero-home__button button">
+							<span>
+								Make an appointment
+							</span>
+						</a>
+					</div>
+					<picture class="hero-home__picture">
+						<source media="(min-width: 768px)" srcset="img/home/hero/01.jpg">
+						<source media="(max-width: 574.98px)" srcset="img/home/hero/01-mini.jpg">
+						<img class="hero-home__img" src="img/home/hero/01.jpg" alt="image">
+					</picture>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

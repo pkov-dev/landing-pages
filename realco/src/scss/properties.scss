@@ -1,0 +1,52 @@
+.properties {
+	@include adaptiveValue("padding-top", 125, 60);
+	@include adaptiveValue("padding-bottom", 160, 60);
+	background-color: var(--primary);
+	position: relative;
+
+	@media (min-width: $mobile) {
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			width: toRem(135);
+			height: toRem(135);
+		}
+
+		&::before {
+			background: url("@img/hero/decor.svg") no-repeat;
+			top: 0;
+			left: 0;
+		}
+
+		&::after {
+			background: url("@img/hero/decor-rotate.svg") no-repeat;
+			bottom: 0;
+			right: 0;
+		}
+	}
+	// .properties__container
+	&__container {
+		display: grid;
+		@include adaptiveValue("gap", 80, 40);
+		position: relative;
+		z-index: 2;
+	}
+	// .properties__header
+	&__header {
+	}
+	// .properties__items
+	&__items {
+
+	}
+	// .properties__item
+	&__item {
+	}
+	// .properties__buttons
+	&__buttons {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+

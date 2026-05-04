@@ -1,0 +1,56 @@
+.app {
+	@include adaptiveValue("padding-top", 120, 80);
+	@include adaptiveValue("padding-bottom", 120, 80);
+	// .app__container
+	&__container {
+		@include adaptiveValue("padding-top", 95, 80);
+		@include adaptiveValue("padding-bottom", 95, 80);
+		@include adaptiveValue("padding-left", 72, 24);
+		@include adaptiveValue("padding-right", 72, 24);
+		background-color: var(--bg-secondary);
+		
+		display: flex;
+		gap: toRem(30);
+		align-items: center;
+		flex-wrap: wrap;
+		@media (max-width: toEm(1257)) {
+			text-align: center;
+			flex-direction: column;
+		}
+		@media (min-width:$pc){
+			border-radius: toRem(50);
+			border: toRem(1) solid #000;
+		}
+	}
+
+	// .app__title-wrapper
+	&__title-wrapper {
+		flex: 1 1 flBasis(2, 30);
+		align-self: center;
+	}
+
+	// .app__title
+	&__title {
+		max-width: toRem(560);
+	}
+	// .app__apps
+	&__apps {
+		display: flex;
+		flex: 1 1 flBasis(2, 30);
+		column-gap: toRem(15);
+		row-gap: toRem(24);
+		flex-wrap: wrap;
+		@media (max-width: toEm(1257)) {
+			justify-content: center;
+		}
+	}
+	// .app__button
+	&__button {
+	}
+}
+
+.button {
+	// .button--transparent
+	&--transparent {
+	}
+}

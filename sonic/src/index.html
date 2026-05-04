@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('html/_head.htm',{
+"title":"HomePage"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page-home">
+			<section class="page-home__hero hero">
+				<div class="hero__content">
+					<div class="hero__container">
+						<div class="hero__header hero-header">
+							<div class="hero-header__label">
+								<div class="hero-header__announcement">
+									We’re expanding!
+								</div>
+								<a href="#" class="hero-header__network">
+									Join our carrier network
+								</a>
+							</div>
+							<h1 class="hero-header__title">
+								Breaking Barriers, Keeping Promises
+							</h1>
+							<div class="hero-header__text">
+								<p>
+									Connecting your business to the roads ahead. Connecting your business to the roads
+									ahead.
+								</p>
+							</div>
+							<div class="hero-header__buttons buttons">
+								<a href="#"
+									class="buttons__button button button--transparent button--icon _icon-carriers">
+									Ship with us
+								</a>
+								<a href="#" class="buttons__button button">
+									Haul with us
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hero__image">
+					<picture>
+						<source srcset="img/home/hero/main.webp" media="(min-width: 992px)">
+						<source srcset="img/home/hero/main-small.webp" media="(max-width: 991.98px)">
+						<img src="img/home/hero/main.webp" alt="image">
+					</picture>
+				</div>
+			</section>
+			<section class="page-home__partners partners">
+				<div class="partners__container">
+					<h2 class="partners__title">
+						Partnering With
+					</h2>
+					<div class="partners__items">
+						<img class="partners__item" src="@img/home/partners/boltshift.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/lightbox.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/feather-dev.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/spherule.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/global-bank.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/niether.svg" alt="Image">
+					</div>
+				</div>
+			</section>
+			<section class="page-home__strategy strategy">
+				<div class="strategy__container">
+					<div class="strategy__header header-block">
+						<div class="header-block__label">
+							Our Strategy
+						</div>
+						<h2 class="header-block__title">
+							Barrier Breaking Solutions
+						</h2>
+						<div class="header-block__text">
+							<p>
+								Customized logistics and transportation solutions designed to optimize your supply
+								chain. Committed to reliability and efficiency, we're the trusted partner for businesses
+								nationwide.
+							</p>
+						</div>
+					</div>
+					<div data-showmore="items" data-showmore-media="575" class="strategy__content">
+						<div data-showmore-content="3" class="strategy__items">
+							<article class="strategy__item item-strategy">
+								<div class="item-strategy__icon circle-icon _icon-dryage"></div>
+								<h3 class="item-strategy__title">
+									Drayage
+								</h3>
+								<div class="item-strategy__text">
+									<p>
+										Moving containers over short distances, connecting ports with rail or truck
+										terminals to ensure smooth transitions in the shipping process.
+									</p>
+								</div>
+								<a href="#" class="item-strategy__link button button--arr">
+									Learn more
+								</a>
+							</article>
+							<article class="strategy__item item-strategy">
+								<div class="item-strategy__icon circle-icon _icon-ftl-shipping"></div>
+								<h3 class="item-strategy__title">
+									FTL Shipping (Full Truckload)
+								</h3>
+								<div class="item-strategy__text">
+									<p>
+										Perfect for larger, bulk shipments that fill a truck, or when you need a truck
+										dedicated to your goods for privacy or speed.
+									</p>
+								</div>
+								<a href="#" class="item-strategy__link button button--arr">
+									Learn more
+								</a>
+							</article>
+							<article class="strategy__item item-strategy">
+								<div class="item-strategy__icon circle-icon _icon-ltl-shipping"></div>
+								<h3 class="item-strategy__title">
+									LTL Shipping (Less Than Truckload)
+								</h3>
+								<div class="item-strategy__text">
+									<p>
+										Ideal for smaller shipments, LTL allows you to save by sharing trailer space,
+										making
+										it a cost-effective choice for not filling a full truck.
+									</p>
+								</div>
+								<a href="#" class="item-strategy__link button button--arr">
+									Learn more
+								</a>
+							</article>
+							<article class="strategy__item item-strategy">
+								<div class="item-strategy__icon circle-icon _icon-expedided-shopping"></div>
+								<h3 class="item-strategy__title">
+									Expedited Shipping
+								</h3>
+								<div class="item-strategy__text">
+									<p>
+										When time is of the essence, expedited shipping ensures your shipments arrive
+										swiftly and on schedule.
+									</p>
+								</div>
+								<a href="#" class="item-strategy__link button button--arr">
+									Learn more
+								</a>
+							</article>
+							<article class="strategy__item item-strategy">
+								<div class="item-strategy__icon circle-icon _icon-distribution"></div>
+								<h3 class="item-strategy__title">
+									Warehousing and Distribution
+								</h3>
+								<div class="item-strategy__text">
+									<p>
+										Beyond storage, we manage your inventory and take care of order fulfillment,
+										streamlining your supply chain.
+									</p>
+								</div>
+								<a href="#" class="item-strategy__link button button--arr">
+									Learn more
+								</a>
+							</article>
+							<article class="strategy__item item-strategy">
+								<div class="item-strategy__icon circle-icon _icon-dryage"></div>
+								<h3 class="item-strategy__title">
+									Cross-Docking
+								</h3>
+								<div class="item-strategy__text">
+									<p>
+										Minimize handling and storage by directly transferring shipments from incoming
+										to
+										outgoing vehicles, cutting costs and saving time.
+									</p>
+								</div>
+								<a href="#" class="item-strategy__link button button--arr">
+									Learn more
+								</a>
+							</article>
+						</div>
+						<button hidden data-showmore-button type="button" class="block__more  button--arr"><span>Show
+								More</span><span>Hide</span></button>
+					</div>
+				</div>
+			</section>
+			<section class="page-home__pledge pledge">
+				<div class="pledge__container">
+					<div class="pledge__header header-block header-block--white">
+						<div class="header-block__label">
+							Our Pledge
+						</div>
+						<h2 class="header-block__title">
+							Promise Keepers
+						</h2>
+						<div class="header-block__text">
+							<p>
+								Sonic Logistics isn’t just a logistics company; we're the team you count on for
+								hassle-free shipping across North America. Our easy online payments, real-time tracking,
+								and extensive warehousing network are designed to make your experience smooth and
+								reliable.
+							</p>
+							<p>
+								We work with a variety of clients, ensuring each one benefits from our dedicated
+								service. Our mission is to make shipping simple and keep our promises to you — with
+								every delivery, every time.
+							</p>
+						</div>
+						<div class="header-block__buttons buttons">
+							<a href="#" class="buttons__button button button--transparent ">
+								Learn more
+							</a>
+							<a href="#" class="buttons__button button">
+								Get started
+							</a>
+						</div>
+					</div>
+					<div class="pledge__images images-pledge">
+						<div class="images-pledge__top">
+							<img class="images-pledge__img" data-src="@img/home/pledge/01.jpg" alt="Image">
+							<img class="images-pledge__img" data-src="@img/home/pledge/02.jpg" alt="Image">
+						</div>
+						<div class="images-pledge__bottom">
+							<img class="images-pledge__img" data-src="@img/home/pledge/03.jpg" alt="Image">
+							<img class="images-pledge__img" data-src="@img/home/pledge/04.jpg" alt="Image">
+							<img class="images-pledge__img" data-src="@img/home/pledge/05.jpg" alt="Image">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page-home__precision precision">
+				<div class="precision__container">
+					<div class="precision__header header-block header-block--center">
+						<div class="header-block__label">
+							Our Guarantee
+						</div>
+						<h2 class="header-block__title">
+							Logistic Precision
+						</h2>
+						<div class="header-block__text">
+							<p>
+								Every shipment is handled with care, ensuring your product move smoothly and reach its
+								destination safely.
+							</p>
+						</div>
+					</div>
+					<article class="precision__items items-precision">
+						<div class="items-precision__content">
+							<div class="items-precision__icon circle-icon _icon-shippers"></div>
+							<h3 class="items-precision__title">
+								Shippers
+							</h3>
+							<div class="items-precision__text">
+								<p>
+									Streamline your shipping operations with Sonic Logistics. Our comprehensive
+									solutions, tailored to your needs, ensure your goods move efficiently and safely
+									across the country or around the globe. With real-time tracking and dedicated
+									support, we make logistics seamless. Let us handle the complexities of
+									transportation while you focus on your business growth.
+								</p>
+							</div>
+							<div data-da=".items-precision, 767.98" class="items-precision__buttons buttons">
+								<a href="#" class="buttons__button button button--transparent">
+									Learn more
+								</a>
+								<a href="#" class="buttons__button button">
+									Get started
+								</a>
+							</div>
+						</div>
+						<div class="items-precision__img">
+							<img class="items-precision__image" data-src="@img/home/precision/01.jpg" alt="Image">
+							<img class="items-precision__decor" src="@img/home/precision/decor-1.svg" alt="Image">
+						</div>
+					</article>
+					<article class="precision__items items-precision items-precision--reverse">
+						<div class="items-precision__img">
+							<img class="items-precision__image" data-src="@img/home/precision/01.jpg" alt="Image">
+							<img class="items-precision__decor" src="@img/home/precision/decor-2.svg" alt="Image">
+						</div>
+						<div class="items-precision__content">
+							<div class="items-precision__icon circle-icon _icon-carriers"></div>
+							<h3 class="items-precision__title">
+								Carriers
+							</h3>
+							<div class="items-precision__text">
+								<p>
+									Join Sonic Logistics' network of professional carriers and expand your business
+									opportunities. We offer competitive rates, timely payments, and access to a vast
+									array of shipments. With our easy-to-use platform, managing your loads and routes
+									has never been simpler. Connect with us to become a part of a community that values
+									reliability and excellent service.
+								</p>
+							</div>
+							<div data-da=".items-precision--reverse, 767.98, first"
+								class="items-precision__buttons buttons">
+								<a href="#" class="buttons__button button button--transparent">
+									Learn more
+								</a>
+								<a href="#" class="buttons__button button">
+									Get Set Up
+								</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+		</main>
+		@@include('html/_offer-card.htm',{})
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+
+
+</body>
+
+</html>

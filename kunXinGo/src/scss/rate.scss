@@ -1,0 +1,58 @@
+
+.rate {
+	background-color: $lightColor;
+	@include adaptiveValue("padding-bottom", 120, 80);
+	// .rate__container
+	&__container {
+		display: flex;
+		row-gap: toRem(24);
+		flex-wrap: wrap;
+		@include adaptiveValue("column-gap", 126, 24, 0, $containerWidth, 768);
+		align-items: flex-start;
+
+		@media (max-width:$tablet){
+			flex-direction: column;
+			gap: toRem(32);
+		}
+	}
+	// .rate__title
+	&__title {
+		flex: 1 1 40.298507%; /* 486/1206 */
+	}
+	// .rate__info
+	&__info {
+	}
+}
+
+.delivery {
+	flex: 1 1 48.756219%; /* 588/1206 */
+	display: flex;
+	gap: toRem(24);
+	flex-wrap: wrap;
+	
+	// .delivery__top
+	&__top {
+		display: flex;
+		gap: toRem(24);
+		flex-wrap: wrap;
+		@media (max-width:$mobileSmall){
+
+			flex-direction: column; 
+	   }
+	}
+	// .delivery__item
+	&__item {
+		flex: 1 1 flBasis(2,24);
+		@media (max-width:$mobileSmall){
+			 flex-basis: auto; 
+		}
+	}
+}
+.card {
+	// .card__title
+	&__title {
+	}
+	// .card__text
+	&__text {
+	}
+}

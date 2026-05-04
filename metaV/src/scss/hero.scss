@@ -1,0 +1,107 @@
+
+
+%decorBg{
+	content: "";
+	position: absolute;
+	width: 72.03252%; /* 886/1230 */
+	aspect-ratio: 1 / 1;
+	top: 0;
+	left: 0; /* 420/1230 */
+	border-radius: 50%;
+	background: var(--bg-secondary);
+	pointer-events: none;
+}
+
+.hero {
+	min-height: 100svh;
+
+	display: flex;
+	align-items: center;
+	padding-top: var(--headH);
+	@include adaptiveValue("padding-bottom", 80, 40, $containerWidth, 992);
+
+	// .hero__container
+	&__container {
+		display: grid; /* 613/1230 */
+		grid-template-columns: minmax(toRem(360), toRem(613)) minmax(toRem(360), toRem(566));
+		gap: toRem(20);
+		position: relative;
+
+		@media (max-width: $tablet) {
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: space-between;
+			flex-basis: 100%;
+		}
+
+		&::before,
+		&::after {
+			@extend %decorBg;
+			transform: translateY(-75%);
+		}
+		&::after {
+			right: 0;
+			left: auto;
+			transform: translateY(-25%) translateX(65%);
+		}
+	}
+	// .hero__title
+	&__title {
+		align-self: center;
+
+		@media (max-width: $tablet) {
+			text-align: center;
+		}
+	}
+	// .hero__img
+	&__img {
+		aspect-ratio: 566 / 568;
+		position: relative;
+		overflow: hidden;
+
+		@media (max-width: $tablet) {
+			aspect-ratio: 500 / 300;
+		}
+		@media (max-width: $mobile) {
+			aspect-ratio: 1 /1 ;
+		}
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 90%;
+			object-fit: contain;
+			@media (max-width: $tablet) {
+				top: auto;
+				bottom: 0;
+			}
+		}
+
+		@media (min-width:$mobile){  
+			&::before {
+				content: "";
+				position: absolute;
+				width: toRem(64);
+				height: toRem(73);
+				top: 22.261484%; /* 126/566 */
+				left: 30%;
+				background: url('@img/hero/decor.svg') 0 0 no-repeat;
+	
+				@media (min-width:$tablet){
+					left: 0;
+				}
+			}
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 25%;
+			bottom: 5%;
+			left: 0;
+			background-color: #000;
+			filter: blur(toRem(45));
+		}
+	}
+}

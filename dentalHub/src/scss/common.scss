@@ -1,0 +1,179 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.semi-bold {
+	font-weight: 600;
+}
+
+.black-button {
+	padding: toRem(15) toRem(30);
+	text-align: center;
+	border-radius: toRem(50);
+	background: var(--bg-accent_2);
+	color: var(--text-inverse);
+	font-size: toRem(14);
+	font-weight: 500;
+	flex-shrink: 0;
+	transition: all 0.3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--bg-hv);
+		}
+		&:active {
+			box-shadow: 0 toRem(4) toRem(4) 0 rgba(0, 0, 0, 0.25) inset;
+		}
+	}
+	@media ((min-width: toEm(768)) and (max-width: toEm(969))) {
+		display: none;
+	}
+	@media (max-width: toEm(767.98)) {
+		flex-grow: 1;
+	}
+}
+
+.header-block {
+	// .header-block__label
+	&__label {
+		@include adaptiveValue('font-size', 16, 13, 0, $containerWidth, 992);
+		color: var(--text_2);
+		padding: toRem(6) toRem(8);
+		border-radius: toRem(8);
+		background-color: rgba(255, 255, 255, 0.35);
+		display: inline-block;
+
+		&:not(:last-child) {
+			margin-bottom: toEm(12, 16);
+		}
+	}
+	// .header-block__title
+	&__title {
+		color: #122c19;
+		@extend %rw;
+		@include adaptiveValue('font-size', 53, 22, 0, $containerWidth, 575);
+		font-weight: 500;
+		text-transform: uppercase;
+		padding-bottom: toEm(20, 53);
+		border-bottom: toRem(3) solid var(--bg-accent_6);
+		width: min-content;
+	}
+}
+/*
+	<div class="hero-home__header header-block">
+		<div class="header-block__label">
+			In our clinic awaits you
+		</div>
+		<h3 class="header-block__title">
+			Quality & professionalism
+		</h3>
+	</div>
+*/
+
+.item-service {
+	display: flex;
+	gap: toEm(12, 13);
+	align-items: flex-start;
+	// .item-service__icon
+	&__icon {
+		aspect-ratio: 1/1;
+		@include adaptiveValue('width', 45, 33);
+		object-fit: cover;
+	}
+	// .item-service__content
+	&__content {
+	}
+	// .item-service__title
+	&__title {
+		color: var(--text-accent_2);
+		@extend %rw;
+		font-weight: 600;
+		font-size: toRem(16);
+
+		&:not(:last-child) {
+			margin-bottom: toEm(12, 16);
+		}
+	}
+	// .item-service__text
+	&__text {
+	}
+}
+/*
+	<article class="hero-home__item item-service">
+		<img class="item-service__icon" src="@img/services/02.svg" alt="Image">
+		<div class="item-service__content">
+			<h2 class="item-service__title">
+				Complex services
+			</h2>
+			<p class="item-service__text">
+				A wide range of services, including sealing and orthodontics
+			</p>
+		</div>
+	</article>
+*/
+
+.button {
+	color: var(--text-inverse);
+	font-size: toRem(18);
+	font-weight: 500;
+	text-align: center;
+	text-transform: capitalize;
+	padding: toRem(16) toRem(24);
+	border-radius: toRem(50);
+	background: var(--gr-accent);
+	display: flex;
+	align-items: center;
+	gap: toRem(10);
+	width: fit-content;
+	position: relative;
+	overflow: hidden;
+
+	@media (max-width: toEm(335)) {
+		font-size: toRem(16);
+	}
+	@media (any-hover: hover) {
+		&:hover::before {
+			background-color: var(--bg-hv_2);
+		}
+		&:hover::after {
+			color: var(--bg-hv_3);
+			border-color: var(--bg-hv_3);
+		}
+		&:active::before {
+			box-shadow: 0 toRem(4) toRem(4) 0 rgba(0, 0, 0, 0.25) inset;
+		}
+	}
+
+	span {
+		position: relative;
+	}
+	&::after {
+		content: '\e912';
+		@extend %ic;
+		font-size: toRem(14);
+		width: toRem(26);
+		height: toRem(26);
+		border-radius: 50%;
+		border: toRem(2) solid var(--bg-accent_4);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: transparent;
+		transition: background-color 0.3s;
+	}
+}
+
+/*
+	<a href="#" class="hero-home__button button">
+	<span>
+		Make an appointment
+	</span>
+	</a>
+*/

@@ -1,0 +1,228 @@
+//====================================================================================================
+
+.footer {
+	position: relative;
+	z-index: 3;
+	border-top: 3px solid #000;
+	&__top {
+		position: relative;
+		@include adaptiveValue('padding-top', 40, 30);
+		&::before {
+			content: '';
+			pointer-events: none;
+			position: absolute;
+			top: 0%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url('../img/footer/footerBG.jpg') bottom / cover no-repeat;
+			background-position: 70% bottom;
+			@media (max-width: $mobile) {
+				background-position: 55% bottom;
+			}
+		}
+	}
+
+	&__container {
+		position: relative;
+		z-index: 2;
+	}
+
+	&__top-body {
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	&__top-content {
+		position: relative;
+		z-index: 2;
+		@include adaptiveValue('padding-bottom', 40, 30);
+		@media (max-width: $mobile) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	&__top-menu {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: toRem(16);
+		@include adaptiveValue('margin-bottom', 40, 30);
+		@media (max-width: $mobile) {
+			align-items: center;
+		}
+	}
+
+	&__top-menu-item {
+		color: #fff;
+		font-family: 'Lemonism DEMO';
+		text-transform: uppercase;
+		-webkit-text-stroke-width: toEm(4, 98);
+		-webkit-text-stroke-color: #000;
+		paint-order: stroke fill;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 92%;
+		text-transform: uppercase;
+		transition: color 0.2s ease 0s;
+		@include adaptiveValue('font-size', 98, 48);
+		@media (any-hover: hover) {
+			&:hover {
+				color: #ed9858;
+			}
+		}
+	}
+
+	&__top-social {
+		display: flex;
+		align-items: center;
+		column-gap: toRem(12);
+	}
+
+	&__top-social-item {
+		flex-shrink: 0;
+		position: relative;
+		width: toRem(60);
+		height: toRem(60);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #000;
+		@media (any-hover: hover) {
+			&:hover {
+				&::before {
+					inset: toRem(0);
+				}
+				&::after {
+					inset: toRem(0);
+				}
+				& svg {
+					scale: 1.2;
+				}
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			z-index: 1;
+			inset: toRem(4);
+			border: toRem(2) solid #95a7b3;
+			background-color: #181e22;
+			transition:
+				inset 0.2s ease 0s,
+				border 0.2s ease 0s;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: 2;
+			inset: toRem(12);
+			transition:
+				inset 0.2s ease 0s,
+				border-radius 0.2s ease 0s;
+		}
+		& svg {
+			position: relative;
+			z-index: 3;
+			width: 40%;
+			height: 40%;
+			transition: scale 0.2s ease 0s;
+		}
+	}
+
+	&__top-image {
+		pointer-events: none;
+		position: relative;
+		@include adaptiveValue('margin-top', -60, -40, 3, 767.98, 320);
+		@media (min-width: $mobile) {
+			align-self: flex-end;
+			flex: 0 0 45%;
+			min-height: 100%;
+		}
+		@media (max-width: $mobile) {
+			width: 100%;
+			max-width: toRem(520);
+		}
+		& img {
+			@media (min-width: $mobile) {
+				position: absolute;
+				z-index: 1;
+				bottom: 0;
+				left: -5%;
+				width: 110%;
+				aspect-ratio: 752 / 649;
+				object-fit: contain;
+			}
+			@media (max-width: $tablet) {
+				width: 140%;
+				left: -15%;
+			}
+			@media (max-width: $mobile) {
+				width: 100%;
+			}
+		}
+	}
+
+	&__bottom {
+		position: relative;
+		z-index: 2;
+		margin-top: toRem(-2);
+		border-top: toRem(3) solid #000;
+		background-color: #000;
+	}
+
+	&__bottom-body {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: toRem(10) 0;
+		@media (max-width: $mobile) {
+			flex-direction: column-reverse;
+			row-gap: toRem(6);
+		}
+		& > span {
+			color: #fff;
+			font-family: 'Boogaloo';
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			text-transform: uppercase;
+			font-size: toRem(20);
+		}
+		& a {
+			display: flex;
+			align-items: center;
+			column-gap: toRem(6);
+			@media (any-hover: hover) {
+				&:hover {
+					& span {
+						text-decoration: underline;
+					}
+				}
+			}
+			& span {
+				color: #fff;
+				font-family: 'Boogaloo';
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+				text-transform: uppercase;
+				font-size: toRem(20);
+			}
+			& img {
+				width: toRem(124);
+			}
+		}
+	}
+}
+
+//====================================================================================================

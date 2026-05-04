@@ -1,0 +1,50 @@
+//<INPUT>
+// Сніппет (HTML): inp
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.input {
+	width: 100%;
+	height: toRem(36);
+	font-size: toRem(24);
+	display: block;
+	padding: 0 toRem(10);
+	caret-color: inherit;
+	color: var(--text-third);
+	cursor: pointer;
+
+	&::placeholder {
+		color: var(--text-third);
+		font-weight: 600;
+		text-transform: capitalize;
+		line-height: 1;
+	}
+	&::-webkit-calendar-picker-indicator {
+		background-image: url(../img/hero/calendar.svg);
+		cursor: pointer;
+	}
+	// &::-webkit-datetime-edit {
+	// 	opacity: 0;
+	// 	// visibility: hidden;
+	// }
+	// &:focus-visible::-webkit-datetime-edit {
+	// 	opacity: 1;
+	// }
+	&._form-focus {
+	}
+	&._form-error {
+	}
+}
+.input[placeholder]:not([data-placeholder-nohiden]) {
+	&::placeholder {
+		transition: opacity 0.3s;
+	}
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}

@@ -1,0 +1,119 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.section-header {
+	// .section-header__text
+	&__label {
+		line-height: math.div(31, 25);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 15);
+		}
+		@extend %animate;
+	}
+	// .section-header__title
+	&__title {
+		@include adaptiveValue("font-size", 60, 35);
+		line-height: math.div(75, 60);
+		font-weight: 700;
+		color: $darkColor;
+		max-width: rem(480);
+		&:not(:last-child) {
+			margin-bottom: em(45, 60);
+			@media (min-width: $mobile) {
+				margin-bottom: em(132, 60);
+			}
+		}
+		&_big {
+			max-width: rem(890);
+		}
+		@extend %animate;
+	}
+	// .section-header__text
+	&__text {
+		line-height: math.div(45, 25);
+		max-width: rem(540);
+
+		@extend %animate;
+	}
+	&_lite {
+		.section-header__text {
+			color: #e3e6ec;
+		}
+		.section-header__title {
+			color: #fff;
+		}
+	}
+}
+//========================================================================================================================================================
+.title {
+	font-weight: 700;
+	@include adaptiveValue("font-size", 30, 20);
+	line-height: math.div(38, 30);
+	color: $darkColor;
+}
+//========================================================================================================================================================
+.text {
+	line-height: math.div(45, 25);
+}
+//========================================================================================================================================================
+.services {
+	display: grid;
+	@include adaptiveValue("gap", 60, 30);
+	// .services__item
+	&__item {
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("gap", 50, 10);
+		@media (max-width: $mobileSmall) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		opacity: 0;
+		transition: opacity 1s;
+		transition-delay: 0s;
+		.active-section & {
+			@for $i from 1 through 4 {
+				$delay: $i * 0.3;
+				&:nth-child(#{$i}) {
+					transition-delay: #{$delay}s;
+				}
+			}
+			opacity: 1;
+		}
+	}
+	// .services__icon
+	&__icon {
+		flex: 0 0 rem(60);
+		height: rem(60);
+		img {
+			max-width: 100%;
+		}
+	}
+	// .services__body
+	&__body {
+	}
+	// .services__title
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 15);
+		}
+	}
+	// .services__text
+	&__text {
+		line-height: math.div(45, 25);
+	}
+}
+//========================================================================================================================================================
+%animate {
+	transform: translate(0px, rem(100));
+	opacity: 0;
+	transition: all 1s;
+	.previous-section & {
+		transform: translate(0px, rem(-100));
+	}
+	.next-section & {
+		transform: translate(0px, rem(100));
+	}
+	.active-section & {
+		opacity: 1;
+		transform: translate(0px, 0px);
+	}
+}

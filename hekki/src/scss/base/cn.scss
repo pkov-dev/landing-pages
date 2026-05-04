@@ -1,0 +1,115 @@
+.cn {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: toRem(6);
+	max-width: toRem(474);
+	@include adaptiveValue('font-size', 24, 14);
+	@include adaptiveValue('width', 474, 238);
+
+	&:has(.cn__button:hover) span {
+		color: #f59745;
+	}
+
+	// .cn__wrapper
+	&__wrapper {
+		display: flex;
+		padding: toRem(14) toRem(16);
+		align-items: center;
+		border-radius: toRem(62);
+		border: toRem(9) solid #2f1814;
+		background-color: #fff9e8;
+		flex-grow: 1;
+		@include adaptiveValue('border-width', 9, 4.5);
+		@include adaptiveValue('padding-top', 16, 13);
+		@include adaptiveValue('padding-bottom', 16, 13);
+
+		span {
+			color: #2f1814;
+			font-family: 'Phluff Test';
+			font-weight: 700;
+			line-height: 1.14;
+			transition: color 0.2s;
+		}
+	}
+
+	// .cn__address
+	&__address {
+		text-align: center;
+		-webkit-line-clamp: 1;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-break: break-all;
+		will-change: color;
+	}
+	// .cn__button
+	&__button {
+		padding: toRem(16);
+		border: toRem(9) solid #2f1814;
+		background-color: #fff9e8;
+		@include adaptiveValue('border-width', 9, 4.5);
+		border-radius: 50%;
+		flex-grow: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue('padding', 16, 10);
+
+		@media (any-hover: hover) {
+			&:hover svg path {
+				fill: #f59745;
+			}
+		}
+		svg {
+			path {
+				fill: #2f1814;
+				will-change: fill;
+				transition: fill 0.2s;
+			}
+		}
+	}
+	// .cn__hint
+	&__hint {
+		position: absolute;
+		display: flex;
+		top: 0;
+		left: 50%;
+		padding: toRem(15) toRem(20) toRem(10) toRem(20);
+		z-index: 100;
+		border-radius: toRem(8);
+		white-space: nowrap;
+		pointer-events: none;
+		transform: translate(-50%, -100%) scale(0.5);
+		opacity: 0;
+		transition:
+			transform 0.3s,
+			opacity 0.3s;
+
+		color: #fff;
+		font-size: 70%;
+
+		&,
+		&::after {
+			background-color: #252424;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 90%);
+			width: 12%;
+			aspect-ratio: 1/ 0.55;
+			clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+		}
+
+		.active & {
+			transform: translate(-50%, -100%) scale(1);
+			opacity: 1;
+		}
+	}
+}

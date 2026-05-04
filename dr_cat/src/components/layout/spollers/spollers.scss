@@ -1,0 +1,89 @@
+// Базові стилі спойлерів
+// Сніппет (HTML): spoller
+
+// Блок зі спойлерами
+.spollers {
+	display: grid;
+	gap: toRem(10);
+}
+// Спойлер
+.spollers__item {
+	font-size: toRem(20);
+	border-radius: toRem(32);
+	border: toRem(4) solid var(--text-secondary);
+	transform: translate(0, -15%);
+	background: rgba(255, 255, 255, 0.5);
+	padding: 36px 46px;
+	@include adaptiveValue('padding-top', 36, 18);
+	@include adaptiveValue('padding-bottom', 36, 18);
+	@include adaptiveValue('padding-left', 46, 23);
+	@include adaptiveValue('padding-right', 46, 23);
+
+	.--watcher-view & {
+		animation: spolersAn 0.3s linear forwards;
+	}
+
+	@include animationDelay(5, 0.2);
+
+	@keyframes spolersAn {
+		100% {
+			transform: translate(0, 0);
+		}
+	}
+}
+// Заголовок спойлера
+.spollers__title {
+	color: var(--text-secondary);
+	font-family: 'Crog', sans-serif;
+	font-size: 38px;
+	font-weight: 700;
+	letter-spacing: toRem(-0.19);
+	width: 100%;
+	cursor: default;
+	text-align: left;
+	position: relative;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: toRem(15);
+
+	@include adaptiveValue('font-size', 38, 18);
+
+	&::marker,
+	&::-webkit-details-marker {
+		display: none;
+	}
+	.--spoller-init & {
+		cursor: pointer;
+
+		&::after {
+			content: '';
+			flex-shrink: 0;
+			aspect-ratio: 1;
+			transition: transform 0.5s ease 0s;
+			background: url('@img/faqos/arr.svg') 50% 50% / toEm(21, 38) toEm(21, 38) no-repeat;
+			border-radius: 50%;
+			border: toEm(4, 38) solid var(--text-secondary);
+			@include adaptiveValue('width', 64, 32);
+		}
+
+		&.--spoller-active::after {
+			transform: rotate(-90deg);
+		}
+	}
+}
+// Контент спойлера
+.spollers__body {
+	color: var(--text-secondary);
+	font-weight: 500;
+	letter-spacing: toRem(-0.12);
+	font-size: 24px;
+	margin-top: 21px;
+	@include adaptiveValue('font-size', 24, 16);
+	@include adaptiveValue('margin-top', 21, 12);
+
+	span {
+		word-break: break-all;
+	}
+}

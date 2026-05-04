@@ -1,0 +1,32 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+
+	&._header-scroll {
+		background-color: rgba(0, 0, 0, 0.541);
+	}
+	// .header__container
+	&__container {
+		padding-top: toRem(10);
+		padding-bottom: toRem(10);
+		min-height: var(--headH);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(15);
+	}
+	// .header__logo
+	&__logo {
+		@include adaptiveValue("width", 149, 100);
+		aspect-ratio: 149 / 57;
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__button
+	&__button {
+	}
+}

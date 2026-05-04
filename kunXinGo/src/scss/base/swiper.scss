@@ -1,0 +1,73 @@
+.swiper {
+	overflow: hidden;
+	position: relative;
+
+	&.photos__slider {
+		overflow: visible;
+	}
+}
+.swiper-initialized {
+	touch-action: pan-y;
+}
+.swiper-wrapper {
+	width: 100%;
+	height: 100%;
+	box-sizing: content-box;
+	display: flex;
+	position: relative;
+
+	&.services__wrapper {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
+		gap: 24px;
+
+		@media (max-width: 991.98px) {
+			padding-bottom: 88px;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			grid-auto-flow: column;
+			gap: 0;
+			row-gap: 24px;
+		}
+		@media (max-width: 574.98px) {
+			padding-bottom: 72px;
+			display: flex;
+		}
+	}
+}
+.swiper-vertical {
+	.swiper-wrapper {
+		flex-direction: column;
+	}
+}
+.swiper-autoheight {
+	.swiper-wrapper {
+		align-items: flex-start;
+	}
+}
+.swiper-initialized {
+	.swiper-slide {
+		flex-shrink: 0;
+		// transition-property: transform;
+
+		&.services__slide {
+			margin-top: 0 !important;
+			overflow: auto;
+		}
+	}
+}
+.swiper-android {
+	.swiper-slide,
+	.swiper-wrapper {
+		transform: translate3d(0px, 0, 0);
+	}
+}
+
+.swiper-button-disabled {
+	pointer-events: none;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.swiper-button-lock {
+	display: none !important;
+}

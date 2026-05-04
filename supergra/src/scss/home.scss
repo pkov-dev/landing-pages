@@ -1,0 +1,315 @@
+.page {
+	// .page__hero
+	&__hero {
+	}
+}
+
+.hero {
+	background-color: var(--bg-primary);
+	position: relative;
+
+	@media (min-width: $mobile) {
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			z-index: 7;
+			pointer-events: none;
+		}
+		&::before {
+			width: 5.8%;
+			aspect-ratio: 1;
+			top: 14%;
+			left: 5.2%;
+			background: url('@img/coinSmall.png') center / cover no-repeat;
+		}
+		&::after {
+			width: 22%;
+			aspect-ratio: 418 / 305;
+			bottom: 0%;
+			left: 0%;
+			background: url('@img/coinBig.png') center / cover no-repeat;
+		}
+	}
+
+	// .hero__bg
+	&__bg {
+		pointer-events: none;
+		position: absolute;
+
+		@media ((min-width: toEm(767.98)) and (max-width: toEm(1024))) {
+			width: 140%;
+		}
+
+		@media (min-width: toEm(1024.98)) {
+			width: 87%;
+		}
+		@media (min-width: $mobile) {
+			top: 0%;
+			right: 0%;
+			aspect-ratio: 1671 / 748;
+		}
+
+		@media (max-width: $mobile) {
+			width: 100%;
+			bottom: 0%;
+			left: 0%;
+			aspect-ratio: 750 / 800;
+		}
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0%;
+			left: 0%;
+			object-fit: cover;
+			z-index: 1;
+
+			&:nth-child(1) {
+				display: none;
+
+				@media (max-width: $mobile) {
+					display: block;
+				}
+			}
+			&:nth-child(2) {
+				display: none;
+
+				@media (min-width: $mobile) {
+					display: block;
+				}
+			}
+		}
+	}
+	// .hero__gradients
+	&__gradients {
+		pointer-events: none;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0%;
+		left: 0%;
+		z-index: 6;
+
+		@media (min-width: $mobile) {
+			span {
+				position: absolute;
+				width: 100%;
+				bottom: 0%;
+				left: 0%;
+				z-index: 6;
+				height: 22.395833%;
+				background: linear-gradient(0deg, rgba(141, 35, 153, 0.6) 0%, rgba(8, 0, 23, 0) 100%);
+			}
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			width: 22.395833%; /* 430/1920 */
+			height: 100%;
+			top: 0%;
+			left: 0%;
+			z-index: 6;
+			opacity: 0.5;
+			background: linear-gradient(90deg, #8d2399 0%, rgba(8, 0, 23, 0) 100%);
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			width: 22.395833%; /* 430/1920 */
+			height: 100%;
+			top: 0%;
+			right: 0%;
+			z-index: 6;
+			opacity: 0.5;
+			background: linear-gradient(90deg, rgba(8, 0, 23, 0) 0%, #8d2399 100%);
+		}
+	}
+	// .hero__container
+	&__container {
+		display: flex;
+		align-items: center;
+		min-height: 100svh;
+
+		@include adaptiveValue('padding-top', 70, 150, 2, 1920, 991.98);
+		@include adaptiveValue('padding-top', 150, 70, 3, 991.98, 320);
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			justify-content: space-between;
+			row-gap: toRem(20);
+		}
+
+		// .hero__container--pg2
+		&--pg2 {
+			@include adaptiveValue('padding-top', 70, 40);
+		}
+	}
+	// .hero__content
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(32);
+		position: relative;
+		z-index: 8;
+		@media (min-width: $mobile) {
+			flex: 0 0 44.4%;
+			padding: 0 toRem(30) toRem(60) 0;
+		}
+
+		// .hero__content--pg2
+		&--pg2 {
+			display: block;
+		}
+	}
+	// .hero__title
+	&__title {
+		font-weight: 600;
+		line-height: 1;
+		text-transform: uppercase;
+		position: relative;
+
+		@include adaptiveValue('font-size', 100, 48, 2, $containerWidth, 767.98);
+		@include adaptiveValue('font-size', 100, 50, 3, 767.98, 320);
+
+		svg {
+			aspect-ratio: 204 / 78;
+			width: toEm(204, 100);
+			margin-left: toEm(-25, 100);
+		}
+
+		// .hero__title--pg2
+		&--pg2 {
+			&:not(:last-child) {
+				margin-bottom: toRem(16);
+			}
+		}
+	}
+	// .hero__subtitle
+	&__subtitle {
+		font-weight: 600;
+		line-height: 1.5;
+
+		@include adaptiveValue('font-size', 18, 14);
+		p {
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+		}
+
+		// .hero__subtitle--pg2
+		&--pg2 {
+			max-width: 100%;
+
+			&:not(:last-child) {
+				margin-bottom: toRem(32);
+			}
+			@include adaptiveValue('font-size', 24, 20);
+		}
+	}
+	// .hero__button
+	&__button {
+	}
+	// .hero__subtext
+	&__subtext {
+		color: var(--text-secondary);
+		max-width: toRem(380);
+		text-align: center;
+		font-size: toRem(14);
+		font-weight: 400;
+		line-height: 1.2;
+		text-decoration-line: underline;
+		transition: color 0.3s;
+		will-change: color;
+
+		@media (max-width: $mobile) {
+			align-self: center;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--text-accent);
+			}
+		}
+	}
+	// .hero__img
+	&__img {
+		position: relative;
+		z-index: 5;
+
+		@media (min-width: $mobile) {
+			left: -0.5%;
+			flex: 0 0 55.6%;
+			align-self: flex-end;
+			aspect-ratio: 778 / 1023;
+		}
+
+		@media (max-width: $mobile) {
+			width: 88%;
+			aspect-ratio: 331 / 335;
+		}
+
+		img {
+			position: relative;
+			z-index: 2;
+
+			&:nth-child(1) {
+				display: none;
+
+				@media (max-width: $mobile) {
+					display: block;
+				}
+			}
+
+			&:nth-child(2) {
+				display: none;
+
+				@media (min-width: $mobile) {
+					display: block;
+				}
+			}
+		}
+
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+		}
+
+		&::before {
+			width: 19.8%;
+			aspect-ratio: 154 / 161;
+			z-index: 1;
+
+			@media (max-width: $mobile) {
+				top: 16%;
+				left: -2%;
+				background: url('@img/coinSmall-mob.png') center / cover no-repeat;
+			}
+
+			@media (min-width: $mobile) {
+				top: 52%;
+				left: -6%;
+				background: url('@img/chipSmall.png') center / cover no-repeat;
+			}
+		}
+		&::after {
+			width: 32.8%;
+			aspect-ratio: 260 / 269;
+			z-index: 7;
+
+			@media (max-width: $mobile) {
+				bottom: 62%;
+				right: -5%;
+				background: url('@img/coinBig-mob.png') center / cover no-repeat;
+			}
+
+			@media (min-width: $mobile) {
+				bottom: 9%;
+				right: -18%;
+				background: url('@img/chipBig.png') center / cover no-repeat;
+			}
+		}
+	}
+}

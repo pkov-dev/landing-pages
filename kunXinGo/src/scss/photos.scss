@@ -1,0 +1,71 @@
+.photos {
+	background-color: $lightColor;
+	@include adaptiveValue("padding-bottom", 120, 80);
+	// .photos__container
+	&__container {
+		position: relative;
+
+		@media (max-width: $mobile) {
+			padding-bottom: toRem(72);
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100vw;
+			height: 100%;
+			top: 0;
+			left: 0;
+			transform: translate(-100%, 0);
+			background-color: $lightColor;
+			z-index: 2;
+		}
+	}
+	// .photos__title
+	&__title {
+		@extend .services__title;
+	}
+	// .photos__body
+	&__body {
+	}
+	// .photos__slider
+	&__slider {
+	}
+	// .photos__wrapper
+	&__wrapper {
+	}
+	// .photos__slide
+	&__slide {
+	}
+	// .photos__img
+	&__img {
+		aspect-ratio: 282 / 340;
+		border-radius: toRem(20);
+
+		@media (max-width: $tablet) {
+			aspect-ratio: 243 / 340;
+		}
+		@media (max-width: $mobileSmall) {
+			aspect-ratio: 180 / 250;
+		}
+	}
+	// .photos__navigation
+	&__navigation {
+		top: toRem(45);
+		right: toRem(15);
+		@media (max-width: $tablet) {
+			right: toRem(40);
+		}
+		@media (max-width: $mobile) {
+			top: auto;
+			bottom: 0;
+			right: 50%;
+			transform: translateX(50%);
+		}
+	}
+	// .photos__button-prev
+	&__button-prev {
+	}
+	// .photos__button-next
+	&__button-next {
+	}
+}

@@ -1,0 +1,243 @@
+//====================================================================================================
+
+.footer {
+  position: relative;
+  z-index: 3;
+  &__top {
+    position: relative;
+    @include adaptiveValue('padding-top', 60, 40);
+    &::before {
+      content: '';
+      pointer-events: none;
+      position: absolute;
+      top: -15%;
+      left: 0;
+      width: 100%;
+      height: 115%;
+      background: url('../img/FooterBG.svg') top / cover no-repeat;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__top-body {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__top-content {
+    position: relative;
+    z-index: 2;
+    @include adaptiveValue('padding-bottom', 40, 30);
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__top-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: toRem(16);
+    @include adaptiveValue('margin-bottom', 26, 20);
+    @media (max-width: $mobile) {
+      align-items: center;
+    }
+  }
+
+  &__top-menu-item {
+    color: #6de635;
+    -webkit-text-stroke-width: toEm(6, 110);
+    -webkit-text-stroke-color: #000;
+    paint-order: stroke fill;
+    font-family: 'Pulang';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 95%;
+    text-transform: uppercase;
+    transition: color 0.2s ease 0s;
+    @include adaptiveValue('font-size', 110, 48);
+    @media (any-hover: hover) {
+      &:hover {
+        color: #7834c7;
+      }
+    }
+  }
+
+  &__top-social {
+    display: flex;
+    align-items: center;
+    column-gap: toRem(12);
+  }
+
+  &__top-social-item {
+    flex-shrink: 0;
+    position: relative;
+    width: toRem(60);
+    height: toRem(60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: toRem(13);
+    background-color: #7834c7;
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        &::after {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        & svg {
+          scale: 1.2;
+        }
+      }
+    }
+    &:nth-child(1) {
+      &::after {
+        background-color: #000;
+      }
+    }
+    &:nth-child(2) {
+      &::after {
+        background-color: #0cbeff;
+      }
+    }
+    &:nth-child(3) {
+      &::after {
+        background-color: #000;
+      }
+    }
+    &:nth-child(4) {
+      &::after {
+        background-color: #4cb5db;
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: toRem(4);
+      border-radius: toRem(10);
+      border: toRem(2) solid #000;
+      background-color: #6de635;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      inset: toRem(12);
+      border-radius: toRem(6);
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+    }
+    & svg {
+      position: relative;
+      z-index: 3;
+      width: 40%;
+      height: 40%;
+      transition: scale 0.2s ease 0s;
+    }
+  }
+
+  &__top-image {
+    pointer-events: none;
+    position: relative;
+    @include adaptiveValue('margin-top', -60, -40, 3, 767.98, 320);
+    @media (min-width: $mobile) {
+      align-self: flex-end;
+      flex: 0 0 45%;
+      min-height: 100%;
+    }
+    @media (max-width: $mobile) {
+      width: 100%;
+      max-width: toRem(520);
+    }
+    & img {
+      @media (min-width: $mobile) {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 15%;
+        width: 100%;
+        aspect-ratio: 752 / 649;
+        object-fit: contain;
+      }
+      @media (max-width: $tablet) {
+        left: 5%;
+        width: 140%;
+      }
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: toRem(5) solid #000;
+    background-color: #6de635;
+  }
+
+  &__bottom-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: toRem(10) 0;
+    @media (max-width: $mobile) {
+      flex-direction: column-reverse;
+      row-gap: toRem(6);
+    }
+    & > span {
+      color: #000;
+      font-family: 'Abalone Smile';
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+      font-size: toRem(20);
+    }
+    & a {
+      display: flex;
+      align-items: center;
+      column-gap: toRem(6);
+      @media (any-hover: hover) {
+        &:hover {
+          & span {
+            text-decoration: underline;
+          }
+        }
+      }
+      & span {
+        color: #000;
+        font-family: 'Abalone Smile';
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+        font-size: toRem(20);
+      }
+      & img {
+        width: toRem(124);
+      }
+    }
+  }
+}
+
+//====================================================================================================

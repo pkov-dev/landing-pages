@@ -1,0 +1,202 @@
+.footer {
+	// .footer__container
+	&__container {
+		max-width: toRem(1866);
+	}
+	// .footer__wrapper
+	&__wrapper {
+		display: flex;
+		position: relative;
+		width: 100%;
+		justify-content: space-between;
+		border-left: toRem(14) solid #014531;
+		border-right: toRem(14) solid #014531;
+		border-top: toRem(14) solid #014531;
+		box-shadow: 0 toRem(4) toRem(46) 0 rgba(0, 0, 0, 0.11);
+		background:
+			url('../img/footer/bg-dec.svg') center / cover no-repeat,
+			#017a57;
+		@include adaptiveValue('border-width', 14, 7);
+		@include adaptiveValue('border-top-left-radius', 48, 20);
+		@include adaptiveValue('border-top-right-radius', 48, 20);
+
+		@include adaptiveValue('padding-top', 80, 20, 2, $containerWidth, 767.98);
+		@include adaptiveValue('padding-top', 40, 20, 3, 767.98, 320);
+
+		@include adaptiveValue('padding-right', 75, 27, 2, $containerWidth, 767.98);
+		@include adaptiveValue('padding-right', 26, 15, 3, 767.98, 320);
+
+		@include adaptiveValue('padding-left', 40, 15);
+		@include adaptiveValue('column-gap', 30, 15, 2, $containerWidth, 767.98);
+
+		@media (max-width: $mobile) {
+			flex-direction: column-reverse;
+		}
+	}
+	// .footer__right
+	&__right {
+		display: grid;
+		width: 100%;
+		@include adaptiveValue('width', 938, 350, 2, $containerWidth, 767.98);
+	}
+
+	// .footer__img
+	&__img {
+		position: relative;
+
+		@media (max-width: $mobile) {
+			width: 70%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		@media (min-width: $mobile) {
+			flex-basis: 41.448802%; /* 761/1836 */
+		}
+
+		img {
+			position: relative;
+			z-index: 2;
+			transform: translate(0, 100vh);
+			animation: footer 8s infinite alternate ease;
+
+			@media (max-width: $mobile) {
+				width: 100%;
+			}
+			@media (min-width: $mobile) {
+				position: absolute;
+				width: 111%;
+				bottom: 0%;
+				left: -4%;
+			}
+		}
+	}
+	// .footer__nav
+	&__nav {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		position: relative;
+		@include adaptiveValue('padding-bottom', 42, 20);
+		@media (max-width: $mobileSmall) {
+			column-gap: toRem(15);
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			bottom: 0%;
+			left: 0%;
+			background-color: #fff9e8;
+			border-radius: toRem(28);
+			@include adaptiveValue('height', 8, 4);
+		}
+	}
+	// .footer__row
+	&__row {
+		&:nth-child(1) {
+			@media (min-width: $mobile) {
+				padding-right: toRem(25);
+			}
+		}
+	}
+
+	// .footer__item
+	&__item {
+	}
+	// .footer__link
+	&__link {
+		color: #fff9e8;
+		font-family: 'Singly Linked';
+		font-weight: 400;
+		line-height: 1.2;
+		text-transform: uppercase;
+		transition: color 0.2s;
+		@include adaptiveValue('font-size', 58, 26, 2, $containerWidth, 767.98);
+		@include adaptiveValue('font-size', 46, 20, 3, 767.98, 320);
+
+		span {
+			color: #e6851b;
+			transition: color 0.2s;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #f59745;
+			}
+			&:hover span {
+				color: #f59745;
+			}
+		}
+	}
+	// .footer__copy
+	&__copy {
+		display: flex;
+		gap: toRem(15);
+		justify-content: space-between;
+		align-items: center;
+		padding-top: toRem(10);
+
+		@media (max-width: $mobileSmall) {
+			flex-direction: column;
+			gap: toRem(0);
+		}
+
+		@media (min-width: $mobileSmall) {
+			padding-bottom: toRem(20);
+		}
+	}
+	// .footer__hekki
+	&__hekki {
+		display: flex;
+		align-items: center;
+		gap: toRem(7);
+		span {
+			color: #fff9e8;
+			font-family: 'Phluff Test';
+			font-weight: 600;
+			line-height: normal;
+			text-transform: uppercase;
+			@include adaptiveValue('font-size', 20, 12, 2, $containerWidth, 767.98);
+			@include adaptiveValue('font-size', 20, 12, 3, 767.98, 320);
+		}
+		svg {
+			aspect-ratio: 1;
+			@include adaptiveValue('width', 27, 14, 2, $containerWidth, 767.98);
+			@include adaptiveValue('width', 27, 14, 3, 767.98, 320);
+		}
+	}
+	// .footer__osnovo
+	&__osnovo {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(9);
+
+		@media (any-hover: hover) {
+			&:hover span {
+				color: #f59745;
+			}
+			&:hover svg {
+				fill: #f59745;
+			}
+		}
+
+		span {
+			color: #f4f2eb;
+			font-family: 'Phluff Test';
+			font-weight: 700;
+			line-height: normal;
+			text-transform: uppercase;
+			transition: color 0.2s;
+			@include adaptiveValue('font-size', 20, 12, 2, $containerWidth, 767.98);
+			@include adaptiveValue('font-size', 20, 12, 3, 767.98, 320);
+		}
+
+		svg {
+			fill: #f4f2eb;
+			transition: fill 0.2s;
+			aspect-ratio: 130/29;
+			@include adaptiveValue('width', 130, 94, 2, $containerWidth, 767.98);
+			@include adaptiveValue('width', 130, 94);
+		}
+	}
+}

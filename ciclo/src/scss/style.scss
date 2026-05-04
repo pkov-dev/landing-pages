@@ -1,0 +1,855 @@
+@use "sass:math";
+
+// Підключення міксинів ===========================================================================================================================================================================================================================================================================
+@import "base/mixins";
+
+// Підключення шрифтів ===========================================================================================================================================================================================================================================================================
+//&display=swap - додати при підключенні через плагін
+@import url("https://fonts.googleapis.com/css?family=Quicksand:regular,700&display=swap");
+
+// Підключити, якщо є локальні файли шрифтів
+//@import "fonts/fonts";
+
+// Підключення іконкових шрифтів ==============================================================================================================================================================================================================================================================================
+// Підключити, якщо є файл іконкового шрифту
+//@import "fonts/icons";
+
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+// Налаштування шаблону ============================================================================================================================================================================================================================================================================================================================================================================================
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+
+// За замовчуванням шрифт ==============================================================================================================================================================================================================================================================================
+$fontFamily: "Quicksand";
+$fontSize: rem(25); // де 14(px) - розмір шрифту за замовчуванням з макету
+
+// Основні кольори
+$mainColor: #6a6e77; // Колір шрифту за замовчуванням
+$darkColor: #1c1f25;
+
+// Налаштування адаптивної сітки ===============================================================================================================================================================================================================================================================================================
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1920;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 0;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 480;
+
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поїнти
+$pc: em($containerWidth); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: em(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: em(767.98); // Телефони L
+$mobileSmall: em(479.98); // Телефони S
+
+// Тип адаптива:
+// 1 = чуйність (у контейнера немає брейкпоінтів),
+// 2 = по брейк-поїнт (контейнер змінює свою ширину по брейк-поїнт)
+$responsiveType: 1;
+
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+
+// Обнулення ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+@import "base/null";
+
+// Стилі тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
+
+body {
+	// Скролл заблоковано
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	// Сайт завантажений
+	.loaded & {
+		transition: opacity 0.8s;
+		opacity: 1;
+	}
+	@include adaptiveValue("font-size", 25, 18);
+}
+
+// Оболонка wrapper ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+	// Притискаємо footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фікс для слайдерів
+	> * {
+		min-width: 0;
+	}
+}
+// Обмежуючий контейнер ======================================================================================================================================================================================================================
+
+/*
+(i) Стилі будуть застосовуватись до
+всіх класів, що містять *__container
+Наприклад header__container, main__container і т.п.
+Сніппет (HTML): cnt
+*/
+@if ($responsiveType==1) {
+	// Чуйна
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: rem($containerWidth);
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			@if ($maxWidthContainer>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			} @else {
+				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+			}
+		}
+	}
+} @else {
+	// Брейк-поїнтами
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: rem($containerWidth);
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: rem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+// Підключення базових стилів, шаблонів (заготівель) та допоміжних класів
+// Для підключення/вимкнення конкретних стилів дивись base.scss
+@import "base";
+
+// Підключення стилів загальних елементів проекту
+@import "common";
+
+// Підключення стилів окремих блоків
+@import "header";
+@import "footer";
+
+//========================================================================================================================================================
+.page {
+	counter-reset: item;
+	// .page__section
+	&__section {
+		&::after {
+			color: #e3e6ec;
+			font-weight: 700;
+			@include adaptiveValue("font-size", 60, 25);
+			position: absolute;
+			top: 50%;
+			transform: translate(50%, -50%);
+			@include adaptiveValue("right", 120, 7.5);
+			counter-increment: item;
+			content: counter(item, decimal-leading-zero);
+			@media (max-width: $mobile) {
+				top: rem(20);
+				right: 50%;
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+.screen-01 {
+	// .screen-01__container
+	&__container {
+		min-height: 100%;
+		display: flex;
+		@media (min-width: $mobile) {
+			align-items: center;
+			padding-top: rem(20);
+			padding-bottom: rem(20);
+		}
+		@media (max-width: $mobile) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	// .screen-01__body
+	&__body {
+		flex-grow: 1;
+		position: relative;
+		@include adaptiveValue("padding-top", 155, 50);
+		@include adaptiveValue("padding-bottom", 155, 50);
+		@include adaptiveValue("padding-left", 240, 15);
+		@include adaptiveValue("padding-right", 240, 15);
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(28, 31, 37, 0.6);
+		}
+		@media (max-width: $mobile) {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			min-height: 100%;
+		}
+	}
+	// .screen-01__section-header
+	&__section-header {
+		position: relative;
+		z-index: 1;
+	}
+	// .screen-01__image
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+//========================================================================================================================================================
+.screen-02 {
+	// .screen-02__container
+	&__container {
+		@media (min-width: $mobile) {
+			min-height: 100%;
+			display: flex;
+			align-items: flex-start;
+		}
+	}
+	// .screen-02__content
+	&__content {
+		flex: 0 1 50%;
+		align-self: center;
+		padding-top: rem(50);
+		padding-bottom: rem(30);
+		@media (min-width: $mobile) {
+			padding-bottom: rem(50);
+			padding-right: rem(20);
+		}
+	}
+	// .screen-02__section-header
+	&__section-header {
+	}
+	// .screen-02__image
+	&__image {
+		flex: 0 1 50%;
+		img {
+			max-width: 100%;
+		}
+	}
+}
+//========================================================================================================================================================
+.screen-03 {
+	// .screen-03__container
+	&__container {
+		@media (min-width: $mobile) {
+			min-height: 100%;
+			display: flex;
+			flex-direction: row-reverse;
+		}
+	}
+	// .screen-03__content
+	&__content {
+		flex: 0 1 50%;
+		align-self: center;
+		padding-top: rem(50);
+		padding-bottom: rem(30);
+		@media (min-width: $mobile) {
+			padding-bottom: rem(50);
+		}
+	}
+	// .screen-03__section-header
+	&__section-header {
+	}
+	// .screen-03__image
+	&__image {
+		flex: 0 1 50%;
+		position: relative;
+		img {
+			max-width: 100%;
+		}
+		@media (min-width: $mobile) {
+			@include adaptiveValue("left", -240, -15);
+			padding-right: rem(20);
+			img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				object-fit: cover;
+			}
+		}
+	}
+	// .screen-03__values
+	&__values {
+	}
+}
+.values-screen-03 {
+	@extend %animate;
+	@include adaptiveValue("padding-top", 120, 45);
+	display: grid;
+	@include adaptiveValue("gap", 76, 25);
+	// .values-screen-03__item
+	&__item {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		justify-content: space-between;
+		gap: rem(15);
+	}
+	// .values-screen-03__label
+	&__label {
+	}
+	// .values-screen-03__value
+	&__value {
+		color: $darkColor;
+		font-weight: 700;
+	}
+	// .values-screen-03__line
+	&__line {
+		grid-column: span 2;
+		background: rgba(28, 31, 37, 0.1);
+		span {
+			display: block;
+			height: rem(10);
+			background-color: $darkColor;
+		}
+	}
+}
+//========================================================================================================================================================
+.screen-04 {
+	&__container {
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-top: rem(50);
+		padding-bottom: rem(50);
+	}
+	&__section-header {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 153, 35);
+		}
+	}
+	&__advantages {
+	}
+}
+.advantages {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(rem(220), 1fr));
+	@include adaptiveValue("gap", 50, 20);
+	&__item {
+		opacity: 0;
+		transition: opacity 1s;
+		transition-delay: 0s;
+		.active-section & {
+			@for $i from 1 through 4 {
+				$delay: $i * 0.3;
+				&:nth-child(#{$i}) {
+					transition-delay: #{$delay}s;
+				}
+			}
+			opacity: 1;
+		}
+	}
+	&__icon {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 26, 10);
+		}
+	}
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 10);
+		}
+	}
+	&__text {
+	}
+}
+//========================================================================================================================================================
+.screen-05 {
+	// .screen-05__container
+	&__container {
+		@media (min-width: $mobile) {
+			min-height: 100%;
+			display: flex;
+		}
+	}
+	// .screen-05__content
+	&__content {
+		flex: 0 1 50%;
+		align-self: center;
+		padding-top: rem(50);
+		padding-bottom: rem(30);
+		@media (min-width: $mobile) {
+			padding-bottom: rem(50);
+			padding-right: rem(20);
+		}
+	}
+	// .screen-05__section-header
+	&__section-header {
+	}
+	// .screen-05__images
+	&__images {
+		flex: 0 1 50%;
+		display: grid;
+		grid-template-rows: repeat(2, 1fr);
+	}
+	// .screen-05__image-ibg
+	&__image-ibg {
+		@media (max-width: $mobile) {
+			@include adaptiveValue("margin-left", math.div(-$containerPadding, 2), -15);
+			@include adaptiveValue("margin-right", math.div(-$containerPadding, 2), -15);
+			img {
+				position: relative;
+				max-width: 100%;
+				height: auto;
+				width: auto;
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+.screen-06 {
+	padding-top: rem(50);
+	padding-bottom: rem(50);
+	// .screen-06__container
+	&__container {
+		@media (min-width: $tablet) {
+			min-height: 100%;
+			display: flex;
+			align-items: center;
+		}
+	}
+	// .screen-06__section-header
+	&__section-header {
+		flex: 0 1 50%;
+		@media (min-width: $tablet) {
+			padding-right: rem(20);
+		}
+		@media (max-width: $tablet) {
+			padding-bottom: rem(30);
+		}
+	}
+	// .screen-06__services
+	&__services {
+		flex: 0 1 50%;
+	}
+}
+//========================================================================================================================================================
+.screen-07 {
+	// .screen-07__container
+	&__container {
+		@media (min-width: $mobile) {
+			min-height: 100%;
+			display: flex;
+		}
+	}
+	// .screen-07__services
+	&__services {
+		flex: 0 1 50%;
+		align-self: center;
+		padding-top: rem(50);
+		padding-bottom: rem(30);
+		@media (min-width: $mobile) {
+			padding-right: rem(20);
+			padding-bottom: rem(50);
+		}
+	}
+	// .screen-07__image
+	&__image {
+		flex: 0 1 50%;
+		position: relative;
+		img {
+			max-width: 100%;
+		}
+		@media (min-width: $mobile) {
+			@include adaptiveValue("right", -240, -15);
+			img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				object-fit: cover;
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+.screen-08 {
+	// .screen-08__container
+	&__container {
+		@media (min-width: $mobile) {
+			min-height: 100%;
+			display: flex;
+			flex-direction: row-reverse;
+		}
+	}
+	// .screen-08__content
+	&__content {
+		flex: 0 1 50%;
+		align-self: center;
+		padding-top: rem(50);
+		padding-bottom: rem(30);
+		@include adaptiveValue("padding-left", 240, 30, 1, 1920, 768);
+		@media (min-width: $mobile) {
+			padding-bottom: rem(50);
+		}
+	}
+	// .screen-08__section-header
+	&__section-header {
+		@include adaptiveValue("margin-bottom", 190, 30);
+	}
+	// .screen-08__projects
+	&__projects {
+	}
+	// .screen-08__image
+	&__image {
+		flex: 0 1 50%;
+		position: relative;
+		img {
+			max-width: 100%;
+			@media (min-width: $mobile) {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				object-fit: cover;
+			}
+		}
+	}
+}
+.projects {
+	display: flex;
+	@include adaptiveValue("gap", 87, 20);
+	// .projects__item
+	&__item {
+	}
+	// .projects__value
+	&__value {
+		@include adaptiveValue("font-size", 60, 35);
+		line-height: math.div(75, 60);
+		font-weight: 700;
+		color: $darkColor;
+		&:not(:last-child) {
+			margin-bottom: em(16, 60);
+		}
+	}
+	// .projects__label
+	&__label {
+	}
+}
+//========================================================================================================================================================
+.screen-09 {
+	// .screen-09__container
+	&__container {
+		min-height: 100%;
+		display: flex;
+		flex-direction: row-reverse;
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			padding-top: rem(50);
+		}
+	}
+	// .screen-09__section-header
+	&__section-header {
+		@media (min-width: $tablet) {
+			flex: 0 0 33.333%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.section-header {
+				text-align: center;
+				writing-mode: vertical-rl;
+				transform: rotate(-180deg);
+			}
+			.section-header__title {
+				@include adaptiveValue("margin-right", 32, 10);
+				margin-bottom: rem(0);
+			}
+		}
+		@media (max-width: $tablet) {
+			@include adaptiveValue("margin-bottom", 50, 10);
+		}
+	}
+	// .screen-09__items
+	&__items {
+		flex: 0 0 66.667%;
+		display: grid;
+		grid-template-rows: repeat(2, 1fr);
+		@media (max-width: $mobile) {
+			@include adaptiveValue("margin-left", math.div(-$containerPadding, 2), -15);
+			@include adaptiveValue("margin-right", math.div(-$containerPadding, 2), -15);
+		}
+	}
+	// .screen-09__item
+	&__item {
+	}
+}
+.item-screen-09 {
+	display: flex;
+	&:nth-child(odd) {
+		@media (min-width: $mobileSmall) {
+			flex-direction: row-reverse;
+			.item-screen-09__body {
+				text-align: right;
+			}
+		}
+	}
+	@media (max-width: $mobileSmall) {
+		flex-direction: column;
+	}
+	// .item-screen-09__body
+	&__body {
+		flex: 0 1 50%;
+		align-self: center;
+		padding: rem(20);
+		@extend %animate;
+	}
+	// .item-screen-09__title
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 15);
+		}
+	}
+	// .item-screen-09__text
+	&__text {
+	}
+	// .item-screen-09__image
+	&__image-ibg {
+		flex: 0 1 50%;
+		@media (max-width: $tablet) {
+			padding-bottom: 50%;
+		}
+	}
+}
+//========================================================================================================================================================
+.screen-10 {
+	// .screen-10__container
+	&__container {
+		display: flex;
+		min-height: 100%;
+		padding-bottom: rem(50);
+		@media (max-width: $mobile) {
+			padding-top: rem(50);
+			flex-direction: column;
+			gap: rem(30);
+		}
+	}
+	// .screen-10__item
+	&__item {
+		flex: 0 1 33.333%;
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column-reverse;
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			gap: rem(20);
+		}
+	}
+	// .screen-10__image
+	&__image-ibg {
+		flex-grow: 0;
+		flex-basis: 57.407407%; /* 620/1080 */
+		@media (max-width: $mobile) {
+			padding-bottom: 55%;
+		}
+	}
+
+	// .screen-10__body
+	&__body {
+		@extend %animate;
+		padding-right: rem(15);
+		@include adaptiveValue("padding-top", 60, 25, 1, 1920, 768);
+	}
+
+	// .screen-10__title
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 15);
+		}
+	}
+	// .screen-10__text
+	&__text {
+	}
+}
+//========================================================================================================================================================
+.screen-11 {
+	position: relative;
+	@media (min-width: $mobile) {
+		&::before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			left: 0;
+			top: 0;
+			width: 37.5%; /* 720/1920 */
+			background: rgba(196, 196, 196, 0.3);
+		}
+	}
+
+	// .screen-11__container
+	&__container {
+		z-index: 2;
+		min-height: 100%;
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		padding-top: rem(50);
+		padding-bottom: rem(50);
+		position: relative;
+		@media (max-width: $mobile) {
+			flex-direction: column;
+		}
+	}
+	// .screen-11__items
+	&__items {
+		flex: 0 1 50%;
+		@include adaptiveValue("padding-left", 240, 30, 2, 1920, 768);
+		display: grid;
+		@include adaptiveValue("gap", 60, 25);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(30);
+		}
+	}
+	// .screen-11__item
+	&__item {
+		opacity: 0;
+		transition: opacity 1s;
+		transition-delay: 0s;
+		.active-section & {
+			@for $i from 1 through 4 {
+				$delay: $i * 0.3;
+				&:nth-child(#{$i}) {
+					transition-delay: #{$delay}s;
+				}
+			}
+			opacity: 1;
+		}
+	}
+	// .screen-11__title
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 15);
+		}
+	}
+	// .screen-11__text
+	&__text {
+	}
+	// .screen-11__image
+	&__image {
+		text-align: right;
+		flex: 0 1 50%;
+		img {
+			max-width: 100%;
+		}
+	}
+}
+//========================================================================================================================================================
+.screen-12 {
+	// .screen-01__container
+	&__container {
+		min-height: 100%;
+		display: flex;
+		@media (min-width: $mobile) {
+			align-items: center;
+			padding-top: rem(20);
+			padding-bottom: rem(20);
+		}
+		@media (max-width: $mobile) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	// .screen-01__body
+	&__body {
+		flex-grow: 1;
+		position: relative;
+		@include adaptiveValue("padding-top", 155, 50);
+		@include adaptiveValue("padding-bottom", 155, 50);
+		@include adaptiveValue("padding-left", 240, 15);
+		@include adaptiveValue("padding-right", 240, 15);
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(28, 31, 37, 0.6);
+			@media (max-width: $mobile) {
+				background: rgba(28, 31, 37, 0.9);
+			}
+		}
+		@media (max-width: $mobile) {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			min-height: 100%;
+		}
+	}
+	// .screen-01__image
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: contain;
+		background-color: #000;
+	}
+
+	// .screen-12__items
+	&__items {
+		display: flex;
+		align-items: center;
+		position: relative;
+		z-index: 2;
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			gap: rem(30);
+		}
+	}
+	// .screen-12__item
+	&__item {
+		color: #e3e6ec;
+		flex: 0 1 33.333%;
+		text-align: center;
+	}
+	// .screen-12__value
+	&__value {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 60, 35);
+		line-height: math.div(75, 60);
+	}
+	// .screen-12__label
+	&__label {
+	}
+}
+//========================================================================================================================================================

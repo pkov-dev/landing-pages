@@ -1,0 +1,27 @@
+.transparency {
+	// .transparency__container
+	&__container {
+		text-align: center;
+	}
+	// .transparency__header
+	&__header {
+		max-width: toRem(760);
+
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 64, 30);
+		}
+		@media (max-width: $mobile) {
+			width: 90%;
+		}
+	}
+	// .transparency__img
+	&__img {
+		border: toRem(4) solid var(--text-accent);
+		border-radius: toRem(10);
+		aspect-ratio: 768/512;
+		width: 63.157895%; /* 768/1216 */
+		@media (max-width: $mobile) {
+			width: 90%;
+		}
+	}
+}

@@ -1,0 +1,98 @@
+.header {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: toRem(10) 0;
+	transition: padding 0.2s ease 0s;
+
+	&._header-scroll {
+		padding: toRem(6) 0;
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: toRem(40);
+		@media (max-width: $mobileSmall) {
+			column-gap: toRem(20);
+		}
+	}
+
+	&__logo {
+		position: relative;
+		z-index: 2;
+		flex-shrink: 0;
+		aspect-ratio: 1;
+		background-color: #ee4e07;
+		border-radius: 50%;
+		border: toRem(4) solid #000;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0px toRem(4) 0px 0px #000;
+		@include adaptiveValue('width', 80, 60);
+		& img {
+			width: 84%;
+		}
+	}
+
+	&__right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: toRem(32);
+		@media (max-width: $mobileSmall) {
+			column-gap: toRem(20);
+		}
+	}
+
+	&__menu {
+		@media (max-width: $tablet) {
+			order: 2;
+		}
+	}
+
+	&__button {
+		flex-shrink: 0;
+		position: relative;
+		z-index: 2;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: toRem(120);
+		border: toRem(3) solid #000;
+		background-color: #fff;
+		box-shadow: 0px toRem(4) 0px 0px #000;
+		height: toRem(60);
+		transition: background-color 0.2s ease 0s;
+		@include adaptiveValue('width', 215, 180, 2, $containerWidth, 991.98);
+		@include adaptiveValue('width', 215, 150, 3, 991.98, 320);
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #ee4e07;
+			}
+		}
+		@media (max-width: $tablet) {
+			order: 1;
+		}
+		@media (max-width: $mobile) {
+			height: toRem(50);
+		}
+		& span {
+			color: #000;
+			font-family: 'Fredoka One';
+			font-size: toRem(24);
+			font-style: normal;
+			font-weight: 400;
+			line-height: 100%;
+			text-transform: uppercase;
+			transition: color 0.2s ease 0s;
+			@media (max-width: $mobileSmall) {
+				font-size: toRem(20);
+			}
+		}
+	}
+}

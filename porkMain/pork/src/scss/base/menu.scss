@@ -1,0 +1,157 @@
+.menu {
+	@media (max-width: $tablet) {
+		order: 3;
+	}
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		@media (max-width: $tablet) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			right: -100%;
+			top: 0;
+			overflow: auto;
+			background-color: #56ac34f6;
+			padding-left: toRem(15);
+			padding-right: toRem(15);
+			padding-bottom: toRem(30);
+			padding-top: toRem(100);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			row-gap: toRem(30);
+			transition: right 0.3s;
+
+			.menu-open & {
+				right: 0;
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		width: 100%;
+		gap: toRem(15);
+		align-items: center;
+		flex-wrap: wrap;
+
+		@include adaptiveValue('column-gap', 40, 20, 2, $containerWidth, 991.98);
+
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			gap: toRem(15);
+		}
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		color: #fff;
+		// text-decoration-line: underline;
+		transition: color 0.2s;
+		@include adaptiveValue('font-size', 50, 38, 2, $containerWidth, 991.98);
+		@include adaptiveValue('font-size', 42, 40, 3, 991.98, 320);
+
+		&._navigator-active {
+			color: #f796bf;
+
+			&::after {
+				background-color: #f796bf;
+			}
+		}
+
+		&::after {
+			content: '';
+			width: 100%;
+			display: block;
+			height: toEm(4, 50);
+			background-color: #fff;
+			margin-top: toEm(-12, 50);
+			transition: background-color 0.2s;
+
+			@media (min-width: $tablet) {
+				border: toRem(1) solid #000;
+			}
+		}
+
+		@media (max-width: $mobile) {
+			padding-top: toRem(10);
+			padding-bottom: toRem(10);
+		}
+
+		@media (min-width: $tablet) {
+			-webkit-text-stroke-width: toEm(3, 50);
+			-webkit-text-stroke-color: #000;
+			paint-order: stroke fill;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #f796bf;
+			}
+			&:hover::after {
+				background-color: #f796bf;
+			}
+		}
+	}
+}
+
+//Burger Icon
+.icon-menu {
+	display: none;
+	@media (max-width: $tablet) {
+		display: block;
+		position: relative;
+		width: toRem(50);
+		height: toRem(50);
+		z-index: 5;
+		background-color: #f796bf;
+		box-shadow: toRem(-2.4) toRem(3.6) 0 0 #87f55b;
+		border: toRem(2.5) solid #0c0505;
+		border-radius: toRem(5);
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: '';
+			transition: all 0.3s ease 0s;
+			right: toRem(10);
+			position: absolute;
+			width: calc(100% - toRem(20));
+			height: toRem(3);
+			background-color: #000;
+		}
+		&::before {
+			top: toRem(12);
+		}
+		&::after {
+			bottom: toRem(12);
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - toRem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - toRem(1.5));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

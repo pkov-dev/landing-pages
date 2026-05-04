@@ -1,0 +1,8 @@
+.page-home {
+	@include adaptiveValue('padding-top', 97, 66, 0, $containerWidth, 768);
+	// .page-home__hero
+	&__hero {
+	}
+}
+
+@import 'page-home/hero-home.scss';

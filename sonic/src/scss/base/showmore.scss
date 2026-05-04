@@ -1,0 +1,28 @@
+[data-showmore] {
+}
+[data-showmore-content] {
+}
+[data-showmore-button] {
+	margin-top: toRem(30);
+	margin-left: auto;
+	margin-right: auto;
+	&::after {
+		transform: rotate(90deg);
+		transition: transform 0.3s;
+
+		._showmore-active & {
+			transform: rotate(270deg);
+		}
+	}
+	span {
+		&:last-child {
+			display: none;
+		}
+		._showmore-active & {
+			display: none;
+			&:last-child {
+				display: block;
+			}
+		}
+	}
+}

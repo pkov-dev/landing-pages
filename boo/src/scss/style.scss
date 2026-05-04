@@ -1,0 +1,1057 @@
+@use 'sass:math';
+
+// Підключення міксинів ===========================================================================================================================================================================================================================================================================
+@import 'base/mixins';
+
+// Підключення шрифтів ===========================================================================================================================================================================================================================================================================
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kanit:regular,500,700&display=swap');
+
+// Підключити, якщо є локальні файли шрифтів
+@import 'fonts/fonts';
+
+// Підключення іконкових шрифтів ==============================================================================================================================================================================================================================================================================
+// Підключити, якщо є файл іконкового шрифту
+// @import "fonts/icons";
+
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+// Налаштування шаблону ============================================================================================================================================================================================================================================================================================================================================================================================
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+
+// За замовчуванням шрифт ==============================================================================================================================================================================================================================================================================
+$fontFamily: 'Work Sans';
+$fontSize: toRem(26); // де 14(px) - розмір шрифту за замовчуванням з макету
+
+// Налаштування адаптивної сітки ===============================================================================================================================================================================================================================================================================================
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1920;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1234;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поїнти
+$pc: toEm($containerWidth); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: toEm(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: toEm(767.98); // Телефони L
+$mobileSmall: toEm(479.98); // Телефони S
+
+// Тип адаптива:
+// 1 = чуйність (у контейнера немає брейкпоінтів),
+// 2 = по брейк-поїнт (контейнер змінює свою ширину по брейк-поїнт)
+$responsiveType: 1;
+
+// Палітра кольорів
+@import 'base/colors-palette';
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+
+// Обнулення ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+@import 'base/null';
+
+// Стилі тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
+body {
+	background-color: var(--bg-primary);
+	// scrollbar-gutter: stable;
+	// Скролл заблоковано
+	.lock & {
+		// overflow: hidden;
+		// touch-action: none;
+		// overscroll-behavior: none;
+	}
+	// Сайт завантажений
+	.loaded & {
+	}
+}
+// Оболонка wrapper ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+	// Притискаємо footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фікс для слайдерів
+	> * {
+		min-width: 0;
+	}
+}
+// Обмежуючий контейнер ======================================================================================================================================================================================================================
+
+// (i) Стилі будуть застосовуватись до
+// всіх класів, що містять *__container
+// Наприклад header__container, main__container і т.п.
+// Сніппет (HTML): cnt
+
+@if ($responsiveType==1) {
+	// Чуйна
+	[class*='__container'] {
+		@if ($maxWidthContainer>0) {
+			max-width: toRem($containerWidth);
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			@if ($maxWidthContainer>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			} @else {
+				@include adaptiveValue('padding-left', math.div($containerPadding, 2), 15);
+				@include adaptiveValue('padding-right', math.div($containerPadding, 2), 15);
+			}
+		}
+	}
+} @else {
+	// Брейк-поїнтами
+	[class*='__container'] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: toRem($containerWidth);
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: toRem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: toRem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+// Підключення базових стилів, шаблонів (заготівель) та допоміжних класів
+// Для підключення/вимкнення конкретних стилів дивись base.scss
+@import 'base';
+
+// Підключення стилів загальних елементів проекту
+@import 'common';
+
+// Підключення стилів окремих блоків
+@import 'header';
+@import 'footer';
+
+.page {
+	@include adaptiveValue('padding-bottom', 200, 60);
+	// .page__hero
+	&__hero {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 135, 50);
+		}
+	}
+	// .page__what
+	&__what {
+	}
+
+	// .page__buy
+	&__buy {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+
+	// .page__booswap
+	&__booswap {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 155, 50);
+		}
+	}
+
+	// .page__tokenomics
+	&__tokenomics {
+	}
+}
+
+//========================================================================================================================================================
+// HERO
+
+.hero {
+	// .hero__decor-wrapper
+	&__decor-wrapper {
+		overflow: hidden;
+		position: relative;
+		@include adaptiveValue('padding-top', 154, 90, 0, $containerWidth, 768);
+
+		.decor {
+			opacity: 0;
+			position: absolute;
+			width: 96.77%;
+			aspect-ratio: 1 / 1;
+			@include adaptiveValue('top', -390, -60, 0, 1920, 992);
+			@include adaptiveValue('left', 137, 70, 0, 1920, 768);
+			z-index: -1;
+
+			.loaded & {
+				transition: opacity 1.5s linear 1.1s;
+				opacity: 1;
+			}
+
+			@media (max-width: toEm(575)) {
+				@include adaptiveValue('top', -390, 20);
+				@include adaptiveValue('left', 137, 35);
+			}
+		}
+		&::before {
+			content: '';
+			@include adaptiveValue('width', 700, 400);
+			aspect-ratio: 1 /1;
+			position: absolute;
+			opacity: 0.5;
+			@include adaptiveValue('top', 200, 0, 0, $containerWidth, 768);
+			right: 25%;
+			border-radius: 50%;
+			background: conic-gradient(
+				from 187deg at 50% 50%,
+				#d19b72 51.96336328983307deg,
+				#ffd8a7 121.30668997764587deg,
+				#f6c6af 191.9081711769104deg,
+				#ec7d3b 264.1014790534973deg,
+				#d39155 321.62662267684937deg
+			);
+			filter: blur(toRem(250));
+		}
+	}
+
+	// .hero__container
+	&__container {
+		max-width: toRem(1275);
+	}
+	// .hero__wrapper
+	&__wrapper {
+		display: flex;
+		flex-direction: column-reverse;
+		@media (min-width: toEm(575)) {
+			flex-direction: row;
+		}
+	}
+	// .hero__content
+	&__content {
+		color: var(--text-secondary);
+		flex-basis: 45%;
+		position: relative;
+
+		@include adaptiveValue('padding-top', 95, 30, 0, $containerWidth, 768);
+		@include adaptiveValue('padding-bottom', 100, 30);
+
+		@media (min-width: toEm(575)) {
+			@include adaptiveValue('padding-right', 0, 15, 0, 1920, 992);
+		}
+	}
+	// .hero__wrapper-title
+	&__wrapper-title {
+		@media (max-width: toEm(575)) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	// .hero__label
+	&__label {
+		transform: translate(-400%, 0px);
+		font-family: 'Kanit', sans-serif;
+		@include adaptiveValue('font-size', 72, 22);
+		font-weight: 700;
+		@include adaptiveValue('margin-bottom', 45, 20, 0, $containerWidth, 768);
+
+		.loaded & {
+			transition: transform 0.5s ease;
+			transform: translate(0, 0);
+		}
+	}
+	// .hero__title
+	&__title {
+		transform: translate(-400%, 0px);
+		font-family: 'AhsingRegular', sans-serif;
+		position: relative;
+		width: fit-content;
+		@include adaptiveValue('font-size', 252, 60);
+		line-height: 0.9;
+		transform-style: preserve-3d;
+		perspective: 62.5rem;
+
+		.loaded & {
+			transition: transform 0.5s ease 0.6s;
+			transform: translate(0, 0);
+		}
+		@media (max-width: toEm(575)) {
+			grid-column: 1;
+		}
+		svg {
+			position: absolute;
+			width: toEm(163, 252);
+			aspect-ratio: 1 / 1;
+			right: -2%;
+			top: -30%;
+			transform: translate3d(-50%, -35%, 62.5rem);
+
+			.loaded & {
+				transition: transform 0.5s ease 2.9s;
+				transform: translate3d(0%, 0%, 0);
+			}
+		}
+	}
+	// .hero__text
+	&__text {
+		opacity: 0;
+		transform: translate(0, toRem(-20));
+		font-family: 'Kanit', sans-serif;
+		font-size: toRem(20);
+		line-height: 1.4;
+		max-width: toRem(507);
+		@include adaptiveValue('margin-bottom', 45, 20, 0, $containerWidth, 768);
+
+		.loaded & {
+			transition: all 0.3s ease 3.4s;
+			opacity: 1;
+			transform: translate(0, 0);
+		}
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+		}
+	}
+	// .hero__buttons
+	&__buttons {
+		display: flex;
+		@include adaptiveValue('column-gap', 20, 10);
+	}
+	// .hero__button
+	&__button {
+		@include adaptiveValue('font-size', 33, 16, 0, $containerWidth, 768);
+		font-weight: 500;
+		line-height: 1.5;
+		padding: toRem(10) toRem(15);
+
+		&:nth-child(1) {
+			transform: translate(0, 400%);
+
+			.loaded & {
+				animation: button 0.3s ease 3.7s forwards;
+			}
+		}
+		&:nth-child(2) {
+			transform: translate(0, 400%);
+
+			.loaded & {
+				animation: button 0.3s ease 4s forwards;
+			}
+		}
+		@keyframes button {
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+		@media (min-width: $tablet) {
+			padding: toRem(14) toRem(30);
+		}
+	}
+	// .hero__img
+	&__img {
+		position: relative;
+		width: 70%;
+		aspect-ratio: 697 / 794;
+		grid-column: 2;
+		grid-row: 1 / span 2;
+		justify-self: center;
+		transform: translate(0, 300%);
+
+		.loaded & {
+			transition: transform 0.3s ease 2.6s;
+			transform: translate(0, 0);
+		}
+
+		@media (min-width: toEm(575)) {
+			align-self: flex-end;
+			flex-basis: 55%; /* 632/1303 */
+		}
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			@include adaptiveValue('left', 90, 0, 0, 1920, 992);
+			object-fit: contain;
+		}
+		svg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+	}
+	// .hero__slope
+	&__slope {
+		@include adaptiveValue('margin-top', -82, -10);
+
+		transform: rotate(-4deg) translate(100%, 0px);
+		.loaded & {
+			transition: transform 0.3s ease 4.3s;
+			transform: rotate(-4deg) translate(-5%, 0);
+		}
+	}
+}
+
+//========================================================================================================================================================
+// WHAT
+
+.what {
+	// .what__container
+	&__container {
+		display: flex;
+		max-width: toRem(1490);
+		align-items: flex-start;
+		@include adaptiveValue('column-gap', 50, 20, 0, 1920, 992);
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+		}
+	}
+	// .what__img
+	&__img {
+		flex: 1 1 flBasis(2, 50, 782, 1460);
+		@include adaptiveValue('padding-top', 115, 30);
+		transform: translate(-300%, 0);
+
+		._watcher-view & {
+			transition: transform 0.3s;
+			transform: translate(0, 0);
+		}
+
+		@media (max-width: $mobile) {
+			padding-top: 0;
+			&:not(:last-child) {
+				@include adaptiveValue('margin-bottom', 90, 50, 0, 768, 320);
+			}
+		}
+		img {
+			border: toRem(6) solid var(--text-primary);
+			aspect-ratio: 782 / 430;
+			border-radius: toRem(30);
+			box-shadow: 0 toRem(9) 0 0 var(--text-primary);
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	// .what__item
+	&__item {
+	}
+}
+.item-what {
+	flex: 1 1 flBasis(2, 50, 622, 1460);
+
+	// .item-what__title
+	&__title {
+		transform: rotate(-3.899deg) translate(200%);
+		padding: toRem(16) toRem(90) toRem(15) toRem(16);
+		@include adaptiveValue('padding-right', 90, 40);
+		border-radius: 100px;
+		border: toRem(8) solid var(--text-primary);
+		background-color: var(--bg-accent);
+		color: var(--text-secondary);
+		text-align: center;
+		font-family: 'AhsingRegular', serif;
+		@include adaptiveValue('font-size', 59, 30, 0, 1920, 768);
+		line-height: 1.35;
+		letter-spacing: 0px;
+		position: relative;
+		transform-style: preserve-3d;
+		perspective: 62.5rem;
+		box-shadow:
+			toRem(13) toRem(-19) toRem(4) 0 rgba(0, 0, 0, 0.24) inset,
+			0 toRem(14) 0 0 #000;
+		position: relative;
+		z-index: 2;
+
+		._watcher-view & {
+			transform: rotate(-3.899deg) translate(0);
+			transition: transform 0.3s ease 0.6s;
+		}
+
+		@media (max-width: $tablet) {
+			@include adaptiveValue('font-size', 30, 22);
+		}
+		&::after {
+			@extend %bgDecor;
+			content: '';
+			right: -4.5;
+			top: -50%;
+		}
+		svg {
+			position: absolute;
+			width: toEm(195, 59);
+			aspect-ratio: 189 / 187;
+			right: toEm(-25, 59);
+			@include adaptiveValue('top', -58, -75, 0, 1920, 768);
+			transform: rotate(4deg);
+			filter: drop-shadow(0 toRem(8) 0 var(--text-primary));
+			transform: translate3d(-100%, -100%, 62.5rem);
+
+			._watcher-view & {
+				transition: transform 0.5s ease 2.5s;
+				transform: translate3d(0%, 0%, 0);
+			}
+		}
+	}
+
+	// .item-what__body
+	&__body {
+	}
+
+	// .item-what__text
+	&__text {
+		opacity: 0;
+		visibility: hidden;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: toRem(-90);
+		@include adaptiveValue('margin-top', -90, -40);
+		border-radius: toRem(30);
+		width: 89.102564%; /* 556/624 */
+		border: toRem(5) solid var(--text-primary);
+		background-color: var(--bg-secondary);
+		box-shadow:
+			toRem(-11) toRem(-9) toRem(4) 0 rgba(0, 0, 0, 0.25) inset,
+			toRem(7) toRem(7) 0 0 #000;
+		@include adaptiveValue('padding-top', 155, 80);
+		@include adaptiveValue('padding-bottom', 155, 50, 0, 1440, 768);
+		@include adaptiveValue('padding-left', 36, 15, 0, 1920, 768);
+		@include adaptiveValue('padding-right', 36, 15, 0, 1920, 768);
+		transform: translate(0, 300%);
+
+		._watcher-view & {
+			transition: all 0.3s ease 0.3s;
+			transform: translate(0, 0);
+			visibility: visible;
+			opacity: 1;
+		}
+
+		@media (max-width: $mobile) {
+			padding-bottom: toRem(90);
+		}
+
+		p {
+			opacity: 0;
+			@include adaptiveValue('font-size', 26, 16, 0, 1440, 768);
+
+			&:nth-child(1) {
+				._watcher-view & {
+					transition: opacity 1s linear 1s;
+					opacity: 1;
+				}
+			}
+			&:nth-child(2) {
+				._watcher-view & {
+					transition: opacity 1s linear 1.5s;
+					opacity: 1;
+				}
+			}
+			&:not(:last-child) {
+				@include adaptiveValue('margin-bottom', 50, 15, 0, 1440, 768);
+			}
+		}
+	}
+}
+
+//========================================================================================================================================================
+// BUY
+
+.buy {
+	// .buy__slope
+	&__slope {
+		@include adaptiveValue('margin-top', -82, -50, 0, 1920, 768);
+		transform: rotate(-4deg) translate(-100%, 0);
+
+		._watcher-view & {
+			transition: transform 0.6s ease;
+			transform: rotate(4deg) translate(-5%, 0);
+		}
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 200, 70);
+		}
+	}
+	// .buy__container
+	&__container {
+		max-width: toRem(1270);
+		position: relative;
+	}
+	// .buy__decor
+	&__decor {
+		display: none;
+		position: absolute;
+
+		@media (min-width: toEm(914)) {
+			display: block;
+			left: 44%;
+			transform: translate(-50%, 15.5%);
+			aspect-ratio: 989 / 1051;
+			width: toRem(1020);
+			z-index: -1;
+		}
+
+		// .buy__decor--small
+		&--small {
+			display: none;
+			@media (max-width: toEm(913.98)) {
+				display: block;
+				height: 100%;
+			}
+		}
+	}
+
+	// .buy__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(toRem(412), 1fr));
+		@include adaptiveValue('gap', 154, 60, 0, 1920, 992);
+		counter-reset: cardCounter;
+
+		@media (max-width: $mobile) {
+			grid-template-columns: repeat(auto-fill, minmax(toRem(370), 1fr));
+		}
+		@media (max-width: $mobileSmall) {
+			grid-template-columns: repeat(auto-fill, minmax(toRem(290), 1fr));
+		}
+	}
+	// .buy__item
+	&__item {
+	}
+}
+
+.item-buy {
+	border-radius: toRem(30);
+	border: toRem(5) solid var(--text-primary);
+	background-color: var(--bg-secondary);
+	box-shadow:
+		toRem(-11) toRem(-9) toRem(4) 0 rgba(0, 0, 0, 0.25) inset,
+		toRem(8) toRem(8) 0 0 var(--text-primary);
+	padding: toRem(77) toRem(34) toRem(48);
+	position: relative;
+	opacity: 0;
+	transition: opacity 0.3s;
+
+	&._watcher-view {
+		opacity: 1;
+		transition: opacity 0.3s;
+	}
+
+	&::after {
+		content: '';
+		@extend %bgDecor;
+		top: 0;
+		left: toRem(41);
+		transform: translate(-25%, -50%);
+	}
+
+	// .item-buy__img
+	&__img {
+		position: absolute;
+		aspect-ratio: 169 / 197;
+		max-width: toRem(169);
+		max-height: toRem(197);
+		@include adaptiveValue('width', 169, 80);
+		top: 0;
+		right: toRem(37);
+		transform: translate(0, -42%);
+		filter: drop-shadow(2px 6px 0px #000);
+	}
+
+	&::before {
+		content: counter(cardCounter);
+		position: absolute;
+		aspect-ratio: 1 / 1;
+		@include adaptiveValue('width', 102, 60);
+		background-color: var(--bg-accent);
+		top: 0;
+		left: toRem(41);
+		transform: translate(0, -50%);
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		counter-increment: cardCounter;
+		@include adaptiveValue('font-size', 68, 30);
+		font-weight: 600;
+		border: toRem(4) solid var(--text-primary);
+		box-shadow: toRem(-5) toRem(-10) toRem(4) 0 rgba(0, 0, 0, 0.45) inset;
+		filter: drop-shadow(toRem(5) toRem(7) 0 var(--text-primary));
+	}
+
+	// .item-buy__title
+	&__title {
+		@include adaptiveValue('font-size', 32, 24);
+		line-height: 1.43;
+		font-weight: 600;
+
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 25, 18);
+			margin-bottom: toRem(25);
+		}
+	}
+
+	// .item-buy__text
+	&__text {
+		@include adaptiveValue('font-size', 25, 18);
+		font-weight: 500;
+		line-height: 1.43;
+
+		&:not(:last-child) {
+			margin-bottom: toRem(21);
+		}
+	}
+	// .item-buy__subtitle
+	&__subtitle {
+		@include adaptiveValue('font-size', 20, 14);
+		font-weight: 600;
+		line-height: 1.45;
+		opacity: 0.5;
+	}
+	// .item-buy__subtext
+	&__subtext {
+		display: flex;
+		align-items: center;
+		gap: toRem(5);
+		@extend .item-buy__subtitle;
+		font-weight: 400;
+		position: relative;
+		@include adaptiveValue('font-size', 20, 14);
+	}
+	// .item-buy__button
+	&__button {
+		@media (any-hover: hover) {
+			&:hover svg {
+				opacity: 1;
+			}
+		}
+		svg {
+			aspect-ratio: 1 / 1;
+			@include adaptiveValue('width', 32, 20);
+			fill: var(--text-primary);
+			opacity: 0.5;
+			transition: opacity 0.3s;
+		}
+	}
+}
+
+//========================================================================================================================================================
+// Booswap
+
+.booswap {
+	position: relative;
+
+	// .booswap__decor
+	&__decor {
+		display: none;
+		@media (min-width: toEm(914)) {
+			display: block;
+			position: absolute;
+			@include adaptiveValue('width', 675, 631);
+			aspect-ratio: 667 / 612;
+			top: -9%;
+			left: 49%;
+			z-index: -1;
+		}
+	}
+
+	// .booswap__slope
+	&__slope {
+		@include adaptiveValue('margin-top', -18, 0);
+		transform: rotate(-4deg) translate(100%, 0px);
+
+		._watcher-view & {
+			transition: transform 0.6s ease;
+			transform: rotate(-4deg) translate(-5%, 0);
+		}
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 106, 50);
+		}
+	}
+	// .booswap__container
+	&__container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	// .booswap__img
+	&__img {
+	}
+}
+
+.img-booswap {
+	width: 49.189627%; /* 607/1234 */
+	position: relative;
+
+	@media (max-width: $mobileSmall) {
+		width: 90%;
+	}
+	&::before {
+		content: '';
+		@extend %bgDecor;
+		top: 14%;
+		left: -34%;
+	}
+	&::after {
+		content: '';
+		@extend %bgDecor;
+		bottom: 15%;
+		right: -44%;
+	}
+	svg {
+		position: absolute;
+		filter: drop-shadow(0 toRem(14) 0 var(--text-primary));
+
+		@media (max-width: $mobileSmall) {
+			display: none;
+		}
+	}
+	// .img-booswap__paw
+	&__paw {
+		top: 14%;
+		left: -34%;
+		aspect-ratio: 268 / 239;
+		@include adaptiveValue('width', 310, 80);
+	}
+
+	// .img-booswap__bone
+	&__bone {
+		top: 7%;
+		right: -27%;
+		aspect-ratio: 300 / 297;
+		@include adaptiveValue('width', 300, 80);
+		z-index: -1;
+	}
+	// .img-booswap__plate
+	&__plate {
+		bottom: 15%;
+		right: -44%;
+		aspect-ratio: 270 / 121;
+		@include adaptiveValue('width', 382, 80);
+	}
+	// .img-booswap__bone-left
+	&__bone-left {
+		bottom: -15%;
+		left: -28%;
+		aspect-ratio: 341 / 338;
+		@include adaptiveValue('width', 367, 80);
+		z-index: -1;
+
+		@media (max-width: $mobile) {
+			bottom: -8%;
+			left: -24%;
+		}
+	}
+	// .img-booswap__wrp
+	&__wrp {
+		overflow: hidden;
+		border-radius: toRem(30);
+		box-shadow:
+			toRem(-11) toRem(-9) toRem(4) 0 rgba(0, 0, 0, 0.25) inset,
+			toRem(8) toRem(8) 0 0 var(--text-primary);
+
+		border: toRem(5) solid var(--text-primary);
+		aspect-ratio: 597 / 953;
+	}
+}
+
+//========================================================================================================================================================
+// tokenomics
+
+.tokenomics {
+	// .tokenomics__slope
+	&__slope {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 161, 175, 0, $containerWidth, 768);
+			transform: rotate(-4deg) translate(-100%, 0);
+
+			._watcher-view & {
+				transition: transform 0.6s ease;
+				transform: rotate(4deg) translate(-5%, 0);
+			}
+			@media (max-width: $mobile) {
+				@include adaptiveValue('margin-bottom', 161, 70);
+			}
+		}
+		// margin-bottom: toRem(161);
+	}
+	// .tokenomics__container
+	&__container {
+	}
+	// .tokenomics__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(toRem(340), 1fr));
+		gap: toRem(115);
+		align-items: end;
+		@include adaptiveValue('gap', 115, 40);
+
+		@media (max-width: $tablet) {
+			grid-template-columns: repeat(auto-fill, minmax(toRem(290), 1fr));
+		}
+		@media (max-width: $mobile) {
+			grid-template-columns: 1fr;
+			gap: toRem(40);
+		}
+	}
+	// .tokenomics__artc
+	&__artc {
+	}
+}
+
+.artc-tokenomics {
+	padding: toRem(33) toRem(44) toRem(42);
+	@include adaptiveValue('padding-left', 44, 25, 0, 1920, 768);
+	@include adaptiveValue('padding-right', 44, 25, 0, 1920, 768);
+	@include adaptiveValue('padding-bottom', 42, 35, 0, 1920, 768);
+	border-radius: toRem(30);
+	border: toRem(1) solid var(--text-primary);
+	background-color: var(--bg-secondary);
+	box-shadow:
+		toRem(-10) toRem(-11) toRem(4) 0 rgba(0, 0, 0, 0.25) inset,
+		toRem(8) toRem(8) 0 0 var(--text-primary);
+	padding: toRem(31) toRem(36) toRem(48);
+	position: relative;
+	opacity: 0;
+	transform: translate(0, toRem(200));
+
+	&._watcher-view:nth-child(1) {
+		transition: all 1s;
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+	&._watcher-view:nth-child(2) {
+		transition: all 1s ease 1.3s;
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+
+	&::after {
+		content: '';
+		@extend %bgDecor;
+		top: -9%;
+		right: -8%;
+	}
+	// .artc-tokenomics__title
+	&__title {
+		@include adaptiveValue('font-size', 52, 28);
+		font-weight: 600;
+		@include adaptiveValue('margin-bottom', 28, 18);
+
+		@media (min-width: $mobile) {
+			max-width: toRem(330);
+		}
+	}
+	// .artc-tokenomics__list
+	&__list {
+		overflow: hidden;
+		padding: toRem(2);
+
+		// .artc-tokenomics__list--second
+		&--second {
+			.artc-tokenomics__item {
+				@include animationDelay(4, 0.1, 1.5);
+			}
+		}
+	}
+	// .artc-tokenomics__item
+	&__item {
+		opacity: 0;
+		visibility: hidden;
+		transform: translate(0, 50%);
+		border-radius: toRem(24);
+		border: toRem(4) solid var(--text-primary);
+		background-color: var(--bg-inverse);
+		box-shadow: toRem(2) toRem(2) 0 0 var(--text-primary);
+		transition: background-color 0.3s;
+		@include animationDelay(4, 0.1, 20);
+
+		// ._watcher-view & {
+		animation: show-items 0.5s ease forwards;
+		// }
+
+		@keyframes show-items {
+			100% {
+				opacity: 1;
+				visibility: visible;
+				transform: translate(0, 0);
+			}
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--bg-accent);
+			}
+		}
+		&:not(:last-child) {
+			margin-bottom: toRem(22);
+		}
+	}
+	// .artc-tokenomics__link
+	&__link {
+		padding: toRem(29);
+		@include adaptiveValue('padding', 29, 15, 0, 1920, 768);
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(10);
+		align-items: center;
+	}
+
+	// .artc-tokenomics__name
+	&__name {
+		flex: 0 0 flBasis(2, 10, 302, 475); /* 302/475 */
+		@include adaptiveValue('font-size', 36, 18);
+		font-weight: 700;
+	}
+
+	// .artc-tokenomics__value
+	&__value {
+		@include adaptiveValue('font-size', 24, 14);
+		flex: 0 1 flBasis(2, 10, 109, 475); /* 302/475 */
+		text-align: right;
+	}
+
+	svg {
+		display: none;
+		position: absolute;
+		filter: drop-shadow(0 toRem(14) 0 var(--text-primary));
+
+		@media (min-width: $mobile) {
+			display: block;
+		}
+	}
+	// .artc-tokenomics__decor
+	&__decor {
+		top: -12%;
+		right: 9%;
+		@include adaptiveValue('width', 212, 60);
+		width: 212px;
+		aspect-ratio: 1 / 1;
+		// @include adaptiveValue('width', 212, 239);
+		// .artc-tokenomics__decor--big
+		&--big {
+			top: -12%;
+			right: -16%;
+			@include adaptiveValue('width', 247, 80);
+		}
+	}
+}

@@ -1,0 +1,136 @@
+.title-h2 {
+	color: #ffd900;
+	font-family: 'LuckiestGuy';
+	opacity: 0;
+	visibility: hidden;
+
+	@include adaptiveValue('font-size', 220, 65);
+}
+
+.subtitle {
+	color: #fff;
+	text-align: center;
+	font-family: 'Super Webcomic Bros';
+	opacity: 0;
+	visibility: hidden;
+	@include adaptiveValue('font-size', 40, 26);
+}
+
+.button {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transform: rotate(4deg);
+	border: toRem(4) solid #000;
+	background-color: #fff;
+	color: #000;
+	font-family: 'Super Webcomic Bros';
+	text-transform: uppercase;
+	will-change: transform, color;
+	transition:
+		transform 0.2s,
+		color 0.2s;
+	padding: toRem(8);
+
+	@include adaptiveValue('min-width', 286, 200, 2, $containerWidth, 991.98);
+	@include adaptiveValue('min-width', 270, 230, 3, 991.98, 320);
+	@include adaptiveValue('height', 94, 70);
+
+	span {
+		transition: color 0.2s;
+		will-change: color;
+		@include adaptiveValue('font-size', 64, 42, 24, $containerWidth, 991.98);
+		@include adaptiveValue('font-size', 42, 34, 3, 991.98, 320);
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.03);
+			color: #ffd900;
+		}
+	}
+}
+
+.social-item {
+	flex-shrink: 0;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	align-self: flex-start;
+	justify-content: center;
+	background-color: #000;
+	aspect-ratio: 1;
+	will-change: transform;
+	transition: transform 0.3s;
+	@include adaptiveValue('width', 87, 77, 2, 1920, 991.98);
+	@include adaptiveValue('width', 87, 60, 3, 991.98, 320);
+
+	&:nth-child(odd) {
+		transform: rotate(-6deg);
+	}
+	&:nth-child(even) {
+		transform: rotate(6deg);
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.03);
+		}
+		&:hover svg {
+			fill: #ffd900;
+		}
+	}
+
+	svg {
+		fill: #fff;
+		will-change: fill;
+		transition: fill 0.2s;
+		width: 50%;
+	}
+}
+
+.text {
+	color: #fff;
+	text-align: center;
+	font-family: 'Super Webcomic Bros';
+	opacity: 0;
+	visibility: hidden;
+	@include adaptiveValue('font-size', 40, 24);
+}
+
+// @keyframes line {
+// 	0% {
+// 		transform: translateX(0);
+// 	}
+// 	100% {
+// 		transform: translateX(-100%);
+// 	}
+// }
+
+.line {
+	position: relative;
+	z-index: 2;
+	background-color: #fff;
+	border-top: toRem(4) solid #000;
+	border-bottom: toRem(4) solid #000;
+	display: flex;
+
+	// .line__row
+	&__row {
+		display: flex;
+		align-items: center;
+		animation: line 10s linear infinite;
+
+		span {
+			color: #000;
+			font-family: 'SELINCAH';
+			@include adaptiveValue('margin-right', 40, 30);
+			@include adaptiveValue('font-size', 48, 36);
+		}
+	}
+
+	// .line--bg
+	&--bg {
+		background-color: #ffd900;
+	}
+}

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<style>
+		body {
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+		}
+
+		.loaded body {
+			opacity: 1;
+			visibility: visible;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20240812142428">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+			</div>
+		</header>
+		<main class="page">
+			<section class="page__hero hero">
+				<div class="hero__container">
+					<div class="hero__header">
+						<h1 class="hero__title">
+							KAI
+						</h1>
+						<div data-watch-threshold="1" data-watch data-watch-once class="hero__subtitle ">powered
+							by binance</div>
+					</div>
+					<div class="hero__main">
+						<div class="hero__image">
+							<img src="img/dog.png" alt="Image">
+						</div>
+						<div class="hero__content">
+							<div class="hero__content-text ">
+								Kai the spirit of Binance—loyal, energetic, and always exploring. He's here to guide you
+								through the crypto world,
+							</div>
+							<div class="hero__content-actions">
+								<a href="#" target="_blank" class="hero__content-button button">
+									<span>
+										BUY Kai
+									</span>
+								</a>
+								<div class="hero__content-social ">
+									<a target="_blank" href="https://x.com/KaiBinanceDog" class="hero__content-social-item social-item">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 37" fill="none">
+											<path d="M32.2892 0L38.5759 0L24.8409 15.6746L41 37H28.3481L18.4397 24.0646L7.09983 37H0.80975L15.5014 20.2338L0 0.0017057L12.9731 0.0017057L21.9299 11.8251L32.2892 0ZM30.0838 33.2442H33.567L11.0803 3.55963H7.34242L30.0838 33.2442Z" />
+										</svg>
+									</a>
+									<a target="_blank" href="https://t.me/KaiTheBinanceDog" class="hero__content-social-item social-item">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 39" fill="none">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M36.0727 1.22351C36.5684 0.933621 37.1325 0.782966 37.7061 0.787225C38.2798 0.791485 38.8421 0.950505 39.3346 1.24773C39.8271 1.54496 40.2317 1.96953 40.5063 2.47725C40.7809 2.98497 40.9155 3.55728 40.896 4.13461L39.874 34.157C39.7728 37.0533 36.893 39.078 34.1286 37.9982C31.8162 37.0948 28.3732 35.6874 25.2425 34.1595C23.677 33.3944 18.8645 30.9186 19.1283 28.6814C19.3562 26.7683 25.8851 18.8477 29.5952 14.1608C31.0512 12.3197 30.1706 11.4793 28.3965 13.229C23.9908 17.5732 16.8766 24.2329 14.4886 26.1573C12.382 27.8542 11.2204 28.2473 9.76361 28.1918C7.10598 28.0912 4.60635 27.7268 2.53117 27.1578C-0.272932 26.3895 -0.618503 22.6882 1.77246 21.2892L36.0727 1.22351Z" />
+										</svg>
+									</a>
+									<a target="_blank" href="https://www.instagram.com/p/Cw2VfTZLC97/?igsh=MzRlODBiNWFlZA==" class="hero__content-social-item social-item">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" fill="none">
+											<path d="M15.9298 4.86042L30.8309 5.32265C36.5075 5.49874 40.9766 10.254 40.8005 15.9306L40.3383 30.8317C40.2536 33.5605 39.0885 36.1438 37.0991 38.0135C35.1097 39.8832 32.4591 40.886 29.7303 40.8013L14.8293 40.3391C9.15266 40.163 4.68351 35.4077 4.8596 29.7311L5.32183 14.8301C5.40648 12.1013 6.57165 9.51794 8.56104 7.64827C10.5504 5.77859 13.201 4.77577 15.9298 4.86042ZM15.465 8.39728C13.7713 8.34474 12.126 8.96718 10.8912 10.1277C9.65646 11.2882 8.93324 12.8916 8.8807 14.5853L8.39646 30.196C8.28695 33.7261 11.0544 36.6707 14.5845 36.7802L30.1951 37.2645C31.8889 37.317 33.5341 36.6946 34.7689 35.5341C36.0037 34.3736 36.7269 32.7701 36.7794 31.0764L37.2637 15.4658C37.3732 11.9357 34.6057 8.99103 31.0756 8.88153L15.465 8.39728ZM32.5009 11.5892C33.089 11.6074 33.6458 11.8586 34.0487 12.2873C34.4516 12.7161 34.6678 13.2873 34.6495 13.8754C34.6313 14.4635 34.3802 15.0203 33.9514 15.4232C33.5227 15.8262 32.9514 16.0423 32.3633 16.024C31.7752 16.0058 31.2185 15.7547 30.8155 15.3259C30.4126 14.8972 30.1964 14.3259 30.2147 13.7378C30.2329 13.1497 30.484 12.593 30.9128 12.19C31.3415 11.7871 31.9128 11.571 32.5009 11.5892ZM23.1052 13.9612C25.4576 14.0342 27.6846 15.0386 29.2964 16.7536C30.9082 18.4686 31.7727 20.7536 31.6997 23.106C31.6268 25.4584 30.6223 27.6855 28.9073 29.2972C27.1923 30.909 24.9073 31.7735 22.5549 31.7006C20.2025 31.6276 17.9755 30.6231 16.3637 28.9081C14.7519 27.1932 13.8874 24.9081 13.9604 22.5557C14.0334 20.2034 15.0378 17.9763 16.7528 16.3645C18.4678 14.7527 20.7528 13.8882 23.1052 13.9612ZM22.9951 17.5091C21.5837 17.4653 20.2127 17.984 19.1837 18.9511C18.1547 19.9181 17.552 21.2544 17.5083 22.6658C17.4645 24.0772 17.9832 25.4482 18.9502 26.4772C19.9173 27.5062 21.2535 28.1089 22.665 28.1527C24.0764 28.1965 25.4474 27.6778 26.4764 26.7107C27.5054 25.7436 28.1081 24.4074 28.1519 22.996C28.1956 21.5845 27.6769 20.2135 26.7099 19.1845C25.7428 18.1555 24.4066 17.5529 22.9951 17.5091Z" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="page__line line">
+				<div class="line__row">
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+				</div>
+				<div class="line__row">
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+				</div>
+				<div class="line__row">
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+				</div>
+			</div>
+			<section class="page__network network">
+				<div class="network__container">
+					<div class="network__header">
+						<h2 data-watch-threshold="1" data-watch data-watch-once class="network__title title-h2">
+							network
+						</h2>
+						<div data-watch-threshold="1" data-watch data-watch-once class="network__subtitle subtitle">
+							Kai is available for trading on major exchanges.
+						</div>
+					</div>
+					<div class="network__items">
+						<a href="#" target="_blank" data-watch-threshold="1" data-watch data-watch-once class="network__item">
+							<img src="img/gate.png" alt="Image">
+						</a>
+						<a href="#" target="_blank" data-watch-threshold="1" data-watch data-watch-once href="#" target="_blank" class="network__item">
+							<img src="img/bitrue.png" alt="Image">
+						</a>
+					</div>
+					<div data-watch-threshold="1" data-watch data-watch-once class="network__text text">
+						More exchange listings are on the way.
+					</div>
+				</div>
+			</section>
+			<div class="page__line line line--bg">
+				<div class="line__row">
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+				</div>
+				<div class="line__row">
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+				</div>
+			</div>
+			<section class="page__tokenomiks tokenomiks">
+				<div class="tokenomiks__container">
+					<div class="tokenomiks__header">
+						<h1 data-watch-threshold="1" data-watch data-watch-once class="tokenomiks__title title-h2">
+							TOKENOMICS
+						</h1>
+						<div data-watch-threshold="1" data-watch data-watch-once class="tokenomiks__subtitle subtitle">
+							Kai made 800 Million tokens This shows that when it comes to driving growth and innovation
+							at Binance, Kai's paws are all over it!
+						</div>
+					</div>
+					<div class="tokenomiks__body">
+						<div data-watch-threshold="0.6" data-watch data-watch-once class="tokenomiks__left">
+							<div class="tokenomiks__img">
+								<img src="img/tokenomiksimg.png" alt="Image">
+							</div>
+							<a href="#" class="tokenomiks__button button">
+								<span>BUY Kai here</span>
+							</a>
+						</div>
+						<div data-watch-threshold="0.6" data-watch data-watch-once class="tokenomiks__right">
+							<div class="tokenomiks__img-paw">
+								<img src="img/paw1.png" alt="Image">
+								<img src="img/paw2.png" alt="Image">
+							</div>
+							<div class="tokenomiks__items">
+								<div class="tokenomiks__item">
+									<div class="tokenomiks__item-title">
+										TOTAL SUPPLY
+									</div>
+									<div class="tokenomiks__item-subtitle">
+										555,555,555 $kai
+									</div>
+								</div>
+								<div class="tokenomiks__item">
+									<div class="tokenomiks__item-title">
+										TOKEN ADDRESS
+									</div>
+									<div data-clipboard class="cn">
+										<span data-clipboardEl class="cn__address">
+											5z3Eqrt344gYQwerg5z3Eqrt344gYQwerg5z3Eqrt344gYQwerg
+										</span>
+										<button type="button" data-clipboardBtn aria-label="copy text" class="cn__button">
+											<svg viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<rect x="2" y="2" width="83" height="83" fill="black" />
+												<rect x="2" y="2" width="83" height="83" stroke="black" stroke-width="4" />
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M63.7711 19.9679H29.9138V27.6846H23.2289V67.0321H56.2988V60.8585H63.7711V19.9679ZM56.2988 56.6151H59.4405V24.2113H34.2444V27.6846H56.2988V56.6151ZM27.5595 62.7888V31.9279H51.9682V62.7888H27.5595Z" />
+											</svg>
+										</button>
+										<div data-cnHint class="cn__hint">Copied to clipboard </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="page__line line">
+				<div class="line__row">
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+				</div>
+				<div class="line__row">
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+					<span>
+						$kai
+					</span>
+				</div>
+			</div>
+			<section class="page__socials socials">
+				<div class="socials__container">
+					<div class="socials__header">
+						<h2 data-watch-threshold="1" data-watch data-watch-once class="socials__title title-h2">
+							SOCIALS
+						</h2>
+						<div data-watch-threshold="1" data-watch data-watch-once class="socials__subtitle subtitle">
+							Join the $kai community
+						</div>
+						<div data-watch-threshold="1" data-watch data-watch-once class="socials__items">
+							<a href="https://x.com/KaiBinanceDog" target="_blank" class="socials__item social-item">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 37" fill="none">
+									<path d="M32.2892 0L38.5759 0L24.8409 15.6746L41 37H28.3481L18.4397 24.0646L7.09983 37H0.80975L15.5014 20.2338L0 0.0017057L12.9731 0.0017057L21.9299 11.8251L32.2892 0ZM30.0838 33.2442H33.567L11.0803 3.55963H7.34242L30.0838 33.2442Z" />
+								</svg>
+							</a>
+							<a href="https://t.me/KaiTheBinanceDog" target="_blank" class="socials__item social-item">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 39" fill="none">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M36.0727 1.22351C36.5684 0.933621 37.1325 0.782966 37.7061 0.787225C38.2798 0.791485 38.8421 0.950505 39.3346 1.24773C39.8271 1.54496 40.2317 1.96953 40.5063 2.47725C40.7809 2.98497 40.9155 3.55728 40.896 4.13461L39.874 34.157C39.7728 37.0533 36.893 39.078 34.1286 37.9982C31.8162 37.0948 28.3732 35.6874 25.2425 34.1595C23.677 33.3944 18.8645 30.9186 19.1283 28.6814C19.3562 26.7683 25.8851 18.8477 29.5952 14.1608C31.0512 12.3197 30.1706 11.4793 28.3965 13.229C23.9908 17.5732 16.8766 24.2329 14.4886 26.1573C12.382 27.8542 11.2204 28.2473 9.76361 28.1918C7.10598 28.0912 4.60635 27.7268 2.53117 27.1578C-0.272932 26.3895 -0.618503 22.6882 1.77246 21.2892L36.0727 1.22351Z" />
+								</svg>
+							</a>
+							<a href="https://www.instagram.com/p/Cw2VfTZLC97/?igsh=MzRlODBiNWFlZA==" target="_blank" class="socials__item social-item">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" fill="none">
+									<path d="M15.9298 4.86042L30.8309 5.32265C36.5075 5.49874 40.9766 10.254 40.8005 15.9306L40.3383 30.8317C40.2536 33.5605 39.0885 36.1438 37.0991 38.0135C35.1097 39.8832 32.4591 40.886 29.7303 40.8013L14.8293 40.3391C9.15266 40.163 4.68351 35.4077 4.8596 29.7311L5.32183 14.8301C5.40648 12.1013 6.57165 9.51794 8.56104 7.64827C10.5504 5.77859 13.201 4.77577 15.9298 4.86042ZM15.465 8.39728C13.7713 8.34474 12.126 8.96718 10.8912 10.1277C9.65646 11.2882 8.93324 12.8916 8.8807 14.5853L8.39646 30.196C8.28695 33.7261 11.0544 36.6707 14.5845 36.7802L30.1951 37.2645C31.8889 37.317 33.5341 36.6946 34.7689 35.5341C36.0037 34.3736 36.7269 32.7701 36.7794 31.0764L37.2637 15.4658C37.3732 11.9357 34.6057 8.99103 31.0756 8.88153L15.465 8.39728ZM32.5009 11.5892C33.089 11.6074 33.6458 11.8586 34.0487 12.2873C34.4516 12.7161 34.6678 13.2873 34.6495 13.8754C34.6313 14.4635 34.3802 15.0203 33.9514 15.4232C33.5227 15.8262 32.9514 16.0423 32.3633 16.024C31.7752 16.0058 31.2185 15.7547 30.8155 15.3259C30.4126 14.8972 30.1964 14.3259 30.2147 13.7378C30.2329 13.1497 30.484 12.593 30.9128 12.19C31.3415 11.7871 31.9128 11.571 32.5009 11.5892ZM23.1052 13.9612C25.4576 14.0342 27.6846 15.0386 29.2964 16.7536C30.9082 18.4686 31.7727 20.7536 31.6997 23.106C31.6268 25.4584 30.6223 27.6855 28.9073 29.2972C27.1923 30.909 24.9073 31.7735 22.5549 31.7006C20.2025 31.6276 17.9755 30.6231 16.3637 28.9081C14.7519 27.1932 13.8874 24.9081 13.9604 22.5557C14.0334 20.2034 15.0378 17.9763 16.7528 16.3645C18.4678 14.7527 20.7528 13.8882 23.1052 13.9612ZM22.9951 17.5091C21.5837 17.4653 20.2127 17.984 19.1837 18.9511C18.1547 19.9181 17.552 21.2544 17.5083 22.6658C17.4645 24.0772 17.9832 25.4482 18.9502 26.4772C19.9173 27.5062 21.2535 28.1089 22.665 28.1527C24.0764 28.1965 25.4474 27.6778 26.4764 26.7107C27.5054 25.7436 28.1081 24.4074 28.1519 22.996C28.1956 21.5845 27.6769 20.2135 26.7099 19.1845C25.7428 18.1555 24.4066 17.5529 22.9951 17.5091Z" />
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div data-watch-threshold="0.6" data-watch data-watch-once class="socials__body">
+						<div class="socials__img">
+							<img src="img/fox.png" alt="Image">
+						</div>
+						<div class="socials__right">
+							<div class="socials__img-paws">
+								<!-- <img src="img/paws-social.png" alt="Image"> -->
+								<img src="img/paw1bot.png" alt="Image">
+								<img src="img/paw2bot.png" alt="Image">
+							</div>
+							<a href="#" class="socials__button button">
+								<span>BUY Kai</span>
+							</a>
+							<div class="socials__kai">
+								$kai
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20240812142428"></script>
+</body>
+
+</html>

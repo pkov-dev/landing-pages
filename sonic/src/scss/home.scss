@@ -1,0 +1,40 @@
+//====================================================================================================
+
+.page-home {
+	padding-top: toRem(80);
+	// .page-home__hero
+	&__hero {
+	}
+	// .page-home__partners
+	&__partners {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+	// .page-home__strategy
+	&__strategy {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+
+	// .page-home__pledge
+	&__pledge {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+
+	// .page-home__precision
+	&__precision {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+}
+
+@import 'page-home/strategy';
+@import 'page-home/pledge';
+@import 'page-home/precision';
+
+//====================================================================================================

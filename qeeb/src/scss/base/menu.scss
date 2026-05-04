@@ -1,0 +1,158 @@
+.menu {
+	@media (max-width: $mobile) {
+		position: fixed;
+	}
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		@media (max-width: $mobile) {
+			position: fixed;
+			width: auto;
+			height: auto;
+			right: 0;
+			transform: rotate(-90deg);
+			transform-origin: top right;
+			top: 0;
+			overflow: auto;
+
+			padding: toRem(45) toRem(15) toRem(45) toRem(60);
+			margin-top: var(--headH);
+			background-color: #7f1cfc;
+			border-radius: 50% 0 0 70%;
+			animation: close 1.2s ease 1 forwards;
+
+			@keyframes menu {
+				25% {
+					transform: rotate(10deg);
+				}
+				100% {
+					transform: rotate(0);
+				}
+			}
+
+			@keyframes close {
+				0% {
+					transform: rotate(0);
+				}
+				25% {
+					transform: rotate(10deg);
+				}
+				100% {
+					transform: rotate(-90deg);
+				}
+			}
+
+			// &::before {
+			// 	content: "";
+			// 	position: fixed;
+			// 	width: 100%;
+			// 	height: toRem(70);
+			// 	left: -100%;
+			// 	top: 0;
+			// 	transition: left 0.3s;
+			// 	z-index: 2;
+			// }
+			.menu-open & {
+				animation: menu 1.2s ease 1 forwards;
+				&::before {
+					left: 0;
+				}
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		@include adaptiveValue('column-gap', 40, 20);
+		row-gap: toRem(15);
+
+		&:not(:last-child) {
+			margin-bottom: toRem(40);
+		}
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			row-gap: toRem(25);
+		}
+	}
+	// .menu__item
+	&__item {
+		@media (any-hover: hover) {
+			&:hover .menu__link {
+				color: var(--text-hover);
+			}
+		}
+	}
+	// .menu__link
+	&__link {
+		font-size: toRem(18);
+		letter-spacing: toRem(0.36);
+		transition: color 0.3s;
+
+		@media (max-width: $mobile) {
+			font-size: toRem(24);
+		}
+	}
+}
+
+//Burger Icon
+.icon-menu {
+	display: none;
+
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: toRem(30);
+		height: toRem(18);
+		z-index: 5;
+
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: '';
+			transition: all 0.3s ease 0s;
+			position: absolute;
+			width: 100%;
+			right: 0;
+			height: toRem(2);
+			background-color: var(--text-hover);
+			border-radius: toRem(3);
+			backface-visibility: hidden;
+		}
+		&::before {
+			top: toRem(0);
+		}
+		&::after {
+			bottom: toRem(0);
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				opacity: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				backface-visibility: hidden;
+				transform: rotate(45deg);
+				transition: 0.3s;
+				top: calc(50% - toRem(1));
+			}
+			&::after {
+				backface-visibility: hidden;
+				transform: rotate(-405deg);
+				transition: 0.3s;
+				bottom: calc(50% - toRem(1));
+			}
+		}
+	}
+}

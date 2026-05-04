@@ -1,0 +1,72 @@
+.offer-card {
+	box-shadow:
+		0 toRem(20) toRem(24) toRem(-4) rgba(16, 24, 40, 0.08),
+		0 toRem(8) toRem(8) toRem(-4) rgba(16, 24, 40, 0.03);
+
+	// .offer-card--bg
+	&--bg {
+		background: linear-gradient(
+			to bottom,
+			var(--bg-third) 0,
+			var(--bg-third) 50%,
+			var(--bg-primary) 50%,
+			var(--bg-primary) 100%
+		);
+		@include adaptiveValue('padding-bottom', 100, 25, 0, $maxWidthContainer, 768);
+		@include adaptiveValue('padding-top', 100, 25, 0, $maxWidthContainer, 768);
+	}
+	// .offer-card__container
+	&__container {
+		display: flex;
+		border-radius: toRem(16);
+		background-color: var(--bg-secondary);
+		@include adaptiveValue('padding', 64, 25);
+		justify-content: space-between;
+		gap: toRem(20);
+		flex-wrap: wrap;
+		align-items: flex-start;
+
+		@media (max-width: toEm(1276)) {
+			max-width: calc(100% - toRem(30));
+		}
+	}
+
+	// .offer-card__content
+	&__content {
+		flex: 1 1 60%;
+	}
+	// .offer-card__title
+	&__title {
+		color: var(--text-accent);
+		@include adaptiveValue('font-size', 30, 24);
+		font-weight: 600;
+		line-height: 1.26;
+
+		&:not(:last-child) {
+			margin-bottom: toEm(16, 30);
+		}
+	}
+	// .offer-card__text
+	&__text {
+		@include adaptiveValue('font-size', 20, 16);
+		line-height: 1.5;
+		&:not(:last-child) {
+			margin-bottom: toEm(16, 20);
+		}
+		p {
+			&:not(:last-child) {
+				margin-bottom: toEm(10, 20);
+			}
+		}
+	}
+	// .offer-card__buttons
+	&__buttons {
+	}
+	// .offer-card__button
+	&__button {
+		@media (max-width: toEm(375)) {
+			flex-grow: 1;
+			text-align: center;
+		}
+	}
+}

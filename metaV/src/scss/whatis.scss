@@ -1,0 +1,101 @@
+.what {
+	@include adaptiveValue("padding-bottom", 150, 60);
+	@include adaptiveValue("padding-top", 80, 40);
+	position: relative;
+
+	&::before {
+		@extend %decorBg;
+		transform: translate(-40%, -35%);
+	}
+
+	// .what__container
+	&__container {
+		display: flex;
+		@include adaptiveValue("column-gap", 154, 30, 0, $containerWidth, 992);
+		@include adaptiveValue("row-gap", 70, 40);
+		flex-wrap: wrap;
+		
+		align-items: center;
+		@media (max-width: $mobile) {
+			flex-direction: column;
+		}
+	}
+	// .what__img
+	&__img {
+		position: relative;
+		flex-basis: 44.35%;
+		aspect-ratio: 532 / 439;
+		justify-content: space-between;
+		padding: toRem(12) toRem(8);
+		display: flex;
+	}
+	// .what__title
+	&__title {
+		flex: 1 1 flBasis(2, 154, 400);
+	}
+}
+.what {
+	// .what__img
+	&__img {
+	}
+}
+.img-what {
+	// .img-what__svg
+	&__svg {
+	}
+	// .img-what__left
+	&__left {
+	}
+	// .img-what__right
+	&__right {
+	}
+}
+
+.img-what {
+	// .img-what__svg
+	&__svg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	// .img-what--left
+	&__left {
+		width: 55.03876%; /* 284/516 */
+		align-self: flex-start;
+		aspect-ratio: 284 / 298;
+		border-radius: 0 10.600707% 0 10.600707%;
+		overflow: hidden;
+
+		@media (max-width: toEm(375)) {
+			aspect-ratio: 284 / 290;
+		}
+
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	// .img-what--right
+	&__right {
+		width: 56.20155%; /* 290/516 */
+		aspect-ratio: 290 / 308;
+		object-fit: cover;
+		margin-left: toRem(-56);
+		align-self: end;
+		border-radius: 10.600707% 0 10.600707% 0;
+		overflow: hidden;
+
+		@media (max-width: toEm(375)) {
+			aspect-ratio: 284 / 290;
+		}
+
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

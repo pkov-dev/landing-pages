@@ -1,0 +1,65 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+	transition:
+		background-color 0.5s,
+		backdrop-filter 0.5s;
+
+	@media (min-width: $tablet) {
+		&._header-scroll {
+			background-color: rgba(211, 154, 232, 0.7);
+			backdrop-filter: blur(toRem(20));
+		}
+	}
+
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(20);
+		padding-top: toRem(5);
+		padding-bottom: toRem(10);
+		align-items: center;
+		position: relative;
+		z-index: 1;
+	}
+	// .header__logo
+	&__logo {
+		aspect-ratio: 112 / 56;
+		flex-basis: toRem(112);
+		flex-shrink: 0;
+		position: relative;
+		z-index: 5;
+		display: flex;
+		align-items: center;
+
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__button
+	&__button {
+		min-height: toRem(62);
+		min-width: toRem(255);
+		@include adaptiveValue('min-width', 255, 210, 1, $containerWidth, 991.98);
+
+		@media (max-width: $tablet) {
+			width: max-content;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		span {
+			font-size: toRem(36);
+			@include adaptiveValue('font-size', 36, 32, 1, $containerWidth, 991.98);
+		}
+	}
+}

@@ -1,0 +1,86 @@
+.cn {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	// !Font-size and font-famili тут для hint
+	font-family: 'Super Webcomic Bros';
+	@include adaptiveValue('font-size', 48, 22);
+	@include adaptiveValue('column-gap', 24, 15);
+
+	&:has(.cn__button:hover) span {
+		color: #ee4e0a;
+	}
+
+	// .cn__address
+	&__address {
+		color: #000;
+		text-align: center;
+		-webkit-line-clamp: 1;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-break: break-all;
+		transition: color 0.2s;
+		will-change: color;
+	}
+	// .cn__button
+	&__button {
+		@media (any-hover: hover) {
+			&:hover svg path {
+				fill: #ee4e0a;
+			}
+		}
+		svg {
+			@include adaptiveValue('width', 87, 47, 2, $containerWidth, 991.98);
+			@include adaptiveValue('width', 87, 47, 3, 991.98, 320);
+
+			path {
+				fill: #fff;
+				will-change: fill;
+				transition: fill 0.2s;
+			}
+		}
+	}
+	// .cn__hint
+	&__hint {
+		position: absolute;
+		display: flex;
+		top: 0;
+		left: 50%;
+		padding: toRem(15) toRem(20) toRem(10) toRem(20);
+		z-index: 100;
+		border-radius: toRem(8);
+		white-space: nowrap;
+		pointer-events: none;
+		transform: translate(-50%, -100%) scale(0.5);
+		opacity: 0;
+		transition: transform 0.3s, opacity 0.3s;
+
+		color: #fff;
+		font-size: 70%;
+
+		&,
+		&::after {
+			background-color: #252424;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 90%);
+			width: 12%;
+			aspect-ratio: 1/ 0.55;
+			clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+		}
+
+		.active & {
+			transform: translate(-50%, -100%) scale(1);
+			opacity: 1;
+		}
+	}
+}

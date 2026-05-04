@@ -1,0 +1,21 @@
+:root {
+	/* Шрифт за замовчуванням */
+	--font-body: 'Jost', sans-serif;
+	--font-heading: 'Crog', sans-serif;
+	/* Розмір шрифту за замовченням (де 16 - розмір шрифту за замовчуванням з макету)  */
+	--font-size: 24px;
+	/* Основні кольори */
+	--main-color: #000;
+
+	--bg-primary: #7bc3bf;
+	--bg-secondary: #fff;
+	--bg-accent: #000;
+	--bg-accent-2: #fec14d;
+	--bg-inverse: #2d00f7;
+
+	--text-primary: #151515;
+	--text-secondary: #000;
+	--text-accent: #5a5a5a;
+	--text-accent-sec: #d63641;
+	--text-inverse: #fff;
+}

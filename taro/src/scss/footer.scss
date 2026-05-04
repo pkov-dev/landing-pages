@@ -1,0 +1,235 @@
+.footer {
+	position: relative;
+	padding-top: toRem(85);
+	margin-top: toRem(-20);
+
+	// .footer__bg
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0%;
+		left: 0%;
+		pointer-events: none;
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0%;
+			left: 0%;
+			object-fit: cover;
+			z-index: 1;
+		}
+	}
+	// .footer__top
+	&__top {
+	}
+	// .footer__container
+	&__container {
+		position: relative;
+		z-index: 2;
+
+		.footer__top & {
+			display: grid;
+			grid-template-columns: 1.2fr 0.9fr 1fr;
+			align-items: start;
+			@include adaptiveValue('column-gap', 104, 40);
+
+			@media (max-width: $mobile) {
+				grid-template-columns: 1fr;
+				justify-items: center;
+				row-gap: toRem(30);
+			}
+
+			@media ((min-width: $mobile) and (max-width: $tablet)) {
+				grid-template-columns: repeat(2, 1fr);
+				justify-items: center;
+			}
+		}
+		.footer__bottom & {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			column-gap: toRem(15);
+
+			@media (max-width: $mobile) {
+				flex-wrap: wrap;
+				justify-content: space-around;
+				row-gap: toRem(10);
+			}
+
+			@media (max-width: $mobileSmall) {
+				flex-direction: column;
+			}
+		}
+	}
+	// .footer__social-link
+	&__social-link {
+	}
+	// .footer__img
+	&__img {
+		position: relative;
+		aspect-ratio: 542 / 445;
+		@include adaptiveValue('margin-top', -80, -10, 1, 991.98, 767.98);
+
+		&._watcher-view img {
+			animation: footer-img 0.4s 0.3s forwards;
+		}
+
+		@media (min-width: $tablet) {
+			width: 100%;
+		}
+
+		@media ((min-width: $mobile) and (max-width: $tablet)) {
+			grid-column: span 2;
+			width: 50%;
+		}
+		@media (max-width: $mobile) {
+			width: 60%;
+		}
+		img {
+			transform: translate(50%, 50%) scale(0.4);
+			opacity: 0;
+			visibility: hidden;
+			will-change: transform, visibility, opacity;
+
+			@keyframes footer-img {
+				0% {
+					transform: translate(50%, 50%) scale(0.4);
+					opacity: 0;
+					visibility: hidden;
+				}
+				100% {
+					opacity: 1;
+					visibility: visible;
+					transform: translate(0, 0);
+				}
+			}
+			@media (max-width: $tablet) {
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			@media (min-width: $tablet) {
+				position: absolute;
+				width: 134%;
+				top: -36%;
+				left: -8%;
+			}
+		}
+	}
+	// .footer__bottom
+	&__bottom {
+		position: relative;
+		z-index: 3;
+		border-top: toRem(5) solid #000;
+		background-color: #fff;
+		backdrop-filter: blur(toRem(2));
+		padding: toRem(8) 0;
+		@include adaptiveValue('margin-top', -40, -10);
+	}
+	// .footer__copy
+	&__copy {
+		color: #000;
+		font-style: normal;
+		text-transform: uppercase;
+		@include adaptiveValue('font-size', 20, 16);
+	}
+
+	// .footer__mail
+	&__mail {
+		line-height: 1.3;
+		text-transform: uppercase;
+		display: flex;
+		align-items: center;
+		gap: toRem(12);
+		transition: color 0.2s;
+		@include adaptiveValue('font-size', 20, 16);
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #ff212e;
+			}
+			&:hover svg {
+				fill: #ff212e;
+			}
+		}
+
+		svg {
+			aspect-ratio: 24 / 20;
+			fill: #000;
+			transition: fill 0.2s;
+			@include adaptiveValue('width', 24, 18);
+		}
+	}
+
+	// .footer__osnovo
+	&__osnovo {
+		aspect-ratio: 234 / 32;
+		transition: transform 0.2s;
+		will-change: transform;
+		@include adaptiveValue('width', 234, 190);
+
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+
+		svg {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+}
+.top-footer {
+	// .top-footer__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(8);
+
+		@media (min-width: $mobile) {
+			padding-bottom: toRem(50);
+		}
+	}
+	// .top-footer__item
+	&__item {
+	}
+	// .top-footer__link
+	&__link {
+		color: #000;
+		font-family: 'Revue';
+		font-weight: 500;
+		line-height: 130%; /* 83.2px */
+		text-transform: uppercase;
+		transition: color 0.2s;
+		will-change: color;
+		@include adaptiveValue('font-size', 64, 38, 2, $containerWidth, 991.98);
+		@include adaptiveValue('font-size', 54, 38, 3, 991.98, 320);
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #ff212e;
+			}
+		}
+	}
+
+	// .top-footer__social
+	&__social {
+		display: flex;
+		align-items: flex-start;
+		gap: toRem(16);
+		flex-wrap: wrap;
+		@media (max-width: $mobile) {
+			justify-content: center;
+		}
+		@media (min-width: $mobile) {
+			max-width: toRem(255);
+		}
+	}
+	// .footer__social-link
+	&__social-link {
+		align-self: flex-start;
+	}
+}

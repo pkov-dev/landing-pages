@@ -1,0 +1,176 @@
+.menu {
+	@media (min-width: $tablet) {
+		display: flex;
+		align-items: center;
+		border-radius: toRem(16);
+		border: toRem(4) solid #000;
+		padding: toRem(8);
+		background: linear-gradient(180deg, #fdf9d4 21.78%, #fbdca3 100%);
+	}
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		display: flex;
+		align-items: center;
+		gap: toRem(8);
+		@media (max-width: $tablet) {
+			position: fixed;
+			width: auto;
+			height: auto;
+			right: -100%;
+			top: toRem(100);
+			overflow: auto;
+			padding: toRem(30);
+			transition: right 0.3s;
+			flex-direction: column;
+			border-radius: toRem(16);
+			border: toRem(4) solid #000;
+			background: linear-gradient(180deg, #fdf9d4 21.78%, #fbdca3 100%);
+			row-gap: toRem(30);
+
+			.menu-open & {
+				right: 0;
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(10);
+
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			gap: toRem(30);
+			width: 100%;
+		}
+
+		.footer & {
+		}
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		display: block;
+		text-align: center;
+		color: #000;
+		font-weight: 700;
+		line-height: normal;
+		border-radius: toRem(12);
+		border: toRem(4) solid #000;
+		background: linear-gradient(180deg, #fdfad5 0%, rgba(252, 244, 148, 0.98) 100%);
+		padding: toRem(6) toRem(20);
+		transition:
+			color 0.2s,
+			background-color 0.2s,
+			box-shadow 0.2s;
+		will-change: color, background-color, box-shadow;
+
+		@include adaptiveValue('padding-left', 24, 10, 1, $containerWidth, 991.98);
+		@include adaptiveValue('padding-right', 24, 10, 1, $containerWidth, 991.98);
+		@include adaptiveValue('font-size', 24, 20, 2, $containerWidth, 991.98);
+
+		&._navigator-active {
+			background: linear-gradient(180deg, #ffff10 -22.89%, #ffab10 164.47%);
+			box-shadow: 0 toRem(-17) 0 0 rgba(217, 156, 2, 0.23) inset;
+		}
+
+		.footer & {
+			@include adaptiveValue('padding-left', 24, 6, 2, $containerWidth, 991.98);
+			@include adaptiveValue('padding-left', 24, 20, 3, 991.98, 320);
+
+			@include adaptiveValue('padding-right', 24, 6, 2, $containerWidth, 991.98);
+			@include adaptiveValue('padding-right', 24, 20, 3, 991.98, 320);
+
+			@include adaptiveValue('font-size', 24, 18, 2, $containerWidth, 991.98);
+		}
+
+		@media (max-width: $tablet) {
+			font-size: toRem(24);
+			padding-top: toRem(10);
+			padding-bottom: toRem(10);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #378fcf;
+			}
+		}
+	}
+
+	// .menu__button
+	&__button {
+	}
+	// .menu__social
+	&__social {
+		display: flex;
+		align-items: center;
+		gap: toRem(10);
+		align-items: center;
+	}
+	// .menu__social-link
+	&__social-link {
+	}
+
+	.social-link {
+	}
+}
+
+//Burger Icon
+.icon-menu {
+	display: none;
+	@media (max-width: $tablet) {
+		display: block;
+		position: relative;
+		width: toRem(60);
+		aspect-ratio: 1;
+		z-index: 5;
+		background-color: #7ed5f2;
+		border-radius: 50%;
+		border: toRem(4) solid #000;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: '';
+			transition: all 0.3s ease 0s;
+			right: toRem(10);
+			position: absolute;
+			width: calc(100% - toRem(20));
+			height: toRem(3);
+			background-color: #000;
+			backface-visibility: hidden;
+		}
+		&::before {
+			top: toRem(14);
+		}
+		&::after {
+			bottom: toRem(14);
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				opacity: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - toRem(1.5));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - toRem(1.5));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

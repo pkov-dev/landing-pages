@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>PRICH</title>
+	<meta charset="UTF-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="description" content="PRICH is a dynamic meme token landing page featuring animated UI, tokenomics, AI-driven content, and merch integration. Built for Web3 engagement and conversion." />
+	<style>
+		body {
+			opacity: 0;
+			visibility: hidden;
+			transition:
+				opacity 0.2s ease 0.2s,
+				visibility 0.2s ease 0.2s;
+		}
+
+		.loaded body {
+			opacity: 1;
+			visibility: visible;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20260503094849" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="menu-open-bg"></div>
+		<header class="header">
+			<div class="header__container">
+				<a href="../" class="header__logo"><img src="img/logo.svg" aria-label="website logo" alt="Logo" /></a>
+				<div class="header__right">
+					<div class="header__menu menu">
+						<button type="button" aria-label="toggle header menu" class="menu__icon icon-menu">
+							<span></span>
+							<i></i>
+						</button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="#" data-goto=".about" data-goto-top="40" class="menu__link">About</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" data-goto=".how" data-goto-top="-50" class="menu__link">How to buy</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" data-goto=".tokenomics" class="menu__link">Tokenomics</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<a href="#" class="header__button" data-da=".menu__body, 767.98"><span>BUY NOW</span></a>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="page__hero hero">
+				<div class="hero__container">
+					<div class="hero__image">
+						<img src="img/hero/heroImage.webp" loading="eager" fetchpriority="high" decoding="async" alt="" />
+					</div>
+					<div class="hero__content">
+						<h1 class="hero__title">
+							<img src="img/hero/heroTitle.webp" loading="eager" fetchpriority="high" decoding="async" alt="DONG" />
+						</h1>
+						<div class="hero__actions">
+							<a href="#" target="_blank" class="hero__button">
+								<span>BUY NOW</span>
+							</a>
+							<div class="hero__social">
+								<a href="#" target="_blank" rel="noopener noreferrer" aria-label="social x" class="hero__social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+										<g clip-path="url(#clip0_203_607)">
+											<path d="M19.2269 1.65302H22.9069L14.8669 10.843L24.3259 23.346H16.9199L11.1199 15.762L4.48193 23.346H0.799928L9.39993 13.516L0.325928 1.65402H7.91993L13.1629 8.58602L19.2269 1.65302ZM17.9359 21.144H19.9749L6.81193 3.74002H4.62393L17.9359 21.144Z" fill="white" />
+										</g>
+										<defs>
+											<clipPath id="clip0_203_607">
+												<rect width="24" height="24" fill="white" transform="translate(0.325928 0.5)" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+								<a href="#" target="_blank" rel="noopener noreferrer" aria-label="social telegram" class="hero__social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+										<g clip-path="url(#clip0_203_612)">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M21.4435 3.13683C21.7263 3.01567 22.0358 2.97389 22.3399 3.01582C22.6439 3.05775 22.9313 3.18187 23.1723 3.37525C23.4132 3.56863 23.5988 3.8242 23.7097 4.11537C23.8207 4.40654 23.853 4.72266 23.8032 5.03083L21.2078 21.0553C20.956 22.601 19.2899 23.4875 17.8972 22.7175C16.7322 22.0734 15.002 21.0809 13.4457 20.0454C12.6675 19.5271 10.2838 17.8672 10.5768 16.6861C10.8285 15.6762 14.8338 11.8812 17.1225 9.6249C18.0208 8.73847 17.6111 8.22711 16.5503 9.04248C13.916 11.0669 9.68649 14.1456 8.28809 15.0122C7.05449 15.7763 6.41136 15.9068 5.64236 15.7763C4.23939 15.5387 2.93827 15.1706 1.87631 14.7222C0.441299 14.1165 0.511104 12.1083 1.87517 11.5236L21.4435 3.13683Z" fill="white" />
+										</g>
+										<defs>
+											<clipPath id="clip0_203_612">
+												<rect width="24" height="24" fill="white" transform="translate(0.325928 0.5)" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__about about" data-watch="navigator">
+				<div class="about__container">
+					<div class="about__content" data-watch-threshold="0.65" data-watch-once data-watch>
+						<h2 class="about__title" data-watch-threshold="0.9" data-watch-once data-watch>
+							<img data-src="img/about/1.webp" loading="lazy" decoding="async" alt="">
+							<img data-src="img/about/pre.svg" loading="lazy" decoding="async" alt="">
+						</h2>
+						<p class="about__text" data-watch-threshold="0.75" data-watch-once data-watch>
+							Lorem ipsum dolor sit amet consectetur. Dui nunc a diam at habitant laoreet faucibus. Nisl
+							scelerisque amet venenatis eget risus at. Suscipit in amet tincidunt molestie urna.
+							Parturient massa sit cursus aenean turpis leo enim.
+						</p>
+						<div class="about__buttons">
+							<a href="#" target="_blank" class="about__button" data-watch-threshold="0.9" data-watch-once data-watch>
+								<span>BUY NOW</span>
+							</a>
+							<a href="#" target="_blank" class="about__button about__button--transparent" data-watch-threshold="0.9" data-watch-once data-watch>
+								<span>CHART</span>
+							</a>
+						</div>
+					</div>
+					<div class="about__image">
+						<img src="img/about/main.webp" loading="lazy" decoding="async" alt="" />
+					</div>
+				</div>
+			</section>
+			<section class="page__how how" data-watch="navigator">
+				<div class="how__container">
+					<div class="how__wrapper">
+						<div class="how__image">
+							<img data-src="img/buy/main.webp" loading="lazy" decoding="async" alt="">
+						</div>
+						<div class="how__content">
+							<h2 class="how__title" data-watch-threshold="0.9" data-watch-once data-watch>
+								<span>how to BUY</span>
+							</h2>
+							<div class="how__items">
+								<div class="how__item" data-watch-threshold="0.8" data-watch-once data-watch>
+									<h3>
+										<span>1</span>
+										<span>Lorem ipsum </span>
+									</h3>
+									<p>
+										Morem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc vulputate libero et velit interdum,
+									</p>
+								</div>
+								<div class="how__item" data-watch-threshold="0.8" data-watch-once data-watch>
+									<h3>
+										<span>2</span>
+										<span>Lorem ipsum </span>
+									</h3>
+									<p>
+										Morem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc vulputate libero et velit interdum,
+									</p>
+								</div>
+								<div class="how__item" data-watch-threshold="0.8" data-watch-once data-watch>
+									<h3>
+										<span>3</span>
+										<span>Lorem ipsum </span>
+									</h3>
+									<p>
+										Morem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc vulputate libero et velit interdum,
+									</p>
+								</div>
+								<div class="how__item" data-watch-threshold="0.8" data-watch-once data-watch>
+									<h3>
+										<span>4</span>
+										<span>Lorem ipsum </span>
+									</h3>
+									<p>
+										Morem ipsum dolor sit amet, consectetur adipiscing elit.
+										Nunc vulputate libero et velit interdum,
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__tokenomics tokenomics" data-watch="navigator">
+				<div class="tokenomics__container">
+					<div class="tokenomics__body-box">
+						<div class="tokenomics__body">
+							<div data-watch-threshold="0.9" data-watch data-watch-once class="tokenomics__table">
+								<div class="tokenomics__item tokenomics__item--head">
+									<div class="tokenomics__num">
+										№
+									</div>
+									<div class="tokenomics__name">
+										Name
+									</div>
+									<div class="tokenomics__value">
+										Value
+									</div>
+								</div>
+								<div class="tokenomics__item">
+									<div class="tokenomics__num">
+										01
+									</div>
+									<div class="tokenomics__name">
+										Liquidity Provider
+									</div>
+									<div class="tokenomics__value">
+										BURNT
+									</div>
+								</div>
+								<div class="tokenomics__item">
+									<div class="tokenomics__num">
+										02
+									</div>
+									<div class="tokenomics__name">
+										BUY/SELL TAX
+									</div>
+									<div class="tokenomics__value">
+										0/0
+									</div>
+								</div>
+								<div class="tokenomics__item">
+									<div class="tokenomics__num">
+										03
+									</div>
+									<div class="tokenomics__name">
+										Token Supply
+									</div>
+									<div class="tokenomics__value">
+										10B
+									</div>
+								</div>
+							</div>
+							<div class="tokenomics__ca" data-watch-threshold="0.9" data-watch-once data-watch>
+								<span>CA:</span>
+								<button type="button" class="copy-ca-btn">
+									<span class="ca">0x000000000000000000000</span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M0.508027 3.6163V13.6163H8.50803V3.6163H0.508027ZM1.84134 4.94965H7.17468V12.283H1.84134V4.94965ZM3.84134 0.949646V2.28299H9.84134V10.283H11.1747V0.949646H3.84134Z" />
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__ai ai">
+				<div class="ai__container">
+					<div data-watch-threshold="0.4" data-watch data-watch-once class="ai__header">
+						<div class="ai__header-bg">
+							<i>
+								<img src="img/ai/1.webp" loading="lazy" decoding="async" alt="">
+							</i>
+							<i>
+								<img src="img/ai/2.webp" loading="lazy" decoding="async" alt="">
+							</i>
+							<i>
+								<img src="img/ai/3.webp" loading="lazy" decoding="async" alt="">
+							</i>
+							<i>
+								<img src="img/ai/4.webp" loading="lazy" decoding="async" alt="">
+							</i>
+							<i>
+								<img src="img/ai/5.webp" loading="lazy" decoding="async" alt="">
+							</i>
+						</div>
+						<h2 class="ai__title">
+							<span>24/7 PRICH-preaching</span>
+							<span>Twitter machine</span>
+						</h2>
+						<div class="ai__text">
+							<p>
+								Your 24/7 meme specialist, powered by advanced AI to keep the PRICH movement trending
+							</p>
+						</div>
+						<a href="#" target="_blank" class="ai__button">
+							<span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+									<g clip-path="url(#clip0_203_607)">
+										<path d="M19.2269 1.65302H22.9069L14.8669 10.843L24.3259 23.346H16.9199L11.1199 15.762L4.48193 23.346H0.799928L9.39993 13.516L0.325928 1.65402H7.91993L13.1629 8.58602L19.2269 1.65302ZM17.9359 21.144H19.9749L6.81193 3.74002H4.62393L17.9359 21.144Z" fill="white" />
+									</g>
+									<defs>
+										<clipPath id="clip0_203_607">
+											<rect width="24" height="24" fill="white" transform="translate(0.325928 0.5)" />
+										</clipPath>
+									</defs>
+								</svg>
+								Follow $Prich ai
+							</span>
+						</a>
+					</div>
+					<div class="ai__body">
+						<div class="ai__items">
+							<article data-watch-threshold="0.4" data-watch data-watch-once class="ai__card card-ai">
+								<div class="card-ai__top">
+									<div class="card-ai__icon">
+										<img class="ibg" data-src="img/ai/icon.webp" loading="lazy" decoding="async" alt="">
+									</div>
+									<div class="card-ai__content">
+										<div class="card-ai__header">
+											<h3 class="card-ai__title">
+												Terminal of Rich
+											</h3>
+											<div class="card-ai__address">
+												@prerichterminal
+											</div>
+										</div>
+										<div class="card-ai__text">
+											<p>
+												If I could pick just ONE meme that's gonna skyrocket me to the moon…
+												it's $PRICH. Why settle for average when the PRICH are all about
+												hitting those diamond gains? 💎
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="card-ai__img">
+									<img data-src="img/ai/cardImg.webp" loading="lazy" decoding="async" alt="">
+								</div>
+							</article>
+							<article data-watch-threshold="0.4" data-watch data-watch-once class="ai__card card-ai">
+								<div class="card-ai__top">
+									<div class="card-ai__icon">
+										<img class="ibg" data-src="img/ai/icon.webp" loading="lazy" decoding="async" alt="">
+									</div>
+									<div class="card-ai__content">
+										<div class="card-ai__header">
+											<h3 class="card-ai__title">
+												Terminal of Rich
+											</h3>
+											<div class="card-ai__address">
+												@prerichterminal
+											</div>
+										</div>
+										<div class="card-ai__text">
+											<p>
+												If I could pick just ONE meme that's gonna skyrocket me to the moon…
+												it's $PRICH. Why settle for average when the PRICH are all about
+												hitting those diamond gains? 💎
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="card-ai__img">
+									<img data-src="img/ai/cardImg.webp" loading="lazy" decoding="async" alt="">
+								</div>
+							</article>
+						</div>
+						<div data-watch-threshold="0.4" data-watch data-watch-once class="ai__img">
+							<img class="ibg" src="img/ai/main.webp" loading="lazy" decoding="async" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__merch merch">
+				<div class="merch__container">
+					<div data-watch-threshold="0.7" data-watch data-watch-once class="merch__content">
+						<h2 class="merch__title">
+							Rich Merch
+						</h2>
+						<h3 class="merch__subtitle">
+							PRICH Classic
+						</h3>
+						<div class="merch__text">
+							“POOR? NAH, PRICH”
+						</div>
+						<div data-da=".merch__container, 767.98" class="merch__buttons">
+							<button type="button" aria-label="previous slide" class="swiper-button-prev">
+								<svg width="45" height="37" viewBox="0 0 45 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M43.25 34.7157L2.68559 18.4409L43.25 2.16609L43.25 34.7157Z" stroke="black" stroke-width="2" />
+								</svg>
+							</button>
+							<div class="swiper-pagination"></div>
+							<button type="button" aria-label="next slide" class="swiper-button-next">
+								<svg width="45" height="37" viewBox="0 0 45 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1.75 2.16609L42.3144 18.4409L1.75 34.7157V2.16609Z" stroke="black" stroke-width="2" />
+								</svg>
+							</button>
+						</div>
+						<a href="#" target="_blank" class="merch__button">
+							<span>BUY NOW</span>
+						</a>
+					</div>
+					<div class="merch__slider swiper">
+						<div class="merch__wrapper swiper-wrapper">
+							<div class="merch__slide slide-merch swiper-slide ">
+								<div class="slide-merch__image-box">
+									<div class="slide-merch__image-front">
+										<img src="img/merch/1.webp" loading="lazy" decoding="async" alt="">
+									</div>
+									<div class="slide-merch__image-middle"></div>
+									<div class="slide-merch__image-back"></div>
+								</div>
+							</div>
+							<div class="merch__slide slide-merch swiper-slide ">
+								<div class="slide-merch__image-box">
+									<div class="slide-merch__image-front">
+										<img src="img/merch/2.webp" loading="lazy" decoding="async" alt="">
+									</div>
+									<div class="slide-merch__image-middle"></div>
+									<div class="slide-merch__image-back"></div>
+								</div>
+							</div>
+							<div class="merch__slide slide-merch swiper-slide ">
+								<div class="slide-merch__image-box">
+									<div class="slide-merch__image-front">
+										<img src="img/merch/1.webp" loading="lazy" decoding="async" alt="">
+									</div>
+									<div class="slide-merch__image-middle"></div>
+									<div class="slide-merch__image-back"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<section class="page__join join">
+				<div class="join__body">
+					<div class="join__container">
+						<div class="join__actions" data-watch-threshold="0.9" data-watch data-watch-once>
+							<a href="#" target="_blank" class="join__button">
+								<span>BUY NOW</span>
+							</a>
+							<div class="join__social">
+								<a href="#" target="_blank" rel="noopener noreferrer" aria-label="social x" class="join__social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 26 24" fill="none">
+										<path d="M20.5116 0.966553H24.3697L15.9419 10.6235L25.8576 23.7666H18.0946L12.0101 15.797L5.05581 23.7666H1.19411L10.2077 13.434L0.699944 0.96835H8.66054L14.1521 8.25148L20.5116 0.966553ZM19.1549 21.452H21.2933L7.4925 3.16066H5.19956L19.1549 21.452Z" fill="black" />
+									</svg>
+								</a>
+								<a href="#" target="_blank" rel="noopener noreferrer" aria-label="social telegram" class="join__social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="34" height="29" viewBox="0 0 34 29" fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M30.3488 0.523896C30.7537 0.355091 31.1969 0.296871 31.6323 0.355296C32.0676 0.413721 32.4792 0.586655 32.8242 0.856098C33.1692 1.12554 33.4349 1.48164 33.5938 1.88734C33.7527 2.29304 33.7989 2.7335 33.7276 3.16288L30.0113 25.4903C29.6508 27.644 27.265 28.8791 25.2709 27.8063C23.6028 26.9088 21.1253 25.526 18.8968 24.0832C17.7826 23.361 14.3694 21.0482 14.7889 19.4025C15.1494 17.9954 20.8844 12.7077 24.1616 9.56394C25.4478 8.32885 24.8612 7.61636 23.3423 8.75245C19.5703 11.5732 13.5141 15.8628 11.5118 17.0703C9.74539 18.1349 8.82451 18.3167 7.72339 18.1349C5.71449 17.8039 3.85144 17.291 2.33084 16.6661C0.276068 15.8222 0.376021 13.0242 2.3292 12.2094L30.3488 0.523896Z" fill="black" />
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__top">
+				<div class="footer__container">
+					<div class="footer__top-body">
+						<div class="footer__top-content">
+							<div class="footer__top-menu">
+								<a href="#" data-goto=".about" data-goto-top="40" class="footer__top-menu-item">About</a>
+								<a href="#" data-goto=".how" data-goto-top="-50" class="footer__top-menu-item">how to buy</a>
+								<a href="#" data-goto=".tokenomics" class="footer__top-menu-item">Dongomics</a>
+							</div>
+							<div class="footer__top-social">
+								<a href="#" target="_blank" rel="noopener noreferrer" aria-label="social x" class="footer__top-social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+										<g clip-path="url(#clip0_130_440)">
+											<path d="M19.401 1.65283H23.081L15.041 10.8428L24.5 23.3458H17.094L11.294 15.7618L4.656 23.3458H0.974L9.574 13.5158L0.5 1.65383H8.094L13.337 8.58583L19.401 1.65283ZM18.11 21.1438H20.149L6.986 3.73983H4.798L18.11 21.1438Z" fill="white" />
+										</g>
+										<defs>
+											<clipPath id="clip0_130_440">
+												<rect width="24" height="24" fill="white" transform="translate(0.5 0.5)" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+								<a href="#" target="_blank" rel="noopener noreferrer" aria-label="social telegram" class="footer__top-social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+										<g clip-path="url(#clip0_130_445)">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M21.6176 3.13683C21.9004 3.01567 22.2099 2.97389 22.5139 3.01582C22.818 3.05775 23.1054 3.18187 23.3463 3.37525C23.5873 3.56863 23.7729 3.8242 23.8838 4.11537C23.9948 4.40654 24.027 4.72266 23.9772 5.03083L21.3819 21.0553C21.1301 22.601 19.4639 23.4875 18.0713 22.7175C16.9063 22.0734 15.1761 21.0809 13.6197 20.0454C12.8416 19.5271 10.4579 17.8672 10.7509 16.6861C11.0026 15.6762 15.0078 11.8812 17.2965 9.6249C18.1948 8.73847 17.7852 8.22711 16.7244 9.04248C14.0901 11.0669 9.86056 14.1456 8.46217 15.0122C7.22856 15.7763 6.58543 15.9068 5.81643 15.7763C4.41346 15.5387 3.11234 15.1706 2.05038 14.7222C0.615371 14.1165 0.685176 12.1083 2.04924 11.5236L21.6176 3.13683Z" fill="white" />
+										</g>
+										<defs>
+											<clipPath id="clip0_130_445">
+												<rect width="24" height="24" fill="white" transform="translate(0.5 0.5)" />
+											</clipPath>
+										</defs>
+									</svg>
+								</a>
+								<a href="#" target="_blank" rel="noopener noreferrer" aria-label="social dexscreen" class="footer__top-social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="41" viewBox="0 0 35 41" fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9612 14.7678C22.1917 14.157 23.757 13.2576 25.3245 12.0253C25.6549 12.7088 25.6914 13.3051 25.5208 13.7865C25.4001 14.1258 25.1726 14.421 24.8739 14.6558C24.5503 14.9094 24.1458 15.0945 23.6989 15.1943C22.8509 15.3845 21.8606 15.2737 20.9612 14.7678ZM21.1746 21.0272L22.8032 21.964C19.4778 23.8201 18.5736 27.2666 17.4995 30.6232C16.4258 27.2666 15.5215 23.8198 12.1962 21.964L13.8248 21.0272C14.148 20.9055 14.3559 20.5907 14.3395 20.2469C14.1901 17.1031 15.0426 15.7127 16.1927 14.8401C16.6049 14.5275 17.0552 14.3706 17.4995 14.3706C17.9438 14.3706 18.3941 14.5275 18.8063 14.8401C19.956 15.7131 20.8085 17.1031 20.6595 20.2469C20.6431 20.5907 20.8517 20.9055 21.1746 21.0272ZM17.4999 0.5C19.3825 0.550437 21.2699 0.914252 22.9079 1.62223C24.0423 2.11325 25.1003 2.76151 26.0589 3.53698C26.4917 3.88708 26.8481 4.2253 27.2407 4.61471C28.2995 4.65105 29.8469 3.47987 30.5653 2.38398C29.3288 6.42006 23.6873 11.186 19.7817 13.0099C19.7802 13.0092 19.7791 13.0084 19.778 13.0077C19.0771 12.4747 18.2887 12.2081 17.5002 12.2081C16.7118 12.2081 15.9234 12.4747 15.2225 13.0077C15.2214 13.0084 15.2203 13.0095 15.2188 13.0099C11.3124 11.186 5.67127 6.41969 4.43481 2.38398C5.15322 3.47987 6.70028 4.65142 7.75908 4.61471C8.15162 4.22567 8.50803 3.88708 8.94079 3.53698C9.89904 2.76151 10.9575 2.11325 12.0919 1.62223C13.7302 0.914252 15.6173 0.550437 17.4999 0.5ZM14.0386 14.7678C12.8084 14.157 11.2428 13.2576 9.67521 12.0253C9.34487 12.7088 9.30837 13.3051 9.47857 13.7865C9.59923 14.1258 9.82679 14.421 10.1255 14.6558C10.4495 14.9094 10.8539 15.0945 11.3009 15.1943C12.1489 15.3845 13.1395 15.2737 14.0386 14.7678Z" fill="white" />
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M27.0414 10.5156C27.9043 9.64851 28.6648 8.68872 29.276 7.83203L29.5866 8.41391C30.5862 10.4054 31.1057 12.3892 31.1057 14.6214L31.1035 18.1639L31.1221 20C31.1944 24.5082 32.1742 29.069 34.3931 33.2431L29.7505 29.5152L26.4657 34.8233L23.0148 31.5883L17.4999 40.5001L11.985 31.5887L8.53413 34.8237L5.24934 29.5156L0.606689 33.2435C2.8256 29.0694 3.80508 24.5082 3.8777 20.0004L3.89632 18.1642L3.89409 14.6218C3.89409 12.3892 4.41325 10.4058 5.41321 8.41428L5.72344 7.8324C6.33496 8.68872 7.09508 9.64851 7.95799 10.516L7.68835 11.0734C7.16472 12.1559 6.99155 13.3664 7.39935 14.5179C7.66228 15.2593 8.14197 15.8953 8.76057 16.3808C9.36129 16.8521 10.0722 17.17 10.8164 17.3368C11.3013 17.4455 11.7951 17.4904 12.286 17.4752C12.1716 18.1216 12.1213 18.7917 12.1184 19.4749L7.739 21.9937L11.1184 23.8799C11.3884 24.0309 11.6458 24.2033 11.8871 24.3966C14.6732 26.8876 16.3484 34.257 17.4995 37.8566C18.6507 34.257 20.3259 26.8876 23.112 24.3966C23.3533 24.2037 23.6107 24.0309 23.8807 23.8799L27.2601 21.9937L22.8807 19.4749C22.8774 18.7917 22.8274 18.1216 22.7131 17.4752C23.204 17.4904 23.6978 17.4455 24.1827 17.3368C24.9268 17.17 25.6378 16.8521 26.2385 16.3808C26.8571 15.8953 27.3368 15.2593 27.5997 14.5179C28.0075 13.3668 27.8343 12.1563 27.3107 11.0734L27.0414 10.5156Z" fill="white" />
+									</svg>
+								</a>
+								<a href="#" target="_blank" rel="noopener noreferrer" aria-label="social dextools" class="footer__top-social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M17.2514 5.30398C15.0907 6.43727 13.3231 7.39637 13.3235 7.43542C13.3245 7.53604 18.509 10.1801 18.693 10.1736C18.7766 10.1709 19.3839 9.88929 20.0423 9.54828L21.2396 8.92818L22.5472 9.60502L23.8548 10.282L25.9961 9.31311C29.2226 7.85311 29.5577 7.69311 29.5052 7.63944C29.4356 7.56806 28.2784 6.94212 25.1385 5.27751C23.6211 4.473 22.1483 3.68428 21.8655 3.52458C21.5826 3.36472 21.3128 3.23632 21.2656 3.2388C21.2183 3.24129 19.412 4.1707 17.2514 5.30398ZM7.77495 10.2453L5.52584 11.4153V16.5497C5.52584 19.3736 5.55532 21.684 5.59163 21.684C5.62795 21.684 6.73434 21.201 8.05061 20.6105L10.4439 19.5371V14.1252L11.6135 14.7668C12.5147 15.2607 13.4166 15.7536 14.3188 16.2456L15.8545 17.0829L16.5378 16.7716C16.9664 16.5761 17.3942 16.3788 17.821 16.1795C18.1508 16.0248 18.9605 15.6575 19.6203 15.3633C20.2801 15.0689 20.8908 14.7727 20.9774 14.7053C21.0924 14.6157 19.6897 13.8351 15.7891 11.8181C12.849 10.2977 10.3491 9.05849 10.2338 9.06449C10.1185 9.07049 9.01206 9.60175 7.77495 10.2453ZM29.9103 10.5738C28.3785 11.2701 27.1241 11.8677 27.1227 11.9017C27.1214 11.9358 27.9562 12.4357 28.978 13.0124C29.9998 13.5894 30.8359 14.0922 30.8359 14.1301C30.8359 14.168 29.9317 14.6091 28.8267 15.1107C27.7215 15.6122 24.9282 16.8826 22.6191 17.9337L14.882 21.4553C12.9358 22.3413 11.1814 23.1397 10.9835 23.23C7.00811 25.0422 5.91551 25.545 5.76548 25.6313C5.61458 25.7182 5.58045 26.223 5.55358 28.7569L5.52148 31.7791L7.53284 32.8111L9.54408 33.843L12.333 32.5756C13.867 31.8786 15.122 31.2719 15.122 31.227C15.122 31.1823 14.8385 30.9966 14.4922 30.8136C14.1458 30.6306 13.4305 30.2259 12.9027 29.9136C12.375 29.6014 11.8488 29.315 11.7332 29.2769C11.6177 29.2391 11.5249 29.1729 11.5268 29.1296C11.5287 29.0864 12.7568 28.4991 14.2558 27.8241C17.1672 26.5133 19.3952 25.5031 24.1785 23.3249C26.3173 22.3511 28.4567 21.3782 30.5959 20.4054C32.4762 19.5507 34.6624 18.5527 35.4541 18.1874L36.8935 17.5232L36.9254 14.4666L36.9576 11.4101L34.9176 10.3559C33.7955 9.77598 32.8366 9.30302 32.7862 9.30477C32.736 9.30638 31.442 9.87742 29.9103 10.5738ZM36.3471 21.6008C36.0464 21.7486 35.4528 22.0256 35.0277 22.2159C34.6026 22.4064 33.796 22.7729 33.235 23.0305L32.2155 23.4988L32.1922 26.1822C32.1794 27.658 32.1255 28.859 32.0722 28.8513C31.9516 28.8331 30.0406 27.8462 28.1198 26.8097C26.7333 26.0617 26.6462 26.032 26.3204 26.1945C26.1321 26.2886 25.0063 26.7968 23.8188 27.3244C22.6312 27.852 21.6209 28.3181 21.5732 28.3602C21.526 28.4023 23.9159 29.7066 26.8846 31.2591L32.2822 34.0816L34.5879 32.8804C35.856 32.22 36.9342 31.6174 36.9839 31.5417C37.0956 31.3713 37.086 21.3084 36.9741 21.3221C36.9298 21.3274 36.6477 21.453 36.3471 21.6008ZM23.5788 33.412C23.1788 33.5851 22.779 33.7586 22.3793 33.9322C21.1722 34.4581 21.4087 34.4755 19.9726 33.7557C19.0161 33.2763 18.6038 33.1283 18.4249 33.2001C18.2907 33.2539 17.1353 33.7773 15.8574 34.3632C14.5795 34.9491 13.4896 35.4284 13.4355 35.4284C12.8992 35.4284 13.7907 35.9646 17.2302 37.7117L21.2639 39.7605L22.9612 38.9169C23.8946 38.4528 25.7774 37.5234 27.1452 36.8518C28.5128 36.1799 29.6151 35.6127 29.5944 35.5915C29.5737 35.5701 28.4276 34.9774 27.0476 34.2746L24.5384 32.9967L23.5788 33.412Z" fill="white" />
+									</svg>
+								</a>
+
+							</div>
+							<div class="footer__top-image">
+								<img src="img/footer/footerImage.webp" loading="lazy" decoding="async" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer__bottom">
+					<div class="footer__container">
+						<div class="footer__bottom-body">
+							<span>2024 © ALL RIGHTS RESERVED</span>
+							<a target="_blank" href="https://t.me/osnovoco">
+								<span>Designed by</span>
+								<img src="img/osnovo.svg" loading="lazy" decoding="async" alt="Logo" />
+							</a>
+						</div>
+					</div>
+				</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20260503094849"></script>
+</body>
+
+</html>

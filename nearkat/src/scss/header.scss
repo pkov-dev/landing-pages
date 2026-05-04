@@ -1,0 +1,122 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(20);
+		padding-top: toRem(8);
+		padding-bottom: toRem(8);
+		align-items: center;
+		position: relative;
+		z-index: 1;
+		border-radius: toRem(8);
+		position: relative;
+		@include adaptiveValue('padding-left', 24, 15, 0, $containerWidth, 767.98);
+		@include adaptiveValue('padding-right', 24, 15, 0, $containerWidth, 767.98);
+
+		&::before {
+			content: '';
+			pointer-events: none;
+			position: absolute;
+			width: calc(100% - toRem(1));
+			height: 100%;
+			bottom: toRem(-2);
+			left: 50%;
+			transform: translate(-50%, 0);
+			border-radius: toRem(8);
+			background-color: #fff;
+			@media (max-width: $pc) {
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+			}
+		}
+		&::after {
+			content: '';
+			pointer-events: none;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0%;
+			left: 0%;
+			background-color: #000;
+			border-radius: toRem(8);
+			z-index: 1;
+			@media (max-width: $pc) {
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+			}
+		}
+	}
+	// .header__logo
+	&__logo {
+		aspect-ratio: 199 / 48;
+		position: relative;
+		z-index: 5;
+		@include adaptiveValue('width', 199, 130, 2, $containerWidth, 767.98);
+		@include adaptiveValue('width', 170, 160, 3, 767.98, 320);
+		@media (max-width: $mobile) {
+			order: 1;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__button
+	&__button {
+		position: relative;
+		z-index: 6;
+		color: #6fd6ab;
+		font-size: toRem(20);
+		font-weight: 800;
+		line-height: 1;
+		letter-spacing: toRem(-0.6);
+		text-transform: uppercase;
+		transition: text-shadow 0.2s;
+		font-size: toRem(24);
+		@include adaptiveValue('font-size', 20, 16, 2, $containerWidth, 767.98);
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: toEm(-2, 20);
+			left: 50%;
+			transform: translate(-50%, 0);
+			width: 0;
+			height: 0.125rem;
+			background-color: #6fd6ab;
+			box-shadow:
+				0 0 toRem(2) #6fd6ab,
+				0 0 toRem(2) #6fd6ab,
+				0 0 toRem(2) #6fd6ab;
+			transition: width 0.2s ease 0s;
+		}
+
+		@media (max-width: $mobile) {
+			order: 2;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-shadow:
+					0 0 toRem(2) #6fd6ab,
+					0 0 toRem(2) #6fd6ab,
+					0 0 toRem(2) #6fd6ab;
+			}
+			&:hover::before {
+				width: 100%;
+			}
+		}
+	}
+}

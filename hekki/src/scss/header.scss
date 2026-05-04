@@ -1,0 +1,22 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+
+	// .header__container
+	&__container {
+		max-width: toRem(1010);
+		padding-top: toRem(18);
+
+		@media (max-width: $mobile) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	// .header__menu
+	&__menu {
+	}
+}

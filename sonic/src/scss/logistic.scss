@@ -1,0 +1,35 @@
+.logistic {
+	// .logistic__container
+	&__container {
+		display: flex;
+		@include adaptiveValue('column-gap', 64, 30, 0, $containerWidth, 768);
+		row-gap: toRem(20);
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+		}
+	}
+	// .logistic__left
+	&__left {
+		flex: 1 1 flBasis(2, 64);
+	}
+	// .logistic__header
+	&__header {
+	}
+	// .logistic__text
+	&__text {
+		flex: 1 1 flBasis(2, 64);
+		@include adaptiveValue('font-size', 18, 14);
+		line-height: 155.556%;
+
+		&:not(:last-child) {
+			margin-bottom: toRem(20);
+		}
+
+		p {
+			&:not(:last-child) {
+				@include adaptiveValue('margin-bottom', 20, 15);
+			}
+		}
+	}
+}

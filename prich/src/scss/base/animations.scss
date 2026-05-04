@@ -1,0 +1,397 @@
+//==========================================================
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+//==========================================================
+
+@keyframes to-bottom {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(-40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0));
+  }
+}
+
+@keyframes to-top {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0));
+  }
+}
+
+@keyframes to-left {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(toRem(0));
+  }
+}
+
+@keyframes to-right {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(-40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(toRem(0));
+  }
+}
+
+//==========================================================
+
+@keyframes to-bottom-left {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(-40)) translateX(toRem(40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0)) translateX(toRem(0));
+  }
+}
+
+@keyframes to-bottom-right {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(-40)) translateX(toRem(-40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0)) translateX(toRem(0));
+  }
+}
+
+@keyframes to-top-left {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(40)) translateX(toRem(40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0)) translateX(toRem(0));
+  }
+}
+
+@keyframes to-top-right {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(40)) translateX(toRem(-40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0)) translateX(toRem(0));
+  }
+}
+
+//==========================================================
+
+@keyframes scale-up {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes scale-down {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0;
+  }
+}
+
+@keyframes scale-up-opacity {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    scale: 0;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    scale: 1;
+  }
+}
+
+@keyframes scale-down-opacity {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    scale: 0;
+  }
+}
+
+//==========================================================
+
+@keyframes fall-down {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(-100));
+  }
+  80% {
+    transform: translateY(toRem(20));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0));
+  }
+}
+
+@keyframes fall-down-2 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(-100));
+  }
+  50% {
+    transform: translateY(toRem(0));
+  }
+  65% {
+    transform: translateY(toRem(-10));
+  }
+  80% {
+    transform: translateY(toRem(0));
+  }
+  90% {
+    transform: translateY(toRem(-5));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0));
+  }
+}
+
+// ease-in + transform-origin: right;
+@keyframes fall-down-3 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(-100)) translateX(toRem(0)) rotate(20deg);
+  }
+  85% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0)) translateX(toRem(0)) rotate(20deg);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0)) translateX(toRem(-5)) rotate(0deg);
+  }
+}
+
+@keyframes jump-up {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(toRem(100));
+  }
+  80% {
+    transform: translateY(toRem(-20));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(toRem(0));
+  }
+}
+
+//==========================================================
+
+@keyframes skew-right {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(-60)) skewX(0);
+  }
+  75% {
+    transform: translateX(toRem(15)) skewX(-15deg);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(toRem(0)) skewX(0);
+  }
+}
+
+@keyframes skew-left {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(60)) skewX(0);
+  }
+  75% {
+    transform: translateX(toRem(-15)) skewX(15deg);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(toRem(0)) skewX(0);
+  }
+}
+
+//==========================================================
+
+// 3D animations!  Батьківський блок повинен мати perspective i transform-style: preserve-3d;
+
+//==========================================================
+
+@keyframes anim-3d-to-bottom {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateX(90deg) translateY(toRem(-60));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateX(0deg) translateY(toRem(0));
+  }
+}
+
+@keyframes anim-3d-to-top {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateX(90deg) translateY(toRem(60));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateX(0deg) translateY(toRem(0));
+  }
+}
+
+//==========================================================
+
+//  transform-origin: left;
+@keyframes anim-3d-open-left {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateY(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateY(0deg);
+  }
+}
+
+//  transform-origin: right;
+@keyframes anim-3d-open-right {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateY(-90deg);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateY(0deg);
+  }
+}
+
+//==========================================================
+
+//  transform-origin: left; + ease-in-out
+@keyframes anim-3d-open-left-2 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateY(90deg);
+  }
+  80% {
+    transform: rotateY(-30deg);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateY(0deg);
+  }
+}
+
+//  transform-origin: right; + ease-in-out
+@keyframes anim-3d-open-right-2 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateY(-90deg);
+  }
+  80% {
+    transform: rotateY(30deg);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateY(0deg);
+  }
+}
+
+//==========================================================
+
+//  transform-origin: bottom; or  transform-origin: top;
+
+@keyframes anim-3d-stand-up {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateX(0deg);
+  }
+}
+
+//==========================================================

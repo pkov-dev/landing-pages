@@ -1,0 +1,42 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(20);
+		padding-top: toRem(30);
+		// padding-bottom: toRem(5);
+		align-items: center;
+		position: relative;
+		z-index: 1;
+		transition: padding-top 1s;
+
+		._header-scroll & {
+			padding-top: 0;
+		}
+	}
+	// .header__logo
+	&__logo {
+		aspect-ratio: 186 / 151;
+		flex-shrink: 0;
+		position: relative;
+		z-index: 5;
+		@include adaptiveValue('width', 186, 170, 2, $containerWidth, 991.98);
+		@include adaptiveValue('width', 150, 120, 3, 991.98, 320);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	// .header__menu
+	&__menu {
+	}
+}

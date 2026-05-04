@@ -1,0 +1,440 @@
+//Infinite========================================================================================================================================================
+
+@keyframes run {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(-100%, 0);
+	}
+}
+
+@keyframes what-img1 {
+	0% {
+		transform: translate(-20%, 0);
+	}
+	50% {
+		transform: translate(10%, 10%);
+	}
+	100% {
+		transform: translate(20%, 0%);
+	}
+}
+@keyframes what-img2 {
+	0% {
+		transform: translate(-10%, 0);
+	}
+	100% {
+		transform: translate(10%, 0%);
+	}
+}
+
+@keyframes light {
+	0% {
+		transform: skewY(-10deg);
+	}
+	100% {
+		transform: skewY(10deg);
+	}
+}
+
+// Watcher========================================================================================================================================================
+
+@keyframes vibro {
+	0% {
+		transform: translate(0, 0);
+	}
+	95% {
+		transform: translate(0, 6%);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes vibroScale {
+	0% {
+		transform: scale(0);
+	}
+	90% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes scale {
+	0% {
+		transform: scale(0.5);
+	}
+	100% {
+	}
+}
+
+@keyframes titlh2 {
+	0% {
+		transform: translate(0, 20%) scale(0.8);
+		z-index: -1;
+	}
+	60% {
+		transform: translate(0, -65%) scale(0.95);
+		z-index: -1;
+	}
+	90% {
+		transform: translate(0, 0) scale(1);
+	}
+	95% {
+		transform: translate(0, 4%);
+		z-index: 4;
+		opacity: 1;
+	}
+	100% {
+		transform: translate(0, 0);
+		z-index: 4;
+		opacity: 1;
+	}
+}
+
+@keyframes fall-hero-img {
+	0% {
+		transform: translateY(-100vh) scaleY(1.2) scaleX(1) translateX(-50%);
+	}
+	85% {
+		transform: translateY(5vh) scaleY(0.8) translateX(-50%);
+	}
+	100% {
+		transform: translateY(0) scaleY(1) translateX(-50%);
+	}
+}
+@keyframes fall {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-100vh) scaleY(1.2);
+	}
+	85% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(5vh) scaleY(0.8);
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0) scaleY(1);
+	}
+}
+
+@keyframes from-right {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(100%);
+	}
+	20% {
+		opacity: 1;
+		visibility: visible;
+	}
+	80% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(-10%) scaleX(0.85);
+	}
+
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0) scaleX(1);
+	}
+}
+
+@keyframes from-left {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(-100%);
+	}
+	20% {
+		opacity: 1;
+		visibility: visible;
+	}
+	80% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(10%) scaleX(0.85);
+	}
+
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0) scaleX(1);
+	}
+}
+
+@keyframes fall-buy {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-100vh);
+	}
+	85% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(-1vh);
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(-2vh);
+	}
+}
+
+@keyframes opacity {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translate(0, -20%);
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes fall-roadmap {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-20%) scaleY(1.2);
+	}
+	95% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(5%) scaleY(0.9);
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0) scaleY(1);
+	}
+}
+
+@keyframes wheel {
+	0% {
+		transform: translateX(-100vw) rotate(-1080deg);
+	}
+
+	100% {
+		transform: translateX(0) rotate(0);
+	}
+}
+
+//LIBRARY========================================================================================================================================================
+
+// Нові анімації від скролу
+
+// Анімування прозорості по скролу
+/*
+opacity: 0.2;
+animation: text;
+animation-timeline: view();
+animation-fill-mode: forwards;
+animation-range: cover 20% cover 30%;
+*/
+
+//========================================================================================================================================================
+// З сайта Peshi бігаючі собаки, зміщення по Х від скролу
+
+/*
+.tik-tok::before {
+	animation-fill-mode: forwards;
+	    will-change: right;
+		animation: scroll;
+	    animation-timeline: view();
+	    animation-range: entry 0 cover 60%;
+}
+
+@keyframes scroll {
+	0% {
+		right: 0;
+	}
+	100% {
+		right: 45%;
+	}
+}
+	*/
+
+//========================================================================================================================================================
+// Виліт із прижком три напрямки серія
+
+/*
+@keyframes to-top {
+	0% {
+		transform: translate(0, 50%);
+		opacity: 0;
+		visibility: hidden;
+	}
+	20% {
+		opacity: 1;
+		visibility: visible;
+	}
+	80% {
+		transform: translate(0, -5%);
+		opacity: 1;
+		visibility: visible;
+	}
+	100% {
+		transform: translate(0, 0%);
+		opacity: 1;
+		visibility: visible;
+	}
+}
+*/
+/*
+@keyframes from-right {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(100%);
+	}
+	20% {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	80% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(-5%);
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+	}
+}
+*/
+/*
+@keyframes from-left {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(-100%);
+	}
+	20% {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	80% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(5%);
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+	}
+}
+*/
+
+//========================================================================================================================================================
+// Падіння зверху з ефектом плющеня
+
+/*
+&._watcher-view img {
+			animation: fall 0.35s ease 0.3s forwards;
+		}
+
+@keyframes fall {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-100vh) scaleY(1.2);
+	}
+	85% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(5vh) scaleY(0.8);
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0) scaleY(1);
+	}
+}
+	@keyframes fall {
+		0% {
+			transform: translateY(-100vh) scaleY(1.2) scaleX(1);
+		}
+		85% {
+			transform: translateY(5vh) scaleY(0.8) scaleX(1.1);
+		}
+		100% {
+			transform: translateY(0) scaleY(1) scaleX(1);
+		}
+	}
+*/
+
+//========================================================================================================================================================
+// З сайту Chompy виліт заголовку з-за картки треба гратись із z-index
+
+/*
+@keyframes from-back {
+	0% {
+		transform: translate(0, 200%) scale(.8);
+		z-index: -1;
+	}
+	80% {
+		transform: translate(0, -30%) scale(.95);
+		z-index: -1;
+	}
+	90% {
+		transform: translate(0, 0) scale(1);
+	}
+	95% {
+		transform: translate(0, 4%);
+		z-index: 1;
+		opacity: 1;
+	}
+	100% {
+		transform: translate(0, 0);
+		z-index: 1;
+		opacity: 1;
+	}
+
+}
+*/
+
+// Хвилі чомпі
+/*
+
+@keyframes wawes {
+	0% {
+		transform: translateX(0) skewX(-15deg);
+	}
+	
+	50% {
+		transform: translateX(10%) skewX(15deg);
+	}
+	100% {
+		transform: translateX(0) skewX(-15deg);
+	}
+}
+*/
+
+//Еффект викочування зліва========================================================================================================================================================
+/*
+animation: wheel 0.8s ease-in-out 0.4s forwards;
+@keyframes wheel {
+	0% {
+		transform: translateX(-100vw) rotate(-1080deg);
+	}
+
+	100% {
+		transform: translateX(0) rotate(0);
+	}
+}
+*/

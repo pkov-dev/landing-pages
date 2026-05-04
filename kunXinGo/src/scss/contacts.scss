@@ -1,0 +1,79 @@
+.contacts {
+	background-color: $lightColor;
+	@include adaptiveValue("padding-bottom", 120, 80);
+	// .contacts__container
+	&__container {
+	}
+	// .contacts__title
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 64, 32);
+		}
+	}
+	// .contacts__addsess
+	&__addsess {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 48, 32);
+		}
+	}
+	// .contacts__map
+	&__map {
+		aspect-ratio: 1200 / 420;
+
+		@media (max-width:$tablet){
+			aspect-ratio: 688 / 350;
+		}
+
+		@media (max-width: $mobileSmall) {
+			aspect-ratio: 328 / 350;
+		}
+		iframe {
+			border-radius: toRem(20);
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+.address {
+	display: flex;
+	flex-wrap: wrap;
+	@include adaptiveValue("column-gap", 80, 24, 0, $containerWidth, 768);
+	row-gap: toRem(24);
+
+	// .address__item
+	&__item {
+	}
+	// .address__title
+	&__title {
+		color: $blackColor;
+		font-size: toRem(18);
+		font-weight: 700;
+		line-height: 1.3;
+		&:not(:last-child) {
+			margin-bottom: toRem(16);
+		}
+	}
+
+	// .address__link
+	&__link {
+		display: block;
+		color: $mainColor;
+		font-style: normal;
+		transition: color 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $hoverColor;
+			}
+		}
+		&:not(:last-child) {
+			margin-bottom: toRem(10);
+		}
+	}
+	// .address__social
+	&__social {
+	}
+	// .address__schedule
+	&__schedule {
+	}
+}

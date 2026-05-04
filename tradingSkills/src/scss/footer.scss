@@ -1,0 +1,36 @@
+//====================================================================================================
+
+//====================================================================================================
+.footer {
+	@include adaptiveValue("padding", 60, 20);
+	// .footer__container
+	&__container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("min-height", 412, 300);
+	}
+	// .footer__items
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: toRem(30);
+		column-gap: toRem(40);
+		@media (max-width: $mobileSmall) {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+	// .footer__link
+	&__link {
+		@include adaptiveValue("font-size", 30, 20);
+		line-height: 1.4;
+		letter-spacing: toRem(-0.3);
+		transition: color 0.3s;
+		@media (any-hover: hover){
+			&:hover{
+				color: var(--blue);
+			}
+		}
+	}
+}

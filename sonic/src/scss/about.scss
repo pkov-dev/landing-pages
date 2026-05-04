@@ -1,0 +1,15 @@
+.page-about {
+	padding-top: toRem(80);
+	// .page-about__business
+	&__business {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+	// .page-about__logistic
+	&__logistic {
+	}
+}
+
+@import 'business';
+@import 'logistic';

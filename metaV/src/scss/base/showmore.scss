@@ -1,0 +1,47 @@
+[data-showmore] {
+}
+[data-showmore-content] {
+}
+
+.more-work {
+	@media (max-width: toEm(607)) {
+		display: flex;
+		margin-top: toRem(20);
+		align-items: center;
+		gap: toRem(10);
+		justify-content: space-between;
+	}
+
+	span {
+		@extend %orbit;
+		@include adaptiveValue("font-size", 20, 18);
+		background: var(--text-gr);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-align: left;
+	}
+	// .more-work__show
+	&__show {
+		._showmore-active & {
+			display: none;
+		}
+	}
+	// .more-work__hide
+	&__hide {
+		display: none;
+		._showmore-active & {
+			display: block;
+		}
+	}
+	// .more-work__arr
+	&__arr {
+		transition: transform 0.3s;
+		width: toRem(20);
+		height: toRem(20);
+
+		._showmore-active & {
+			transform: rotate(180deg);
+		}
+	}
+}

@@ -1,0 +1,149 @@
+// <SELECT>
+// Сніппет (HTML): sel
+.select {
+	min-width: 0;
+	width: toRem(44);
+	flex-basis: toRem(44);
+	flex-shrink: 0;
+	position: relative;
+	display: flex;
+	align-items: center;
+	// .select__body
+	&__body {
+		position: relative;
+	}
+	// .select__title
+	&__title {
+		color: var(--text-accent);
+		font-size: toRem(16);
+		line-height: 1.5;
+		text-align: left;
+		background-color: #fff;
+		cursor: pointer;
+		width: 100%;
+	}
+	// .select__value
+	&__value {
+		display: flex;
+		min-width: 0;
+		align-items: center;
+
+		> * {
+			flex: 1 1 auto;
+		}
+		&:after {
+			@extend %ic;
+			content: '\e902';
+			flex: 0 0 toRem(20);
+			width: toRem(20);
+			align-self: stretch;
+			transition: all 0.3s ease 0s;
+			display: flex;
+			font-size: toRem(10);
+			justify-content: center;
+			align-items: center;
+			._select-open & {
+				transform: rotate(-180deg);
+			}
+		}
+		&._select-pseudo-label {
+			&::before {
+				content: attr(data-pseudo-label);
+				opacity: 0.5;
+			}
+		}
+	}
+	// .select__content
+	&__content {
+		flex: 1 1 auto;
+		white-space: nowrap;
+	}
+	// .select__text
+	&__text {
+		flex: 1 1 auto;
+		white-space: nowrap;
+	}
+	&__input {
+		width: 100%;
+		background-color: transparent;
+		height: 100%;
+	}
+	// .select__options
+	&__options {
+		color: #000;
+		position: absolute;
+		top: calc(100% + toRem(8));
+		border-radius: 0 0 toRem(4) toRem(4);
+		min-width: 100%;
+		left: toRem(-8);
+		background-color: #fff;
+		border: toRem(1) solid #d9d9d9;
+		border-top: 0;
+		text-align: center;
+	}
+	// .select__scroll
+	&__scroll {
+		overflow-y: auto;
+		overflow-x: hidden;
+		// Максимальна висота
+		max-height: toRem(200);
+		// Стилі скроллбару
+		.simplebar-scrollbar {
+			&::before {
+				//opacity: 1;
+			}
+		}
+	}
+	// .select__option
+	&__option {
+		width: 100%;
+		text-align: left;
+		cursor: pointer;
+		padding: toRem(3) toRem(8);
+		color: inherit;
+		text-align: center;
+
+		&:last-child {
+			border-radius: 0 0 toRem(4) toRem(4);
+		}
+
+		&._select-selected {
+			background-color: #eee;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--bg-accent);
+				color: var(--text-inverse);
+			}
+		}
+	}
+
+	// Конструкція додаткових даних
+	&__row {
+		display: inline-flex;
+		align-items: center;
+	}
+	&__asset {
+	}
+	&__text {
+	}
+
+	// Стан селекту
+	&._select-open {
+	}
+	&._select-disabled {
+	}
+	&._select-active {
+	}
+	&._select-focus {
+	}
+	&._select-multiple {
+	}
+	&._select-checkbox {
+	}
+}
+
+// Тег
+._select-tag {
+	cursor: pointer;
+}

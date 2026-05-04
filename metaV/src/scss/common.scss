@@ -1,0 +1,212 @@
+.title-block {
+	&.hero__title {
+		@media (max-width: $tablet) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+	& h1 {
+		@include adaptiveValue("font-size", 45, 34);
+		line-height: 1.5;
+	}
+	// .title-block--center
+	&--center {
+		text-align: center;
+		max-width: toRem(602);
+		margin: 0 auto;
+	}
+	// .title-block__title
+	&__title {
+		@extend %orbit;
+		@include adaptiveValue("font-size", 35, 24);
+		font-weight: 600;
+		&:not(:last-child) {
+			margin-bottom: toEm(16, 35);
+		}
+
+		&.hero__title {
+			max-width: toRem(612);
+		}
+	}
+	// .title-block__text
+	&__text {
+		@include adaptiveValue("font-size", 20, 16);
+
+		.hero__title & {
+			max-width: toRem(521);
+		}
+		&:not(:last-child) {
+			margin-bottom: toRem(48);
+		}
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: toEm(10, 20);
+			}
+		}
+	}
+	// .title-block__buttons
+	&__buttons {
+		display: flex;
+		gap: toRem(16);
+		flex-wrap: wrap;
+
+		&:not(:last-child) {
+			margin-bottom: toRem(40);
+		}
+
+		.hero__title & {
+			@media (max-width: $tablet) {
+				margin-bottom: 0;
+				justify-content: center;
+			}
+		}
+	}
+
+	.counter {
+	}
+
+	// .title-block__counters
+	&__counters {
+		display: flex;
+		gap: toRem(68);
+		flex-wrap: wrap;
+
+		@media (max-width: $tablet) {
+			display: grid;
+			gap: 0;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(4, 1fr);
+			height: 100%;
+			position: relative;
+			z-index: 3;
+		}
+	}
+	// .title-block__link
+	&__link {
+	}
+	// .title-block__item
+	&__item {
+	}
+	// .title-block__counter
+	&__counter {
+		@extend %orbit;
+		@include adaptiveValue("font-size", 24, 18);
+		font-weight: 500;
+		display: flex;
+		&:not(:last-child) {
+			margin-bottom: toRem(8);
+		}
+	}
+	// .title-block__subtitle
+	&__subtitle {
+		@include adaptiveValue("font-size", 18, 16);
+		font-size: toRem(18);
+	}
+}
+.gradient {
+	background: var(--text-gr);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.button-link {
+	display: inline-block;
+	padding: toRem(1);
+	background: var(--bg-accent);
+	font-size: toRem(20);
+	font-weight: 500;
+	border-radius: toRem(5);
+	text-align: center;
+
+	.item-work__buttons &{
+		font-size: toRem(16);
+		min-width: toRem(103);
+	}
+	&:hover span {
+		background-color: #010208;
+	}
+
+	span {
+		padding: toRem(11) toRem(13);
+		display: inline-block;
+		width: 100%;
+		border-radius: toRem(5);
+		height: 100%;
+		position: relative;
+		z-index: 10;
+		background-color: transparent;
+		transition: background-color 0.3s;
+	}
+
+	// .button-link--border
+	&--border {
+		span {
+			background-color: #010208;
+		}
+		&:hover span {
+			background-color: transparent;
+		}
+	}
+}
+
+.counter {
+	// .counter--left
+	&--left {
+		grid-row-start: 2;
+		grid-column-start: 1;
+
+		grid-row-end: 4;
+		grid-column-end: 2;
+		justify-self: center;
+	}
+
+	// .counter--middle
+	&--middle {
+		grid-row-start: 1;
+		grid-column-start: 2;
+
+		grid-row-end: 2;
+		grid-column-end: 3;
+		justify-self: center;
+	}
+
+	// .counter--right
+	&--right {
+		grid-row-start: 2;
+		grid-column-start: 4;
+
+		grid-row-end: 3;
+		grid-column-end: 5;
+		justify-self: end;
+
+		@media (max-width: toEm(675)) {
+			grid-row-start: 1;
+			grid-column-start: 4;
+
+			grid-row-end: 2;
+			grid-column-end: 5;
+			align-self: center;
+		}
+	}
+}
+
+/*
+<div class="block__title title-block title-block--center">
+	<h2 class="title-block__title">
+		Explore the future of the <span class="gradient">Metaverse</span>
+	</h2>
+	<div class="title-block__text">
+		<p>
+			Let's explore and create your experience with metaverse.
+		</p>
+	</div>
+	<a href="#" class="title-block__link button-link">
+		<span>Get Started</span>
+	</a>
+	<a href="#" class="title-block__link button-link button-link--border">
+		<span>Explore Now</span>
+	</a>
+</div>
+*/

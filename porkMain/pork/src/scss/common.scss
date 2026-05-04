@@ -1,0 +1,203 @@
+/*
+	<a  479.98" href="#" class="header__button button button--board">
+		<span>BUY NOW</span>
+	</a>
+*/
+.button {
+	position: relative;
+	flex-shrink: 0;
+	width: toRem(185);
+	height: toRem(73);
+	z-index: 20;
+
+	.header & {
+		@include adaptiveValue('width', 185, 170, 2, $containerWidth, 991.98);
+		@include adaptiveValue('width', 170, 140, 3, 991.98, 320);
+		@include adaptiveValue('height', 73, 60, 2, $containerWidth, 991.98);
+		@include adaptiveValue('height', 50, 45, 3, 991.98, 320);
+	}
+
+	.header & {
+		// z-index: 5;
+		@media (max-width: $tablet) {
+			order: 2;
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:hover::before {
+			transform: translate(2%, -15%) rotate(10deg);
+		}
+		&:hover::after {
+			transform: translate(-2%, -15%) rotate(-10deg);
+		}
+		&:hover span {
+			letter-spacing: 0.04em;
+		}
+	}
+
+	&::before,
+	&::after {
+		width: 22%;
+		aspect-ratio: 35 / 38;
+		position: absolute;
+		z-index: -1;
+		will-change: transform;
+		transition: transform 0.2s;
+		pointer-events: none;
+	}
+
+	&::before {
+		content: '';
+		background: url('../img/ear-left.svg') center / contain no-repeat;
+		top: -25%;
+		left: -15%;
+		transform-origin: center bottom;
+	}
+	&::after {
+		content: '';
+		background: url('../img/ear-right.svg') center / contain no-repeat;
+		top: -23%;
+		right: -13%;
+		transform-origin: center bottom;
+	}
+	span {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		background-color: #f796bf;
+		justify-content: center;
+		align-items: center;
+		line-height: 1;
+		font-size: toRem(35);
+		color: #0c0505;
+		border-radius: toRem(3);
+		border: toRem(2.5) solid #0c0505;
+		padding: toRem(8);
+		transition: letter-spacing 0.2s;
+		z-index: 3;
+
+		.header & {
+			@include adaptiveValue('font-size', 35, 22);
+		}
+	}
+	// .button--board
+	&--board {
+		box-shadow: toRem(-2.4) toRem(3.6) 0 0 #87f55b;
+	}
+	// .button--pink-ears
+	&--pink-ears {
+		&::before,
+		&::after {
+			width: 29%;
+		}
+		&::before {
+			background: url('../img/ear-left-pink.svg') center / contain no-repeat;
+			top: -34%;
+			left: -20%;
+		}
+		&::after {
+			background: url('../img/ear-right-pink.svg') center / contain no-repeat;
+			top: -29%;
+			right: -18%;
+		}
+	}
+	// .button--black-shadow
+	&--black-shadow {
+		span {
+			box-shadow: toRem(-3) toRem(3) 0 0 #000;
+		}
+	}
+	// .button__decor
+	&__decor {
+		position: absolute;
+		width: 114%;
+		height: 100%;
+		bottom: -55%;
+		transform: rotate(-3.32deg);
+		left: -8%;
+		pointer-events: none;
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			left: 0;
+			object-fit: contain;
+			z-index: 1;
+		}
+	}
+	// .button__hero-decor
+	&__hero-decor {
+		position: absolute;
+		width: 85%;
+		height: 135%;
+		top: -15%;
+		left: 13%;
+		pointer-events: none;
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: contain;
+			z-index: 1;
+		}
+	}
+}
+
+.social-link {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	aspect-ratio: 1;
+	flex-shrink: 0;
+	border-radius: 50%;
+	border: toRem(3) solid #000;
+	background-color: #252525;
+	box-shadow: 0 toRem(8) 0 0 #000;
+	will-change: box-shadow;
+	transition:
+		box-shadow 0.2s,
+		transform 0.2s;
+	@include adaptiveValue('width', 105, 100);
+
+	@media (max-width: $mobile) {
+		box-shadow: 0 toRem(4) 0 0 #000;
+	}
+	@media (max-width: $mobileSmall) {
+		box-shadow: 0 toRem(2) 0 0 #000;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			box-shadow: none;
+			transform: translate(0, toRem(8));
+		}
+		&:hover svg {
+			width: 50%;
+		}
+	}
+	svg {
+		width: 57%;
+		will-change: width;
+		transition: width 0.2s;
+	}
+	// .social-link--tg
+	&--tg {
+		background-color: #00e0f7;
+	}
+
+	// .social-link--inst
+	&--inst {
+		background-color: #ff532d;
+		// svg {
+		// 	width: 57%;
+		// }
+	}
+}

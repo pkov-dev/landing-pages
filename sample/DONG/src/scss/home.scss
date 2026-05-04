@@ -1,0 +1,1340 @@
+//====================================================================================================
+
+.page {
+  &__hero {
+  }
+  &__about {
+  }
+  &__how {
+    @include adaptiveValue('padding-top', 100, 120);
+    @include adaptiveValue('padding-bottom', 100, 60);
+  }
+  &__tokenomics {
+    @include adaptiveValue('padding-top', 180, 100);
+    @include adaptiveValue('padding-bottom', 120, 80);
+  }
+  &__join {
+  }
+}
+//====================================================================================================
+
+.menu-open-bg {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(toRem(6));
+  opacity: 0;
+  transition: opacity 0.3s ease 0s;
+  .menu-open & {
+    opacity: 1;
+  }
+}
+
+//====================================================================================================
+
+@keyframes to-right {
+  0% {
+    transform: translateX(-150%) scaleX(1) scaleY(1);
+  }
+  80% {
+    transform: translateX(10%) scaleX(0.85) scaleY(1.2);
+  }
+  100% {
+    transform: translateX(0) scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes to-right2 {
+  0% {
+    opacity: 0;
+    transform: translateX(-150%) scaleX(1) scaleY(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(10%) scaleX(0.85) scaleY(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes to-left {
+  0% {
+    transform: translateX(150%) scaleX(1) scaleY(1);
+  }
+  80% {
+    transform: translateX(-10%) scaleX(0.85) scaleY(1.2);
+  }
+  100% {
+    transform: translateX(0) scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes to-left2 {
+  0% {
+    opacity: 0;
+    transform: translateX(150%) scaleX(1) scaleY(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-10%) scaleX(0.85) scaleY(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes to-left-basic {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+@keyframes to-right-basic {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(-40));
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+//====================================================================================================
+
+.hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/heroBg.jpg') center / cover no-repeat;
+  }
+  &__front {
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    & img {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__container {
+    position: relative;
+    min-height: 100vh;
+    z-index: 1;
+    display: flex;
+    @media (max-width: $mobile) {
+      flex-direction: column-reverse;
+      align-items: center;
+      row-gap: toRem(20);
+    }
+  }
+
+  &__image {
+    transform-origin: right;
+    will-change: transform;
+    transform: translateX(-150%) scaleX(1) scaleY(1);
+    .loaded & {
+      animation: to-right 0.6s ease-in 0.4s forwards;
+    }
+    @media (min-width: $mobile) {
+      align-self: flex-end;
+      flex: 0 0 55%;
+    }
+    @media (max-width: $mobile) {
+      max-width: toRem(520);
+    }
+    @media (max-width: $mobileSmall) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    & img {
+      width: 100%;
+      @media (max-width: $mobileSmall) {
+        width: 110%;
+        transform: translateX(1%);
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue('padding-top', 160, 140);
+    @include adaptiveValue(
+      'padding-bottom',
+      80,
+      60,
+      2,
+      $containerWidth,
+      767.98
+    );
+    @media (min-width: $mobile) {
+      align-self: flex-start;
+      flex: 0 0 50%;
+      transform: translateX(-10%);
+      align-items: flex-end;
+      text-align: right;
+    }
+    @media (max-width: $mobile) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    transform-origin: left;
+    will-change: transform;
+    transform: translateX(150%) scaleX(1) scaleY(1);
+    @include adaptiveValue('margin-bottom', 40, 20);
+    .loaded & {
+      animation: to-left 0.6s ease-in 0.4s forwards;
+    }
+    @media (max-width: $mobile) {
+      max-width: toRem(520);
+    }
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__text {
+    position: relative;
+    color: #ecf8ff;
+    font-family: 'Abalone Smile';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(40));
+    @include adaptiveValue('font-size', 20, 18);
+    @include adaptiveValue('margin-bottom', 20, 16);
+    @include adaptiveValue('width', 470, 300, 2, $containerWidth, 767.98);
+    .loaded & {
+      animation: to-left-basic 0.3s ease-out 1.2s forwards;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    column-gap: toRem(16);
+  }
+
+  &__button {
+    position: relative;
+    width: toRem(180);
+    height: toRem(60);
+    border-radius: toRem(13);
+    background-color: #7834c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(40));
+    will-change: transform, opacity, visibility;
+    .loaded & {
+      animation: to-left-basic 0.3s ease-out 1.4s forwards;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        &::after {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        & span {
+          letter-spacing: 0.2em;
+        }
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: toRem(4);
+      border-radius: toRem(10);
+      border: toRem(2) solid #000;
+      background-color: #6de635;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      inset: toRem(12);
+      border-radius: toRem(6);
+      background: linear-gradient(#d4e9fe, transparent toRem(2)),
+        linear-gradient(90deg, #d4e9fe, transparent toRem(2)), #ebf8ff;
+      background-size: toRem(12) toRem(12);
+      background-position: center center;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+    }
+    & span {
+      position: relative;
+      z-index: 3;
+      color: #000;
+      font-family: 'Abalone Smile';
+      font-size: toRem(24);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      transition: letter-spacing 0.2s ease 0s;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    column-gap: toRem(16);
+  }
+
+  &__social-item {
+    flex-shrink: 0;
+    position: relative;
+    width: toRem(60);
+    height: toRem(60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: toRem(13);
+    background-color: #7834c7;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(40));
+    will-change: transform, opacity, visibility;
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        &::after {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        & svg {
+          scale: 1.2;
+        }
+      }
+    }
+    &:nth-child(1) {
+      .loaded & {
+        animation: to-left-basic 0.3s ease-out 1.5s forwards;
+      }
+      &::after {
+        background-color: #000;
+      }
+    }
+    &:nth-child(2) {
+      .loaded & {
+        animation: to-left-basic 0.3s ease-out 1.6s forwards;
+      }
+      &::after {
+        background-color: #0cbeff;
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: toRem(4);
+      border-radius: toRem(10);
+      border: toRem(2) solid #000;
+      background-color: #6de635;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      inset: toRem(12);
+      border-radius: toRem(6);
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+    }
+    & svg {
+      position: relative;
+      z-index: 3;
+      width: 40%;
+      height: 40%;
+      transition: scale 0.2s ease 0s;
+    }
+  }
+}
+
+//====================================================================================================
+
+.about {
+  position: relative;
+  z-index: 2;
+  background-color: #9239d1;
+  @include adaptiveValue('margin-top', -20, 0);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 13%;
+    aspect-ratio: 295 / 418;
+    background: url('../img/AboutDecor.png') center / contain no-repeat;
+  }
+  &__top {
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    @include adaptiveValue('height', 123, 60);
+    & img {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      row-gap: toRem(20);
+    }
+  }
+
+  &__content {
+    @include adaptiveValue('padding-right', 40, 0, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-top', 40, 30, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-top', 50, 40, 3, 767.98, 320);
+    @include adaptiveValue(
+      'padding-bottom',
+      100,
+      60,
+      2,
+      $containerWidth,
+      767.98
+    );
+    @media (min-width: $mobile) {
+      align-self: center;
+      flex: 1 1 auto;
+      &._watcher-view {
+        & .about__title {
+          & span {
+            &:nth-child(1) {
+              animation: to-right2 0.45s ease-in 0.2s forwards;
+            }
+            &:nth-child(2) {
+              animation: to-left2 0.45s ease-in 0.2s forwards;
+            }
+          }
+        }
+        & .about__text {
+          animation: to-right-basic 0.3s ease-out 0.65s forwards;
+        }
+        & .about__button {
+          animation: to-right-basic 0.3s ease-out 0.85s forwards;
+        }
+      }
+    }
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-right: toRem(15);
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: toRem(24);
+    @media (max-width: $mobile) {
+      align-items: center;
+      &._watcher-view {
+        & span {
+          &:nth-child(1) {
+            animation: to-right2 0.45s ease-in 0.2s forwards;
+          }
+          &:nth-child(2) {
+            animation: to-left2 0.45s ease-in 0.2s forwards;
+          }
+        }
+      }
+    }
+    & span {
+      font-family: 'Pulang';
+      font-style: normal;
+      font-weight: 400;
+      line-height: 95%;
+      text-transform: uppercase;
+      will-change: transform, opacity;
+      @include adaptiveValue('font-size', 160, 80, 2, $containerWidth, 767.98);
+      @include adaptiveValue('font-size', 120, 80, 3, 767.98, 320);
+      &:nth-child(1) {
+        color: #000;
+        opacity: 0;
+        transform-origin: right;
+        transform: translateX(-150%) scaleX(1) scaleY(1);
+      }
+      &:nth-child(2) {
+        color: #6de635;
+        -webkit-text-stroke-width: toEm(6, 160);
+        paint-order: stroke fill;
+        -webkit-text-stroke-color: #000;
+        opacity: 0;
+        transform-origin: left;
+        transform: translateX(150%) scaleX(1) scaleY(1);
+      }
+    }
+  }
+
+  &__text {
+    color: #000;
+    font-family: 'Abalone Smile';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(-40));
+    will-change: transform, opacity, visibility;
+    @include adaptiveValue('font-size', 20, 16, 2, $containerWidth, 767.98);
+    @include adaptiveValue('margin-bottom', 35, 24, 2, $containerWidth, 767.98);
+    @include adaptiveValue('font-size', 20, 18, 3, 767.98, 320);
+    @include adaptiveValue('margin-bottom', 35, 24, 3, 767.98, 320);
+    @media (max-width: $mobile) {
+      &._watcher-view {
+        animation: to-right-basic 0.3s ease-out 0.2s forwards;
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    width: toRem(180);
+    height: toRem(60);
+    border-radius: toRem(13);
+    background-color: #6de635;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(-40));
+    will-change: transform, opacity, visibility;
+    @media (max-width: $mobile) {
+      &._watcher-view {
+        animation: to-right-basic 0.3s ease-out 0.2s forwards;
+      }
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        &::after {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        & span {
+          letter-spacing: 0.2em;
+        }
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: toRem(4);
+      border-radius: toRem(10);
+      border: toRem(2) solid #000;
+      background-color: #7834c7;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      inset: toRem(12);
+      border-radius: toRem(6);
+      background-color: #6de635;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+    }
+    & span {
+      position: relative;
+      z-index: 3;
+      color: #000;
+      font-family: 'Abalone Smile';
+      font-size: toRem(24);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      transition: letter-spacing 0.2s ease 0s;
+    }
+  }
+
+  &__image {
+    @media (min-width: $mobile) {
+      flex: 0 0 60%;
+      align-self: flex-end;
+    }
+    & img {
+      width: 100%;
+    }
+  }
+}
+
+//====================================================================================================
+
+.how {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  aspect-ratio: 1907 / 1173;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include adaptiveValue('margin-top', -120, -44, 2, 2560, 767.98);
+  @include adaptiveValue('margin-top', -84, -50, 3, 767.98, 320);
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: toRem(-2);
+    background: url('../img/HowToBuyBG.svg') center / cover no-repeat;
+    @media (max-width: $mobile) {
+    }
+  }
+  &__container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    @media (max-width: $mobile) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    @include adaptiveValue('margin-top', -24, -15, 3, 479.98, 320);
+    @media (min-width: $mobile) {
+      flex: 0 0 55%;
+    }
+    @media (max-width: $mobile) {
+      max-width: toRem(520);
+    }
+    @media (max-width: $mobileSmall) {
+      width: calc(100% + toRem(36));
+    }
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    aspect-ratio: 594 / 716;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../img/HowContent.svg') center / contain no-repeat;
+    @include adaptiveValue('padding-left', 30, 12, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-right', 30, 12, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-left', 24, 22, 1, 767.98, 549.98);
+    @include adaptiveValue('padding-right', 24, 22, 1, 767.98, 549.98);
+    @include adaptiveValue('padding-right', 22, 8, 3, 549.98, 320);
+    @include adaptiveValue('padding-left', 22, 8, 3, 549.98, 320);
+    @media (min-width: $mobile) {
+      flex: 0 0 40%;
+      transform: translate(-10%, 6%) rotate(3.636deg);
+    }
+    @media (max-width: $mobile) {
+      max-width: toRem(520);
+      transform: rotate(2deg);
+    }
+  }
+
+  &__title {
+    opacity: 0;
+    visibility: hidden;
+    will-change: opacity, visibility;
+    @include adaptiveValue('margin-bottom', 34, 6, 2, $containerWidth, 767.98);
+    @include adaptiveValue('margin-bottom', 24, 22, 1, 767.98, 549.98);
+    @include adaptiveValue('margin-bottom', 22, 8, 3, 549.98, 320);
+    &._watcher-view {
+      animation: opacity 0.3s ease 0.2s forwards;
+    }
+    & > span {
+      display: inline-block;
+      position: relative;
+      font-family: 'Pulang';
+      font-style: normal;
+      font-weight: 400;
+      line-height: 95%;
+      text-transform: uppercase;
+      transform: translateX(-2%) translateY(-15%) rotate(-2deg);
+      @include adaptiveValue('font-size', 84, 38, 2, $containerWidth, 767.98);
+      @include adaptiveValue('font-size', 72, 70, 1, 767.98, 549.98);
+      @include adaptiveValue('font-size', 70, 36, 3, 549.98, 320);
+      &:nth-child(1) {
+        color: #742eba;
+      }
+      &:nth-child(2) {
+        transform: rotate(1.34deg);
+        color: #04070d;
+      }
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue('row-gap', 28, 12, 2, $containerWidth, 767.98);
+    @include adaptiveValue('row-gap', 20, 18, 1, 767.98, 549.98);
+    @include adaptiveValue('row-gap', 18, 8, 3, 549.98, 320);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    will-change: opacity, visibility;
+    &._watcher-view {
+      animation: opacity 0.3s ease 0.2s forwards;
+    }
+    &:nth-child(1) {
+      & p {
+        transform: rotate(-0.831deg);
+      }
+    }
+    &:nth-child(2) {
+      & p {
+        transform: rotate(1.775deg);
+      }
+    }
+    &:nth-child(3) {
+    }
+    &:nth-child(4) {
+      & h3 {
+        transform: rotate(-1.943deg);
+      }
+      & p {
+        transform: rotate(-0.831deg);
+      }
+    }
+    & h3 {
+      background-color: #6de635;
+      display: flex;
+      align-items: center;
+      column-gap: toRem(8);
+      padding: 0 toRem(16);
+      @include adaptiveValue('margin-bottom', 8, 4, 2, $containerWidth, 767.98);
+      @include adaptiveValue('margin-bottom', 8, 7, 1, 767.98, 549.98);
+      @include adaptiveValue('margin-bottom', 7, 4, 3, 549.98, 320);
+      & span {
+        &:nth-child(1) {
+          color: #742eba;
+          font-family: 'Abalone Smile';
+          font-style: normal;
+          font-weight: 400;
+          line-height: 100%;
+          @include adaptiveValue(
+            'font-size',
+            36,
+            24,
+            2,
+            $containerWidth,
+            767.98
+          );
+          @include adaptiveValue('font-size', 32, 30, 1, 767.98, 549.98);
+          @include adaptiveValue('font-size', 30, 24, 3, 549.98, 320);
+        }
+        &:nth-child(2) {
+          color: #000;
+          font-family: 'Abalone Smile';
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          @include adaptiveValue(
+            'font-size',
+            28,
+            18,
+            2,
+            $containerWidth,
+            767.98
+          );
+          @include adaptiveValue('font-size', 26, 24, 1, 767.98, 549.98);
+          @include adaptiveValue('font-size', 24, 20, 3, 549.98, 320);
+        }
+      }
+    }
+    & p {
+      color: #000;
+      font-family: 'Abalone Smile';
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      @include adaptiveValue('font-size', 20, 11, 2, $containerWidth, 767.98);
+      @include adaptiveValue('font-size', 19, 18, 1, 767.98, 549.98);
+      @include adaptiveValue('font-size', 18, 12, 3, 549.98, 320);
+      @include adaptiveValue('padding-left', 50, 6, 2, $containerWidth, 767.98);
+      @include adaptiveValue('padding-left', 20, 18, 1, 767.98, 549.98);
+      @include adaptiveValue('padding-left', 18, 6, 3, 549.98, 320);
+    }
+  }
+}
+
+//====================================================================================================
+
+.tokenomics {
+  position: relative;
+  z-index: 2;
+  background: url('../img/tokenomicsBG.jpg') 60% / cover no-repeat;
+  @include adaptiveValue('margin-top', -80, -30, 0, 2560, 320);
+  @media (max-width: $mobile) {
+    background: url('../img/tokenomicsBG.jpg') 10% / cover no-repeat;
+  }
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__body-box {
+    position: relative;
+    aspect-ratio: 878 / 829;
+    background: url('../img/TokenomicsBody.png') center / contain no-repeat;
+    @include adaptiveValue('width', 878, 556, 2, $containerWidth, 767.98);
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+
+  &__body {
+    position: absolute;
+    top: 23%;
+    left: 7%;
+    width: 88%;
+    height: 70%;
+    transform: rotate(3.308deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__label {
+    text-align: center;
+    color: #000;
+    font-family: 'Abalone Smile';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    @include adaptiveValue('font-size', 32, 18, 2, $containerWidth, 767.98);
+    @include adaptiveValue('margin-bottom', 12, 4, 2, $containerWidth, 767.98);
+    @include adaptiveValue('font-size', 24, 14, 3, 767.98, 320);
+    @include adaptiveValue('margin-bottom', 8, 3, 3, 767.98, 320);
+    @media (max-width: toEm(670)) {
+      display: none;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include adaptiveValue('padding-top', 10, 4, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-bottom', 10, 4, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-left', 20, 12, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-right', 20, 12, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-top', 8, 3, 3, 767.98, 320);
+    @include adaptiveValue('padding-bottom', 8, 3, 3, 767.98, 320);
+    @include adaptiveValue('padding-left', 16, 10, 3, 767.98, 320);
+    @include adaptiveValue('padding-right', 16, 10, 3, 767.98, 320);
+    & span {
+      color: #000;
+      font-family: 'Abalone Smile';
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      @include adaptiveValue('font-size', 24, 18, 2, $containerWidth, 767.98);
+      @include adaptiveValue('font-size', 20, 14, 3, 767.98, 320);
+    }
+  }
+
+  &__main {
+    width: 100%;
+    border-top: toRem(3) solid #000;
+    border-bottom: toRem(3) solid #000;
+    display: flex;
+    @include adaptiveValue('margin-bottom', 14, 10, 2, $containerWidth, 767.98);
+    @include adaptiveValue('margin-bottom', 12, 6, 3, 767.98, 320);
+    @media (max-width: $mobileSmall) {
+      border-top: toRem(2) solid #000;
+      border-bottom: toRem(2) solid #000;
+    }
+  }
+
+  &__items {
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: toRem(3) solid #000;
+    @include adaptiveValue('padding-top', 12, 6, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-bottom', 12, 6, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-left', 20, 12, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-right', 20, 12, 2, $containerWidth, 767.98);
+    @include adaptiveValue('row-gap', 10, 8, 2, $containerWidth, 767.98);
+    @include adaptiveValue('padding-top', 10, 4, 3, 767.98, 320);
+    @include adaptiveValue('padding-bottom', 10, 4, 3, 767.98, 320);
+    @include adaptiveValue('padding-left', 16, 10, 3, 767.98, 320);
+    @include adaptiveValue('padding-right', 16, 10, 3, 767.98, 320);
+    @include adaptiveValue('row-gap', 8, 4, 3, 767.98, 320);
+
+    &._watcher-view {
+      & .tokenomics__item {
+        &:nth-child(1) {
+          animation: opacity 0.3s ease 0.2s forwards;
+        }
+        &:nth-child(2) {
+          animation: opacity 0.3s ease 0.3s forwards;
+        }
+        &:nth-child(3) {
+          animation: opacity 0.3s ease 0.4s forwards;
+        }
+      }
+    }
+    @media (max-width: $mobile) {
+      flex: 0 0 80%;
+    }
+    @media (max-width: $mobileSmall) {
+      border-right: toRem(2) solid #000;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+    will-change: opacity, visibility;
+    column-gap: toRem(20);
+    & span {
+      color: #000;
+      font-family: 'Abalone Smile';
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      @include adaptiveValue('font-size', 20, 14, 2, $containerWidth, 767.98);
+      @include adaptiveValue('font-size', 18, 11, 3, 767.98, 320);
+    }
+  }
+
+  &__decor1 {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: $mobile) {
+      flex: 0 0 20%;
+    }
+    & img {
+      max-width: 50%;
+      max-height: 70%;
+    }
+  }
+
+  &__decor2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    @include adaptiveValue('margin-bottom', 13, 8, 2, $containerWidth, 767.98);
+    @include adaptiveValue('margin-bottom', 10, 6, 3, 767.98, 320);
+    & img {
+      width: 104%;
+    }
+  }
+
+  &__ca {
+    color: #000;
+    font-family: 'Abalone Smile';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    column-gap: toRem(6);
+    opacity: 0;
+    visibility: hidden;
+    will-change: opacity, visibility;
+    @include adaptiveValue('font-size', 20, 16, 2, $containerWidth, 767.98);
+    @include adaptiveValue('font-size', 22, 10, 3, 767.98, 320);
+    &._watcher-view {
+      animation: opacity 0.3s ease 0.2s forwards;
+    }
+    & button {
+      transition: color 0.2s ease 0s;
+      @media (any-hover: hover) {
+        &:hover {
+          color: #742eba;
+        }
+      }
+    }
+  }
+}
+
+//====================================================================================================
+
+.join {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  @include adaptiveValue('margin-top', -80, -30, 0, 2560, 320);
+  @include adaptiveValue('height', 940, 720, 1, 1589.98, 767.98);
+  @media (min-width: toEm(1589.98)) {
+    aspect-ratio: 1920 / 1160;
+  }
+  @media (max-width: $mobile) {
+    aspect-ratio: 1222 / 1600;
+  }
+  &__bg {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    & img {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+  &__bg-dec {
+    position: sticky;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    z-index: 2;
+    inset: 0;
+    & img {
+      position: absolute;
+      z-index: 1;
+      top: 10%;
+      left: 0;
+      width: 100%;
+      height: 145%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+  &__body {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 100%;
+    height: 95%;
+    z-index: 3;
+    background: url('../img/JoinImage.png') top / cover no-repeat;
+    @media (max-width: $tablet) {
+      background: url('../img/JoinImage.png') 45% / cover no-repeat;
+    }
+    @media (max-width: $mobile) {
+      top: 10%;
+      height: 90%;
+      background: url('../img/JoinImageMob.png') top / contain no-repeat;
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 25%;
+        background-color: #53a630;
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 3;
+    min-height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    @include adaptiveValue('padding-bottom', 100, 70);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    @include adaptiveValue('column-gap', 24, 16);
+    &._watcher-view {
+      & .join__button {
+        animation: to-left-basic 0.3s ease-out 0.2s forwards;
+      }
+      & .join__social-item {
+        &:nth-child(1) {
+          animation: to-left-basic 0.3s ease-out 0.3s forwards;
+        }
+        &:nth-child(2) {
+          animation: to-left-basic 0.3s ease-out 0.4s forwards;
+        }
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    background-color: #7834c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(40));
+    will-change: transform, opacity, visibility;
+    @include adaptiveValue('width', 300, 180, 0, $containerWidth, 430);
+    @include adaptiveValue('height', 100, 60, 0, $containerWidth, 430);
+    @include adaptiveValue('border-radius', 20, 13, 0, $containerWidth, 430);
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        &::after {
+          inset: toRem(0);
+          border-radius: toRem(13);
+        }
+        & span {
+          letter-spacing: 0.2em;
+        }
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      border: toRem(2) solid #000;
+      background-color: #6de635;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+      @include adaptiveValue('border-radius', 12, 10, 0, $containerWidth, 430);
+      @include adaptiveValue('inset', 8, 4, 0, $containerWidth, 430);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      background: linear-gradient(#d4e9fe, transparent toRem(2)),
+        linear-gradient(90deg, #d4e9fe, transparent toRem(2)), #ebf8ff;
+      background-size: toRem(12) toRem(12);
+      background-position: center center;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+      @include adaptiveValue('border-radius', 8, 6, 0, $containerWidth, 430);
+      @include adaptiveValue('inset', 18, 12, 0, $containerWidth, 430);
+    }
+    & span {
+      position: relative;
+      z-index: 3;
+      color: #000;
+      font-family: 'Abalone Smile';
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      transition: letter-spacing 0.2s ease 0s;
+      @include adaptiveValue('font-size', 36, 24, 0, $containerWidth, 430);
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    @include adaptiveValue('column-gap', 24, 16);
+  }
+
+  &__social-item {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7834c7;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(toRem(40));
+    will-change: transform, opacity, visibility;
+    @include adaptiveValue('width', 100, 60, 0, $containerWidth, 430);
+    @include adaptiveValue('height', 100, 60, 0, $containerWidth, 430);
+    @include adaptiveValue('border-radius', 20, 13, 0, $containerWidth, 430);
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          inset: toRem(0);
+          @include adaptiveValue(
+            'border-radius',
+            20,
+            13,
+            0,
+            $containerWidth,
+            430
+          );
+        }
+        &::after {
+          inset: toRem(0);
+          @include adaptiveValue(
+            'border-radius',
+            20,
+            13,
+            0,
+            $containerWidth,
+            430
+          );
+        }
+        & svg {
+          scale: 1.2;
+        }
+      }
+    }
+    &:nth-child(1) {
+      &::after {
+        background-color: #000;
+      }
+    }
+    &:nth-child(2) {
+      &::after {
+        background-color: #0cbeff;
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      border: toRem(2) solid #000;
+      background-color: #6de635;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+      @include adaptiveValue('border-radius', 12, 10, 0, $containerWidth, 430);
+      @include adaptiveValue('inset', 8, 4, 0, $containerWidth, 430);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      transition:
+        inset 0.2s ease 0s,
+        border-radius 0.2s ease 0s;
+      @include adaptiveValue('border-radius', 8, 6, 0, $containerWidth, 430);
+      @include adaptiveValue('inset', 18, 12, 0, $containerWidth, 430);
+    }
+    & svg {
+      position: relative;
+      z-index: 3;
+      width: 40%;
+      height: 40%;
+      transition: scale 0.2s ease 0s;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.hero {
+	position: relative;
+	background-color: var(--primary);
+
+	&:not(:last-child) {
+		margin-bottom: toRem(60);
+	}
+
+	@media (min-width: $pc) {
+		&::before {
+			content: "";
+			position: absolute;
+			width: toRem(135);
+			height: toRem(135);
+			top: 0;
+			left: 0;
+			background: url("@img/hero/decor.svg") no-repeat;
+		}
+	}
+
+	&__container {
+		padding-top: toRem(30);
+		padding-bottom: toRem(30);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		min-height: calc(100svh - var(--headH));
+		align-content: center;
+		position: relative;
+
+		@media (max-width: $pc) {
+			grid-template-columns: 1fr;
+			justify-items: center;
+		}
+		@media (min-width: $pc) {
+			&::before {
+				content: "";
+				position: absolute;
+				width: toRem(135);
+				height: toRem(135);
+				bottom: 0;
+				left: 50%;
+				transform: translate(-100%, 0px);
+				background: url("@img/hero/decor-rotate.svg") no-repeat;
+			}
+		}
+	}
+	// .hero__form
+	&__form {
+	}
+
+	// .hero__img-wrp
+	&__img-wrp {
+		overflow: hidden;
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		top: 0;
+		right: 0;
+
+		@media (max-width: $pc) {
+			width: 100%;
+		}
+	}
+
+	// .hero__img
+	&__img {
+		width: 100%;
+		height: 100%;
+	}
+}

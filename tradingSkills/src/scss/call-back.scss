@@ -1,0 +1,106 @@
+.call-back {
+	// .call-back__container
+	&__container {
+	}
+	// .call-back__form
+	&__form {
+		background: var(--dark-gr);
+		@include adaptiveValue("padding-top", 50, 15);
+		@include adaptiveValue("padding-bottom", 40, 15);
+		@include adaptiveValue("padding-left", 40, 10);
+		@include adaptiveValue("padding-right", 40, 10);
+	}
+	// .call-back__items
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		@include adaptiveValue("gap", 40, 10);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 40, 10);
+		}
+	}
+	// .call-back__item
+	&__item {
+		flex: 1 1 flBasis(3, 40);
+		@include adaptiveValue("padding-top", 50, 15);
+		@include adaptiveValue("padding-bottom", 50, 15);
+		@include adaptiveValue("padding-left", 40, 20);
+		@include adaptiveValue("padding-right", 40, 20);
+		@include adaptiveValue("min-height", 204, 96);
+		@include adaptiveValue("font-size", 30, 20);
+		line-height: 1.4;
+		letter-spacing: toRem(-0.3);
+		flex-wrap: wrap;
+
+		&:has(.call-back__textarea){
+			flex-basis: 100%;
+		}
+
+		@media (max-width: $tablet) {
+			flex-basis: auto;
+		}
+	}
+	// .call-back__label
+	&__label {
+		display: block;
+		cursor: pointer;
+		margin-bottom: toRem(10);
+		color: rgba(255, 255, 255, 0.4);
+		padding-left: toRem(20);
+	}
+	// .call-back__textarea
+	&__textarea {
+		padding-left: toRem(20);
+		padding-right: toRem(20);
+		position: relative;
+		flex-basis: 100%;
+		&::placeholder {
+			color: var(--mainColor);
+		}
+	}
+}
+.input {
+	position: relative;
+	height: toRem(42);
+	&::placeholder {
+		color: var(--mainColor);
+	}
+}
+.form__error {
+	color: var(--red);
+	font-size: toRem(14);
+	padding-left: toRem(20);
+}
+.button {
+	@include adaptiveValue("min-height", 204, 96);
+	width: 100%;
+	color: var(--blue);
+	@include adaptiveValue("font-size", 79, 36);
+	line-height: 1.1;
+	letter-spacing: toRem(-1.58);
+	text-transform: capitalize;
+	background-size: 300%;
+	transition: color 0.3s;
+
+	&._watcher-view {
+		animation: gradient 8s ease infinite;
+	}
+
+	@keyframes gradient {
+		0% {
+			background-position: 0 50%;
+		}
+		50% {
+			background-position: 75% 50%;
+		}
+		100% {
+			background-position: 0 50%;
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--mainColor);
+		}
+	}
+}

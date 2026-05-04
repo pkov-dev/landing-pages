@@ -1,0 +1,59 @@
+.monney {
+	// .monney__container
+	&__container {
+		@include adaptiveValue('padding-top', 64, 20);
+		@include adaptiveValue('padding-bottom', 64, 20);
+		@include adaptiveValue('padding-left', 64, 0);
+		@include adaptiveValue('padding-right', 64, 0);
+		background-color: var(--bg-primary);
+		border-radius: toRem(16);
+		text-align: center;
+		max-width: toRem(1216);
+
+		@media (max-width: toEm(1216)) {
+			border-radius: 0;
+		}
+	}
+	// .monney__title
+	&__title {
+		color: var(--Base-White, #fff);
+		color: var(--text-inverse);
+		@include adaptiveValue('font-size', 36, 24);
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: toRem(-0.72);
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 32, 20);
+		}
+	}
+	// .monney__img
+	&__img {
+		width: toRem(56);
+		height: toRem(56);
+		border-radius: 50%;
+		object-fit: cover;
+		&:not(:last-child) {
+			margin-bottom: toRem(16);
+		}
+	}
+	// .monney__name
+	&__name {
+		font-weight: 600;
+		line-height: 1.5;
+		color: var(--text-inverse);
+		text-transform: capitalize;
+
+		&:not(:last-child) {
+			margin-bottom: toEm(4, 16);
+		}
+	}
+	// .monney__position
+	&__position {
+		font-size: toRem(14);
+		line-height: 1.42;
+		color: var(--text-fifth);
+		&:not(:last-child) {
+			margin-bottom: toEm(10, 14);
+		}
+	}
+}

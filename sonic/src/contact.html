@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('html/_head.htm',{
+"title":"Contact"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page-contacts">
+			<div class="page-contacts__contact contact">
+				<div class="contact__container">
+					<section class="contact__info info-contact">
+						<div class="info-contact__top">
+							<h2 class="info-contact__title">
+								Let’s Start
+							</h2>
+							<div class="info-contact__text">
+								<p>
+									We’ love to hear from you. Give us a call and see how we can solve your logistical
+									challenges.
+								</p>
+							</div>
+							<ul class="info-contact__list list-info">
+								<li class="list-info__item _icon-dryage">
+									<h3 class="list-info__title">
+										Email us
+									</h3>
+									<p class="list-info__text">
+										Let us know how we can help.
+									</p>
+									<a href="mailto:support@sonic-logistics.com" class="list-info__link">
+										support@sonic-logistics.com
+									</a>
+								</li>
+								<li class="list-info__item _icon-phone">
+									<h3 class="list-info__title">
+										Call Us
+									</h3>
+									<p class="list-info__text">
+										Available 24 hours a day, 7 days a week.
+									</p>
+									<a href="tel:4695454687" class="list-info__link">
+										(469) 545-4687
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="info-contact__social social">
+							<a href="#" aria-label="social X" class="social__link _icon-x"></a>
+							<a href="#" aria-label="linkedin" class="social__link _icon-linkedin"></a>
+							<a href="#" aria-label="facebook" class="social__link _icon-facebook"></a>
+							<a href="#" aria-label="git" class="social__link _icon-git"></a>
+							<a href="#" aria-label="angellist" class="social__link _icon-angellist"></a>
+							<a href="#" aria-label="dribble" class="social__link _icon-dribble"></a>
+						</div>
+					</section>
+					<div class="contact__form-wrapper">
+						<form class="contact__form form-contact" action="#" method="post">
+							<div class="form-contact__header header-block">
+								<h2 class="header-block__title">
+									Get a Quote
+								</h2>
+								<div class="header-block__text">
+									<p>
+										Or give us a call. We’re available 24/7.
+									</p>
+								</div>
+							</div>
+							<div class="form-contact__row">
+								<label class="form-contact__label">
+									First name
+									<input data-required data-validate type="text" name="firstName" id="firstName"
+										placeholder="First name" class="form-contact__input input">
+								</label>
+								<label class="form-contact__label">
+									Last name
+									<input data-required data-validate type="text" name="lastName" id="lastName"
+										placeholder="Last name" class="form-contact__input input">
+								</label>
+							</div>
+							<label class="form-contact__label">
+								Email
+								<input data-required="email" data-validate type="email" name="email" id="email"
+									placeholder="you@company.com" class="form-contact__input input">
+							</label>
+							<div class="form-contact__number-wrapper">
+								<label for="phone" class="form-contact__label">Phone number</label>
+								<div class="form-contact__number-body">
+									<select class="form-contact__select-number number-select" name="form[]"
+										data-class-modif="form">
+										<option class="number-select__opt" value="us" selected>US</option>
+										<option class="number-select__opt" value="ua">UA</option>
+										<option class="number-select__opt" value="uk">UK</option>
+										<option class="number-select__opt" value="fr">FR</option>
+									</select>
+									<input data-required data-validate type="tel" name="phoneNumber" id="phone"
+										placeholder="+1 (555) 000-0000" class="form-contact__input input">
+								</div>
+							</div>
+							<label class="form-contact__label">
+								Message
+								<textarea data-autoheight data-autoheight-min="134" name="textArea" id="textArea"
+									placeholder="Leave us a message..." class="form-contact__input input"></textarea>
+							</label>
+							<div class="form-contact__wrapper-checkbox">
+								<div class="form-contact__title-checkbox">
+									Services
+								</div>
+								<div class="form-contact__checkbox checkbox">
+									<input id="c_1" data-error="Помилка" class="checkbox__input" type="checkbox"
+										value="1" name="form[]">
+									<label for="c_1" class="checkbox__label"><span class="checkbox__text">Website
+											design</span></label>
+									<input id="c_2" data-error="Помилка" class="checkbox__input" type="checkbox"
+										value="1" name="form[]">
+									<label for="c_2" class="checkbox__label"><span class="checkbox__text">Content
+											creation</span></label>
+									<input id="c_3" data-error="Помилка" class="checkbox__input" type="checkbox"
+										value="1" name="form[]">
+									<label for="c_3" class="checkbox__label"><span class="checkbox__text">UX
+											design</span></label>
+									<input id="c_4" data-error="Помилка" class="checkbox__input" type="checkbox"
+										value="1" name="form[]">
+									<label for="c_4" class="checkbox__label"><span class="checkbox__text">Strategy &
+											consulting</span></label>
+									<input id="c_5" data-error="Помилка" class="checkbox__input" type="checkbox"
+										value="1" name="form[]">
+									<label for="c_5" class="checkbox__label"><span class="checkbox__text">User
+											research</span></label>
+									<input id="c_6" data-error="Помилка" class="checkbox__input" type="checkbox"
+										value="1" name="form[]">
+									<label for="c_6" class="checkbox__label"><span
+											class="checkbox__text">Other</span></label>
+								</div>
+							</div>
+							<button class="button">Get started</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	@@include('html/_js.htm',{})
+
+
+</body>
+
+</html>

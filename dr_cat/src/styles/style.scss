@@ -1,0 +1,160 @@
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Підключення загальних змінних
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@use 'variables';
+:root {
+	@include adaptiveValue('--headH', 105, 75);
+}
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Підключення загальних віддалених шрифтів (Google Fonts)
+// Використовуйте плагін для VS Code Better Google Fonts for VS Code (https://marketplace.visualstudio.com/items?itemName=Pavlo-K.better-google-fonts)
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css?family=Jost:500,700&display=swap');
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Стилі тега BODY
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+body {
+	color: var(--main-color);
+	font-family: var(--font-family);
+	font-size: var(--font-size);
+
+	min-width: #{$minWidth}px;
+
+	// Скролл заблоковано
+	[data-fls-scrolllock] & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	// Сайт завантажений
+	[data-fls-loaded] & {
+	}
+}
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Оболонка WRAPPER
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip;
+
+	// Притискаємо footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фікс для слайдерів
+	> * {
+		min-width: 0;
+	}
+}
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Обмежуючий контейнер
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Стилі будуть застосовуватись до
+// всіх класів, що містять *__container
+// Наприклад header__container, main__container і т.п.
+// Сніппет (HTML): cnt
+@if ($responsiveType==1) {
+	// Чуйна
+	[class*='__container'] {
+		@if ($maxWidthContainer>0) {
+			max-width: #{$containerWidth}px;
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			@if ($maxWidthContainer>0) {
+				padding-left: #{math.div($containerPadding, 2)}px;
+				padding-right: #{math.div($containerPadding, 2)}px;
+			} @else {
+				@include adaptiveValue('padding-left', math.div($containerPadding, 2), 15);
+				@include adaptiveValue('padding-right', math.div($containerPadding, 2), 15);
+			}
+		}
+	}
+} @else {
+	// Брейк-поїнтами
+	[class*='__container'] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: #{$maxWidthContainer}px;
+		} @else {
+			@if ($containerPadding>0) {
+				padding-left: #{math.div($containerPadding, 2)}px;
+				padding-right: #{math.div($containerPadding, 2)}px;
+			}
+		}
+		@media (max-width: toEm($pc)) {
+			max-width: 970px;
+		}
+		@media (max-width: toEm($tablet)) {
+			max-width: 750px;
+		}
+		@media (max-width: toEm($mobile)) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding-left: #{math.div($containerPadding, 2)}px;
+				padding-right: #{math.div($containerPadding, 2)}px;
+			}
+		}
+	}
+}
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Загальні стилі для усього сайту
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Підключення стилів окремих сторінок
+.button {
+	display: flex;
+	padding: toRem(18) toRem(20);
+	justify-content: center;
+	flex-shrink: 0;
+	border-radius: toRem(1000);
+	background-color: var(--bg-accent);
+	color: var(--text-inverse);
+	font-size: toRem(16);
+	font-weight: 600;
+	min-width: toRem(137);
+	transition: background-color 0.3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--bg-primary);
+		}
+	}
+}
+.button-orange {
+	padding: toRem(12) toRem(15);
+	font-size: toRem(24);
+	@include adaptiveValue('font-size', 24, 18);
+	font-weight: 600;
+	border-radius: toRem(1000);
+	border: toRem(1) solid #b67f18;
+	background: var(--bg-accent-2);
+	box-shadow: toRem(4) toRem(4) 0 0 #b67f18;
+	width: fit-content;
+	transition: box-shadow 0.3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			box-shadow: none;
+		}
+	}
+	@media (max-width: toEm(1200)) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+.red {
+	color: var(--text-accent-sec);
+}
+
+.bold {
+	font-weight: 700;
+}
+.title-about {
+	font-family: 'Crog', sans-serif;
+	@include adaptiveValue('font-size', 87, 36, 0, 1600, 480);
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: toRem(-1.74);
+}

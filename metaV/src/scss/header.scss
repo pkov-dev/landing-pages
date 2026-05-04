@@ -1,0 +1,39 @@
+.header {
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 50;
+	transition: top 1.5s;
+
+	&._header-scroll {
+		top: -200%;
+		background-color: rgba(0, 0, 0, 0.65);
+	}
+
+	&._header-show {
+		top: 0;
+	}
+	// .header__container
+	&__container {
+		min-height: var(--headH);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(20);
+		padding-top: toRem(10);
+		padding-bottom: toRem(10);
+	}
+	// .header__logo
+	&__logo {
+		color: var(--text-primary);
+		@extend %orbit;
+		font-size: toRem(22);
+		font-weight: 700;
+		position: relative;
+		z-index: 3;
+	}
+	// .header__menu
+	&__menu {
+	}
+}

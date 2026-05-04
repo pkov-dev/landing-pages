@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"HomePage"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+
+			<section class="page__hero hero">
+				<div class="hero__img"></div>
+				<div class="hero__container">
+					<div data-da=".hero__window, 767.98" class="hero__content">
+						<h1 class="hero__title">
+							Enjoy <span class="purple uppercase bold">Reserved</span> Overhead bin space
+						</h1>
+						<a href="#" class="hero__button">
+							Explore Now
+						</a>
+					</div>
+					<div class="hero__window">
+
+					</div>
+				</div>
+			</section>
+			<div class="page__book book">
+				<div class="book__container">
+					<form class="book__body body-book" action="#" method="post">
+						<div data-one-select class="body-book__top">
+							<select data-speed="500" name="form[]" data-class-modif="form">
+								<option value="1" selected>Round Trip</option>
+								<option value="2">One way</option>
+								<option value="3">Multi-city</option>
+							</select>
+
+							<select data-speed="500" name="form[]" data-class-modif="form">
+								<option value="" selected>Flight Type</option>
+								<option value="1">Passenger Flight</option>
+								<option value="2">Cargo Flight</option>
+								<option value="3">Charter Flight</option>
+								<option value="4">Air Taxi</option>
+								<option value="5">Government Flight </option>
+							</select>
+
+							<div data-spollers class="body-book__person person-book">
+								<details class="person-book__row">
+									<summary data-spoller-close class="person-book__title ">Person</summary>
+									<div class="person-book__body">
+										<div class="person-book__item">
+											<div class="person-book__info">
+												<div class="person-book__category">
+													Adults
+												</div>
+												<div class="person-book__subtitle">
+													12+ years
+												</div>
+											</div>
+											<div data-quantity class="quantity">
+												<button data-quantity-minus type="button"
+													class="quantity__button quantity__button--minus"></button>
+												<div class="quantity__input">
+													<input data-quantity-value autocomplete="off" type="text"
+														name="adults" value="0">
+												</div>
+												<button data-quantity-plus type="button"
+													class="quantity__button quantity__button--plus"></button>
+											</div>
+										</div>
+										<div class="person-book__item">
+											<div class="person-book__info">
+												<div class="person-book__category">
+													Child
+												</div>
+												<div class="person-book__subtitle">
+													2-11 years
+												</div>
+											</div>
+											<div data-quantity class="quantity">
+												<button data-quantity-minus type="button"
+													class="quantity__button quantity__button--minus"></button>
+												<div class="quantity__input">
+													<input data-quantity-value autocomplete="off" type="text"
+														name="child" value="0">
+												</div>
+												<button data-quantity-plus type="button"
+													class="quantity__button quantity__button--plus"></button>
+											</div>
+										</div>
+										<div class="person-book__item">
+											<div class="person-book__info">
+												<div class="person-book__category">
+													Infant
+												</div>
+												<div class="person-book__subtitle">
+													Under 2 years
+												</div>
+											</div>
+											<div data-quantity class="quantity">
+												<button data-quantity-minus type="button"
+													class="quantity__button quantity__button--minus"></button>
+												<div class="quantity__input">
+													<input data-quantity-value autocomplete="off" type="text"
+														name="infant" value="0">
+												</div>
+												<button data-quantity-plus type="button"
+													class="quantity__button quantity__button--plus"></button>
+											</div>
+										</div>
+									</div>
+								</details>
+							</div>
+						</div>
+
+						<div class="body-book__bottom bottom-book">
+							<div class="bottom-book__left">
+								<div class="bottom-book__item">
+									<label for="from" class="bottom-book__label">
+										From
+									</label>
+									<input id="from" type="text" name="from" placeholder="LAX"
+										class="bottom-book__input input">
+									<div class="bottom-book__sub">
+										Los Angeles Intl Arpt,Los Angeles
+									</div>
+								</div>
+								<button type="button" aria-label="change way"
+									class="bottom-book__button _icon-exchange-arr">
+								</button>
+								<div class="bottom-book__item">
+									<label for="to" class="bottom-book__label">
+										To
+									</label>
+									<input id="to" type="text" name="to" placeholder="MIA"
+										class="bottom-book__input input">
+									<div class="bottom-book__sub">
+										Miami Intl,Miami
+									</div>
+								</div>
+							</div>
+							<div class="bottom-book__item bottom-book__item--flex">
+								<div class="bottom-book__date date-book">
+
+									<label for="to" class="bottom-book__label">
+										Departure
+									</label>
+									<input id="departure" value="2024-05-26" type="date" name="Departure"
+										class="bottom-book__input input">
+									<div class="date-book__buttons">
+										<button aria-label="prev month" type="button" class="date-book__button">
+											Prev
+										</button>
+										<button aria-label="next month" type="button" class="date-book__button">
+											next
+										</button>
+									</div>
+								</div>
+								<div class="bottom-book__date date-book">
+									<label for="to" class="bottom-book__label">
+										Return
+									</label>
+									<input id="return" type="date" value="2024-05-27" name="return"
+										class="bottom-book__input input">
+									<div class="date-book__buttons">
+										<button aria-label="prev month" type="button" class="date-book__button">
+											Prev
+										</button>
+										<button aria-label="next month" type="button" class="date-book__button">
+											next
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a href="#" class="body-book__requirements">
+							Add Requirements
+						</a>
+
+						<button class="body-book__button button">
+							Book Flights
+						</button>
+					</form>
+				</div>
+			</div>
+			<section class="page__private private">
+				<div class="private__container">
+					<div class="private__header header-block">
+						<h2 class="header-block__title">
+							Private Jet for <span class="with-decor">Busin<span class="round-decor">es</span>s</span> &
+							Leisure Purposes
+						</h2>
+					</div>
+					<article class="private__body body-section">
+						<div class="body-section__img">
+							<img class="ibg" data-src="@img/body-section/01.jpg" alt="Image">
+						</div>
+						<div class="body-section__content">
+							<h3 class="body-section__title">
+								Private Jet Charter
+							</h3>
+							<div class="body-section__text">
+								<p>
+									It is a long established fact that a reader will be distracted by the readable
+									content of a page when looking at its layout. The point of using Lorem Ipsum is that
+									it has a more-or-less normal distribution of letters, as opposed to using 'Content
+									here, content here', making it look like readable English. Many desktop publishing
+									packages and web page editors
+								</p>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+			<div class="page__business business">
+				<div class="business__container">
+					<div class="business__body body-section body-section--reverse">
+						<div class="body-section__content">
+							<h3 class="body-section__title">
+								Business Jet Charter
+							</h3>
+							<div class="body-section__text">
+								<p>
+									It is a long established fact that a reader will be distracted by the readable
+									content of a page when looking at its layout. The point of using Lorem Ipsum is that
+									it has a more-or-less normal distribution of letters, as opposed to using 'Content
+									here, content here', making it look like readable English. Many desktop publishing
+									packages and web page editors
+								</p>
+							</div>
+						</div>
+						<div class="body-section__img">
+							<img class="ibg" data-src="@img/body-section/02.jpg" alt="Image">
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<section class="page__performance performance">
+				<div class="performance__container">
+					<div class="performance__header header-block">
+						<h2 class="header-block__title">
+							Private Jet <span class="with-decor">Performa<span class="round-decor">nc</span>e</span>
+							and Specifications
+						</h2>
+					</div>
+					<div class="performance__body">
+
+						<div class="performance__cards cards-perfomence">
+							<article class="cards-perfomence__item item-perfonmence">
+								<img class="item-perfonmence__img" src="@img/performance/seat.png" alt="Image">
+								<h3 class="item-perfonmence__title">
+									Luxury And Comfort
+								</h3>
+								<div class="item-perfonmence__text">
+									<p>
+										It is a long established fact that a reader will be distracted by the readable
+									</p>
+								</div>
+							</article>
+							<article class="cards-perfomence__item item-perfonmence">
+								<img class="item-perfonmence__img" src="@img/performance/schedule.png" alt="Image">
+								<h3 class="item-perfonmence__title">
+									Personal schedule & booking
+								</h3>
+								<div class="item-perfonmence__text">
+									<p>
+										It is a long established fact that a reader will be distracted by the readable
+									</p>
+								</div>
+							</article>
+						</div>
+
+						<div class="performance__img-box">
+							<img class="performance__img" src="@img/performance/plane.png" alt="Image">
+						</div>
+						<div class="performance__cards cards-perfomence">
+							<article class="cards-perfomence__item item-perfonmence">
+								<img class="item-perfonmence__img" src="@img/performance/browser.png" alt="Image">
+								<h3 class="item-perfonmence__title item-perfonmence__title--uppercase">
+									SAFETY AND SECURITY
+								</h3>
+								<div class="item-perfonmence__text">
+									<p>
+										It is a long established fact that a reader will be distracted by the readable
+									</p>
+								</div>
+							</article>
+							<article class="cards-perfomence__item item-perfonmence">
+								<img class="item-perfonmence__img" src="@img/performance/captain.png" alt="Image">
+								<h3 class="item-perfonmence__title item-perfonmence__title--uppercase">
+									EXPERIENCED CREW
+								</h3>
+								<div class="item-perfonmence__text">
+									<p>
+										It is a long established fact that a reader will be distracted by the readable
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__luxury luxury">
+				<div class="luxury__img">
+					<img src="@img/luxury/earth.svg" alt="Image">
+				</div>
+				<div class="luxury__container">
+					<div class="luxury__header header-block">
+						<h2 class="header-block__title">
+							Luxury <span class="with-decor"><span class="round-decor">C</span>harters</span>
+						</h2>
+					</div>
+					<div class="luxury__body">
+						<article class="luxury__item item-luxury">
+							<a href="#" class="item-luxury__link">
+								<div class="item-luxury__img">
+									<img class="ibg" data-src="@img/luxury/01.jpg" alt="Image">
+								</div>
+								<h3 class="item-luxury__title">
+									Piaggio P.180 Avanti
+								</h3>
+							</a>
+						</article>
+						<article class="luxury__item item-luxury">
+							<a href="#" class="item-luxury__link">
+								<div class="item-luxury__img">
+									<img class="ibg" data-src="@img/luxury/02.jpg" alt="Image">
+								</div>
+								<h3 class="item-luxury__title">
+									Pilatus PC-12
+								</h3>
+							</a>
+						</article>
+						<article class="luxury__item item-luxury">
+							<a href="#" class="item-luxury__link">
+								<div class="item-luxury__img">
+									<img class="ibg" data-src="@img/luxury/03.jpg" alt="Image">
+								</div>
+								<h3 class="item-luxury__title">
+									piper pa27 aztec
+								</h3>
+							</a>
+						</article>
+						<article class="luxury__item item-luxury">
+							<a href="#" class="item-luxury__link">
+								<div class="item-luxury__img">
+									<img class="ibg" data-src="@img/luxury/04.jpg" alt="Image">
+								</div>
+								<h3 class="item-luxury__title">
+									Beech BE100 King Air
+								</h3>
+							</a>
+						</article>
+					</div>
+				</div>
+			</section>
+			<section class="page__membership membership">
+				<div class="membership__container">
+					<div class="membership__header header-block">
+						<h2 class="header-block__title">
+							Enjoy our <span class="with-decor"><span class="round-decor">Me</span>mbership</span>
+						</h2>
+					</div>
+					<div class="membership__body">
+						<article class="membership__card card-membership">
+							<h3 class="card-membership__title">
+								Popular
+							</h3>
+							<div class="card-membership__subtitle">
+								What You’ll Get
+							</div>
+							<ul class="card-membership__list">
+								<li class="card-membership__item">
+									One-time initiation fee $0
+								</li>
+								<li class="card-membership__item">
+									Deposit $50k
+								</li>
+								<li class="card-membership__item">
+									Pricing / rates Dynamic
+								</li>
+								<li class="card-membership__item">
+									Priority fleet access Yes
+								</li>
+								<li class="card-membership__item">
+									Guaranteed fleet access No
+								</li>
+							</ul>
+							<div class="card-membership__price">
+								$250<sub>/month</sub>
+							</div>
+							<a href="#" class="card-membership__button button">
+								Choose
+							</a>
+						</article>
+						<article class="membership__card card-membership card-membership--active">
+							<h3 class="card-membership__title">
+								Popular
+							</h3>
+							<div class="card-membership__subtitle">
+								What You’ll Get
+							</div>
+							<ul class="card-membership__list">
+								<li class="card-membership__item">
+									One-time initiation fee $0
+								</li>
+								<li class="card-membership__item">
+									Deposit $50k
+								</li>
+								<li class="card-membership__item">
+									Pricing / rates Dynamic
+								</li>
+								<li class="card-membership__item">
+									Priority fleet access Yes
+								</li>
+								<li class="card-membership__item">
+									Guaranteed fleet access No
+								</li>
+							</ul>
+							<div class="card-membership__price">
+								$250<sub>/month</sub>
+							</div>
+							<a href="#" class="card-membership__button button">
+								Choose
+							</a>
+						</article>
+						<article class="membership__card card-membership ">
+							<h3 class="card-membership__title">
+								Popular
+							</h3>
+							<div class="card-membership__subtitle">
+								What You’ll Get
+							</div>
+							<ul class="card-membership__list">
+								<li class="card-membership__item">
+									One-time initiation fee $0
+								</li>
+								<li class="card-membership__item">
+									Deposit $50k
+								</li>
+								<li class="card-membership__item">
+									Pricing / rates Dynamic
+								</li>
+								<li class="card-membership__item">
+									Priority fleet access Yes
+								</li>
+								<li class="card-membership__item">
+									Guaranteed fleet access No
+								</li>
+							</ul>
+							<div class="card-membership__price">
+								$250<sub>/month</sub>
+							</div>
+							<a href="#" class="card-membership__button button">
+								Choose
+							</a>
+						</article>
+
+					</div>
+					<div class="membership__img">
+						<img class="ibg ibg--contain" data-src="@img/membership/plane.jpg" alt="Image">
+					</div>
+				</div>
+			</section>
+
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

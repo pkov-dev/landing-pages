@@ -1,0 +1,15 @@
+.private {
+	// .private__container
+	&__container {
+	}
+	// .private__header
+	&__header {
+		@include adaptiveValue('margin-bottom', 65, 30);
+	}
+	// .private__title
+	&__title {
+	}
+	// .private__body
+	&__body {
+	}
+}

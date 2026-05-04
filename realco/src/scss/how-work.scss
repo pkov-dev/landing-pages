@@ -1,0 +1,17 @@
+.how-work {
+	&:not(:last-child) {
+		@include adaptiveValue("padding-bottom", 128, 60);
+	}
+	// .how-work__container
+	&__container {
+	}
+	// .how-work__header
+	&__header {
+		&:not(:last-child) {
+			margin-bottom: toRem(40);
+		}
+	}
+	// .how-work__items
+	&__items {
+	}
+}

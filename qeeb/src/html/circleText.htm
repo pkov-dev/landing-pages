@@ -1,0 +1,119 @@
+<style>
+	.img-hero__btn {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("width", 200, 100);
+		aspect-ratio: 1 / 1;
+		padding: toRem(27);
+		background-color: gray;
+		border-radius: 50%;
+		font-size: toRem(16);
+	}
+
+
+	.circle-wrqpper {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+	}
+
+	.circle {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		fill: white;
+		@include adaptiveValue("font-size", 16, 8);
+		@include adaptiveValue("letter-spacing", 8, 2);
+		 /* text-transform: uppercase; */
+	}
+</style>
+
+<script>
+	
+class CircleText {
+	constructor(parentAtr = "data-circle-text") {
+		this.parentAtr = parentAtr
+	}
+
+	getPath() {
+		const cxy = this.grandParent.offsetWidth / 2
+		const radius = this.parentEl.offsetWidth / 2
+
+		return (
+			"M " +
+			cxy +
+			" " +
+			cxy +
+			" m -" +
+			radius +
+			", 0 a " +
+			radius +
+			"," +
+			radius +
+			" 0 1,1 " +
+			radius * 2 +
+			",0 a " +
+			radius +
+			"," +
+			radius +
+			" 0 1,1 -" +
+			radius * 2 +
+			",0"
+		)
+	}
+
+	createSvg() {
+		const path = this.getPath()
+
+		this.id = `textPath-${Math.floor(Math.random() * 1e10)}`
+		this.circleEl = `
+		<svg class="circle">
+		  <path id="${this.id}" d="${path}" fill="none" stroke-width="0"></path>
+		  <g>
+			<text text-anchor="start">
+			  <textPath xlink:href="#${this.id}"  startOffset="0%">${this.text}</textPath>
+			</text>
+		  </g>
+		</svg>`
+
+		this.parentEl.insertAdjacentHTML("beforeend", this.circleEl)
+	}
+
+	resize(newPath) {
+		this.pathEl = this.parentEl.querySelector(`#${this.id}`)
+		this.pathEl.setAttribute("d", newPath)
+	}
+
+	textSvgInit() {
+		this.parentEl = document.querySelector(`[${this.parentAtr}]`)
+
+		if (this.parentEl) {
+			this.grandParent = this.parentEl.parentElement
+			this.text = this.parentEl.getAttribute(`${this.parentAtr}`)
+		}
+
+		this.createSvg()
+
+		const resizeObserver = new ResizeObserver(() => {
+			this.resize(this.getPath())
+		})
+
+		resizeObserver.observe(this.parentEl)
+	}
+}
+
+window.onload = () => {
+	const circleText = new CircleText()
+	circleText.textSvgInit()
+}
+
+</script>
+
+<a href="#" class="img-hero__btn ">
+	<div data-circle-text="nft marketplace" class="circle-wrqpper">
+
+	</div>
+</a>

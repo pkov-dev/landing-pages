@@ -1,0 +1,117 @@
+.header {
+	border-bottom: toRem(1) solid var(--bg-borders);
+	position: relative;
+	z-index: 50;
+
+	// .header__container
+	&__container {
+		@include adaptiveValue("min-height", 108, 64);
+		padding-top: toRem(10);
+		padding-bottom: toRem(10);
+		display: flex;
+		@include adaptiveValue("column-gap", 20, 10);
+		row-gap: toRem(10);
+		justify-content: space-between;
+		align-items: center;
+	}
+	// .header__logo
+	&__logo {
+		flex: 0 0 toRem(91);
+		position: relative;
+		z-index: 3;
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__form
+	&__form {
+		flex-grow: 1;
+		padding-left: toRem(40);
+		position: relative;
+		border-radius: toRem(8);
+		background: var(--bg-secondary);
+
+		@media (min-width: $tablet) {
+			flex: 0 0 21.532258%; /* 267/1240 */
+		}
+	}
+	// .header__search
+	&__btn {
+		position: absolute;
+		width: toRem(40);
+		height: 100%;
+		top: 0;
+		left: 0;
+		font-size: toRem(14);
+		// transform: translate(0, -50%);
+		transition: color 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--bg-accent);
+			}
+		}
+	}
+	// .header__input
+	&__input {
+		height: toRem(44);
+		width: 100%;
+		padding-right: toRem(10);
+		padding-left: toRem(12);
+		border: none;
+
+		&::placeholder {
+			color: var(--text-primary);
+			font-size: toRem(16);
+			line-height: 1.2;
+		}
+	}
+	// .header__actions
+	&__actions {
+	}
+}
+
+.actions-header {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	gap: toRem(12);
+	position: relative;
+	z-index: 3;
+
+	@media (max-width: toEm(540)) {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		padding: toRem(15);
+		background-color: var(--bg-primary);
+		border-top: toRem(1) solid var(--bg-borders);
+
+	}
+	// .actions-header__link
+	&__link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: toRem(8);
+		background-color: var(--bg-secondary);
+		height: toRem(44);
+		width: toRem(44);
+		transition: background-color 0.3s;
+
+		@media (max-width: toEm(540)){
+			 width: auto; 
+		}
+		&::before {
+			font-size: toRem(14);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--bg-accent);
+				color: var(--text-inverse);
+			}
+		}
+	}
+}

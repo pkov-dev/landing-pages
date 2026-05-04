@@ -1,0 +1,76 @@
+%ic {
+	font-family: 'icons';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+[class*='_icon-'] {
+	&::before {
+		@extend %ic;
+	}
+}
+
+._icon-tg-s:before {
+	content: '\e900';
+}
+._icon-arr-left:before {
+	content: '\e901';
+}
+._icon-arr-right:before {
+	content: '\e902';
+}
+._icon-brackets-end:before {
+	content: '\e903';
+}
+._icon-brackets:before {
+	content: '\e904';
+}
+._icon-calendar:before {
+	content: '\e905';
+}
+._icon-clock-h:before {
+	content: '\e906';
+}
+._icon-clock-popap:before {
+	content: '\e907';
+}
+._icon-close-popap:before {
+	content: '\e908';
+}
+._icon-close:before {
+	content: '\e909';
+}
+._icon-fb-s:before {
+	content: '\e90a';
+}
+._icon-geo-h:before {
+	content: '\e90b';
+}
+._icon-letter-s:before {
+	content: '\e90c';
+}
+._icon-open-tab:before {
+	content: '\e90d';
+}
+._icon-phone-h:before {
+	content: '\e90e';
+}
+._icon-play:before {
+	content: '\e90f';
+}
+._icon-qs:before {
+	content: '\e910';
+}
+._icon-sub-arr-popap:before {
+	content: '\e911';
+}
+._icon-sub-arr-right:before {
+	content: '\e912';
+}
+._icon-what-s:before {
+	content: '\e913';
+}

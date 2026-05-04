@@ -1,0 +1,259 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.button {
+	color: var(--text-secondary);
+	font-family: 'Kanit', sans-serif;
+	font-size: toRem(20);
+	font-weight: 500;
+	line-height: 1.4;
+	padding: toRem(12) toRem(24);
+	border-radius: 18.021px;
+	border: toRem(3) solid var(--text-primary);
+	background: var(--bg-accent);
+	box-shadow:
+		toRem(-7) toRem(-7) toRem(4) 0 rgba(0, 0, 0, 0.45) inset,
+		toRem(4.5) toRem(4.5) 0 toRem(1.5) var(--text-primary);
+
+	transition: box-shadow 0.5s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			box-shadow:
+				0 0 0 0 rgba(0, 0, 0, 0.45) inset,
+				toRem(4.5) toRem(4.5) 0 toRem(1.5) var(--text-primary);
+		}
+		&:active {
+			box-shadow: none;
+		}
+	}
+
+	// .button--icon
+	&--icon {
+		@media (min-width: toEm(630)) {
+			display: flex;
+			align-items: center;
+			@include adaptiveValue('gap', 20, 8, 0, $containerWidth, 575);
+			gap: toRem(20);
+			width: fit-content;
+		}
+
+		svg {
+			display: none;
+
+			@media (min-width: toEm(630)) {
+				display: block;
+				width: toRem(32);
+				height: toRem(32);
+				flex-basis: toRem(32);
+				flex-shrink: 0;
+			}
+		}
+	}
+	// .button--white
+	&--white {
+		background-color: var(--bg-secondary);
+		color: var(--text-primary);
+		font-weight: 400;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.block-slope {
+	@include adaptiveValue('padding-top', 31, 15, 0, $containerWidth, 768);
+	@include adaptiveValue('padding-bottom', 31, 15, 0, $containerWidth, 768);
+	background: var(--gr-primary);
+	transform: rotate(-4deg) translate(-5%, 0);
+	border: toRem(8) solid var(--text-primary);
+	box-shadow: 0 toRem(9) 0 0 var(--text-primary);
+	width: 110vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	// .block-slope__wrapper
+	&__wrapper {
+		margin-left: toRem(70);
+		margin-right: toRem(70);
+		max-width: toRem(1227);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		@include adaptiveValue('gap', 20, 6);
+		flex-grow: 1;
+
+		@media (max-width: $mobile) {
+			justify-content: space-around;
+		}
+
+		.buy & {
+			max-width: toRem(1270);
+		}
+
+		.booswap & {
+			max-width: toRem(1270);
+			justify-content: flex-end;
+		}
+	}
+
+	// .block-slope__title
+	&__title {
+		position: relative;
+		line-height: 1;
+		color: var(--text-secondary);
+		font-family: 'AhsingRegular', serif;
+		@include adaptiveValue('font-size', 125, 28);
+		transform-style: preserve-3d;
+		perspective: 10rem;
+		text-shadow:
+			toRem(4) toRem(4) toRem(4) var(--text-primary),
+			0 toRem(4) toRem(2) var(--text-primary),
+			toRem(-4) 0 toRem(2) var(--text-primary),
+			0 toRem(-4) toRem(2) var(--text-primary),
+			0 toRem(8) 0 var(--text-primary);
+		transform: translate3d(600%, -200%, 62.5rem);
+
+		.block-slope--negative & {
+			transform: translate3d(-200%, -200%, 62.5rem);
+
+			._watcher-view & {
+				transition: transform 0.5s ease 0.7s;
+				transform: translate3d(0%, 0%, 0);
+			}
+		}
+		._watcher-view & {
+			transition: transform 0.5s ease 0.7s;
+			transform: translate3d(0%, 0%, 0);
+		}
+
+		@media (max-width: $mobileSmall) {
+			text-shadow:
+				toRem(2) toRem(2) toRem(2) var(--text-primary),
+				0 toRem(2) toRem(2) var(--text-primary),
+				toRem(2) 0 toRem(2) var(--text-primary),
+				0 toRem(2) toRem(2) var(--text-primary),
+				0 toRem(2) 0 var(--text-primary);
+		}
+	}
+
+	// .block-slope__svg
+	&__svg {
+		position: absolute;
+		aspect-ratio: 1 / 1;
+		@include adaptiveValue('width', 258, 80);
+		top: 50%;
+		filter: drop-shadow(0 toRem(14) 0 var(--text-primary));
+		transform: translate(12%, -50%);
+
+		transform: translate3d(-100%, -100%, 62.5rem);
+
+		._watcher-view & {
+			transition: transform 0.5s ease 1.2s;
+			transform: translate3d(12%, -50%, 0);
+		}
+		.booswap & {
+			transform: translate3d(-100%, -100%, 62.5rem);
+			@include adaptiveValue('width', 272, 80);
+		}
+		._watcher-view.booswap & {
+			transform: translate3d(-114%, -50%, 0);
+		}
+	}
+	// .block-slope__link
+	&__link {
+		@include adaptiveValue('width', 110, 50);
+		aspect-ratio: 1 / 1;
+		background-color: var(--bg-secondary);
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: toRem(6) solid var(--text-primary);
+		box-shadow: toRem(2) toRem(4) 0 toRem(1.5) var(--text-primary);
+		flex-shrink: 0;
+		transition: all 0.3s;
+
+		&:nth-child(1) {
+			.loaded & {
+				animation: social 0.6s ease 5s;
+			}
+		}
+		&:nth-child(2) {
+			.loaded & {
+				animation: social 0.6s ease 5.6s;
+			}
+		}
+		&:nth-child(3) {
+			.loaded & {
+				animation: social 0.6s ease 6.2s;
+			}
+		}
+		&:nth-child(4) {
+			.loaded & {
+				animation: social 0.6s ease 6.8s;
+			}
+		}
+		&:nth-child(5) {
+			.loaded & {
+				animation: social 0.6s ease 7.4s;
+			}
+		}
+
+		@keyframes social {
+			0% {
+				box-shadow: toRem(2) toRem(4) 0 toRem(1.5) var(--text-primary);
+			}
+			100% {
+				box-shadow: 0 0 0 toRem(1.5) var(--text-primary);
+				background-color: var(--bg-accent);
+			}
+		}
+
+		@media (max-width: toEm(575)) {
+			border: toRem(3) solid var(--text-primary);
+			box-shadow: toRem(1) toRem(2) 0 toRem(1.5) var(--text-primary);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--bg-accent);
+			}
+			&:active {
+				box-shadow: 0 0 0 toRem(1.5) var(--text-primary);
+			}
+			&:hover svg circle {
+				fill: var(--bg-accent);
+			}
+		}
+		svg {
+			@include adaptiveValue('height', 85, 30);
+			@include adaptiveValue('width', 85, 30);
+
+			circle {
+				fill: #34abde;
+				transition: fill 0.3s;
+			}
+		}
+	}
+	// .block-slope__icon
+	&__icon {
+	}
+}
+
+%bgDecor {
+	position: absolute;
+	width: toRem(234);
+	height: toRem(234);
+	background-color: var(--bg-accent);
+	filter: blur(toRem(125));
+	z-index: -1;
+}
+
+.elipsis {
+	-webkit-line-clamp: 1;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	// white-space: pre;
+}

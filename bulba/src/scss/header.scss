@@ -1,0 +1,43 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(20);
+		align-items: center;
+		position: relative;
+		z-index: 1;
+	}
+	// .header__logo
+	&__logo {
+		aspect-ratio: 122 / 122;
+		flex-shrink: 0;
+
+		position: relative;
+		z-index: 5;
+		@include adaptiveValue('width', 132, 110, 0, $containerWidth, 991.98);
+		@include adaptiveValue('width', 110, 70, 3, 991.98, 320);
+		// @include adaptiveValue('flex-basis', 110, 80, 0, 991.98, 320);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	// .header__right
+	&__right {
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__button
+	&__button {
+	}
+}

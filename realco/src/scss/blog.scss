@@ -1,0 +1,17 @@
+.blog {
+	@include adaptiveValue("padding-top", 128, 60);
+	@include adaptiveValue("padding-bottom", 128, 60);
+	background-color: var(--primary);
+	// .blog__container
+	&__container {
+		display: grid;
+		@include adaptiveValue("gap", 80, 40);
+	}
+	// .blog__header-block
+	&__header-block {
+	}
+	// .blog__items
+	&__items {
+	}
+}
+

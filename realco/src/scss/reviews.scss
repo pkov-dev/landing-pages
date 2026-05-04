@@ -1,0 +1,16 @@
+.reviews {
+	&:not(:last-child) {
+		@include adaptiveValue("padding-bottom", 160, 60);
+	}
+	// .reviews__container
+	&__container {
+		display: grid;
+		@include adaptiveValue("gap", 80, 40);
+	}
+	// .reviews__header
+	&__header {
+	}
+	// .reviews__items
+	&__items {
+	}
+}

@@ -1,0 +1,125 @@
+.footer {
+	position: relative;
+	// .footer__top
+	&__top {
+		position: relative;
+	}
+	// .footer__bg
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0%;
+		left: 0%;
+		pointer-events: none;
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0%;
+			left: 0%;
+			object-fit: cover;
+			z-index: 1;
+		}
+	}
+	// .footer__container
+	&__container {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+
+		.footer__top & {
+			@include adaptiveValue('padding-top', 100, 50, 1, 991.98, 320);
+			@media (max-width: $tablet) {
+				flex-direction: column;
+				row-gap: toRem(10);
+			}
+		}
+
+		.footer__bottom & {
+			backdrop-filter: blur(toRem(2));
+			display: flex;
+			justify-content: space-between;
+			gap: toRem(15);
+
+			@media (max-width: toEm(575)) {
+				flex-direction: column;
+			}
+		}
+	}
+	// .footer__left
+	&__left {
+		display: flex;
+		gap: toRem(10);
+		@include adaptiveValue('margin-top', -50, 0);
+
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			align-items: center;
+			row-gap: toRem(15);
+		}
+
+		@media (min-width: $tablet) {
+			flex: 1 0 66.5%;
+		}
+	}
+	// .footer__social
+	&__social {
+	}
+	// .footer__img
+	&__img {
+		aspect-ratio: 718 / 368;
+		position: relative;
+
+		@media (max-width: $tablet) {
+			width: 50%;
+			left: -8%;
+		}
+
+		@media (min-width: $tablet) {
+			flex: 0 0 33.5%;
+			max-width: toRem(718);
+		}
+
+		img {
+			width: 133%;
+			object-fit: cover;
+		}
+	}
+	// .footer__bottom
+	&__bottom {
+		position: relative;
+		z-index: 2;
+		border-top: toRem(3) solid #040402;
+		background: #032d22;
+		padding: toRem(8) 0;
+		@include adaptiveValue('margin-top', -50, 0);
+	}
+	// .footer__copy
+	&__copy {
+		color: #f4f2eb;
+		font-weight: 700;
+		line-height: normal;
+		text-transform: uppercase;
+		@include adaptiveValue('font-size', 20, 16);
+	}
+	// .footer__osnovo
+	&__osnovo {
+		will-change: transform;
+		transition: transform 0.2s;
+
+		@include adaptiveValue('width', 279, 220);
+
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.03);
+			}
+		}
+
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+}

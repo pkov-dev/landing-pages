@@ -1,0 +1,141 @@
+.menu {
+	@media (max-width: $tablet) {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: -100%;
+		top: 0;
+		overflow: auto;
+		padding: toRem(100) toRem(15) toRem(15) toRem(30);
+		@include adaptiveValue("padding-top", 168, 104);
+		transition: left 0.3s;
+		background-color: var(--bg-primary);
+		
+		&::before {
+			content: "";
+			position: fixed;
+			width: 100%;
+			@include adaptiveValue("min-height", 108, 64);
+			left: -100%;
+			top: 0;
+			transition: left 0.3s;
+			z-index: 2;
+			background-color: var(--bg-primary);
+		}
+		.menu-open & {
+			left: 0;
+			&::before {
+				left: 0;
+			}
+		}
+	}
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		gap: toRem(15);
+		@include adaptiveValue("column-gap", 40, 30, 0, $maxWidthContainer, 992);
+		row-gap: toRem(5);
+		flex-wrap: wrap;
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			text-align: center;
+			row-gap: toRem(25);
+		}
+	}
+	// .menu__item
+	&__item {
+		color: var(--text-primary);
+		transition: color 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--text-secondary);
+			}
+		}
+		// .menu__item--active
+		&--active {
+			font-weight: 700;
+			color: var(--text-accent);
+			pointer-events: none;
+		}
+	}
+	// .menu__link
+	&__link {
+		font-size: toRem(22);
+		line-height: 1.2;
+		font-weight: 500;
+
+		@media (max-width: $tablet) {
+			font-size: toRem(32);
+		}
+	}
+}
+
+//Burger Icon
+.icon-menu {
+	display: none;
+	flex-shrink: 0;
+
+	@media (max-width: $tablet) {
+		flex-basis: toRem(44);
+		display: block;
+		position: relative;
+		width: toRem(44);
+		height: toRem(44);
+		z-index: 5;
+		border-radius: toRem(8);
+		background-color: var(--bg-secondary);
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			left: toRem(5);
+			right: 0;
+			position: absolute;
+			width: toRem(34);
+			border-radius: toRem(3);
+			height: toRem(2);
+			background-color: var(--bg-burger);
+
+			.menu-open & {
+				background-color: var(--bg-accent);
+			}
+		}
+		&::before {
+			top: toRem(12);
+		}
+		&::after {
+			bottom: toRem(12);
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				transform: scale(0);
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - toRem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - toRem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

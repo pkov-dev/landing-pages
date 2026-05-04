@@ -1,0 +1,127 @@
+//====================================================================================================
+.footer {
+	background-color: var(--bg-third);
+	@include adaptiveValue("padding-top", 100, 60);
+	@include adaptiveValue("padding-bottom", 100, 60);
+
+	// .footer__container
+	&__container {
+	}
+	// .footer__items
+	&__items {
+		display: flex;
+		column-gap: toRem(30);
+		row-gap: toRem(30);
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	// .footer__item
+	&__item {
+	}
+	// .footer__logo
+	&__logo {
+		width: toRem(190);
+		@include adaptiveValue("font-size", 50, 32);
+		font-weight: 700;
+		background: var(--text-gr);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		@extend %orbit;
+		&:not(:last-child) {
+			margin-bottom: toEm(23, 50);
+		}
+	}
+}
+
+.item-footer {
+	flex: 1 1 flBasis(4, 30, 150);
+
+	// .item-footer--logo
+	&--logo {
+		flex: 1 1 flBasis(4, 30, 450);
+		@media (max-width: $mobile) {
+			flex-basis: 100%;
+		}
+	}
+
+	// .item-footer--contacts
+	&--contacts {
+		flex: 1 1 flBasis(4, 30, 263);
+	
+		@media (max-width: $mobile) {
+			flex-basis: 100%;
+		}
+	}
+
+	// .item-footer--half
+	&--half {
+		@media (max-width: $mobile) {
+			flex-basis: flBasis(2, 30);
+		}
+	}
+	// .item-footer__text
+	&__text {
+		color: var(--text-secondary);
+		font-size: toRem(18);
+		p {
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+		}
+	}
+	// .item-footer__title
+	&__title {
+		@extend %orbit;
+		@include adaptiveValue("font-size", 20, 16);
+		font-weight: 700;
+		&:not(:last-child) {
+			margin-bottom: toEm(20, 20);
+		}
+	}
+	// .item-footer__list
+	&__list {
+	}
+	// .item-footer__item
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: toRem(8);
+		}
+	}
+	// .item-footer__link
+	&__link {
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: 1.5;
+		@extend .menu__link;
+		text-transform: capitalize;
+	}
+	// .item-footer__social-list
+	&__social-list {
+	}
+	// .item-footer__copy
+	&__copy {
+	}
+}
+.list-social {
+	display: flex;
+	gap: toRem(21);
+	align-items: center;
+	flex-wrap: wrap;
+
+	@include adaptiveValue("margin-bottom", 24, 16);
+	// .list-social__link
+	&__link {
+		flex: 0 0 toRem(35);
+		width: toRem(35);
+		transform: scale(1.001);
+		transition: transform 0.3s;
+		
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
+
+//====================================================================================================

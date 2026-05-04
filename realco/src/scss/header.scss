@@ -1,0 +1,71 @@
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	background-color: var(--bg-third);
+	// .header__top
+	&__top {
+	}
+	// .header__container
+	&__container {
+		padding-top: toRem(16);
+		padding-bottom: toRem(16);
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("column-gap", 40, 15);
+		justify-content: space-between;
+	}
+
+	// .header__logo
+	&__logo {
+		aspect-ratio: 105 / 32;
+		@include adaptiveValue("width", 105, 80);
+		position: relative;
+		z-index: 5;
+	}
+
+	// .header__menu
+	&__menu {
+	}
+}
+.top-header {
+	min-height: toRem(32);
+	padding: toRem(4) toRem(40);
+	padding-top: toRem(4);
+	padding-bottom: toRem(4);
+	@include adaptiveValue("padding-left", 40, 15, 0, $maxWidth, $maxWidthContainer);
+	@include adaptiveValue("padding-right", 40, 15, 0, $maxWidth, $maxWidthContainer);
+	background-color: var(--bg-inverse);
+	display: flex;
+	align-items: center;
+	gap: toRem(20);
+	position: relative;
+	z-index: 5;
+
+	// .top-header__text
+	&__text {
+		color: var(--text-inverse);
+		font-size: toRem(14);
+		line-height: 1.5;
+		flex-grow: 1;
+		text-align: center;
+	}
+
+	// .top-header__button
+	&__button {
+	}
+
+	// .top-header__close
+	&__close {
+		fill: var(--bg-third);
+		transition: fill 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				fill: var(--bg-accent);
+			}
+		}
+	}
+}

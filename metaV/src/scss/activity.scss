@@ -1,0 +1,136 @@
+.activity {
+	position: relative;
+
+	&::before {
+		@extend %decorBg;
+		transform: translate(-30%, -50%);
+	}
+
+	&::after {
+		@extend %decorBg;
+		right: 0;
+		left: auto;
+		transform: translate(30%, -20%);
+	}
+	// .activity__container
+	&__container {
+	}
+	// .activity__title
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 55, 30);
+		}
+	}
+	// .activity__slider
+	&__slider {
+	}
+	// .activity__wrapper
+	&__wrapper {
+	}
+	// .activity__slide
+	&__slide {
+		position: relative;
+		aspect-ratio: 1182 / 650;
+		// filter: drop-shadow(0 toRem(-2) 0 #d10ed1) drop-shadow(0 toRem(2) 0 #d10ed1)
+		// 	drop-shadow(toRem(2) 0 0 #10a3da) drop-shadow(toRem(-2) 0 0 #10a3da);
+		@media (max-width: $mobile) {
+			aspect-ratio: 313 / 274;
+		}
+	}
+	// .activity__video
+	&__video {
+		@extend %responsiveVideo;
+		border-radius: toRem(25);
+		height: 100%;
+		display: flex;
+	}
+
+	// .activity__btn
+	&__btn {
+	}
+	// .activity__video-title
+	&__video-title {
+		align-self: flex-end;
+		flex-basis: 100%;
+		font-weight: 600;
+		@include adaptiveValue("font-size", 45, 18);
+		@include adaptiveValue("padding", 45, 20, 0, $containerWidth, 768);
+		background-color: rgba(0, 0, 0, 0.5);
+		position: relative;
+		// backdrop-filter: blur(toRem(5));
+		transition: opacity 0.3s;
+
+		._playing & {
+			overflow: hidden;
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+}
+
+.play-btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.25s;
+
+	._playing & {
+		opacity: 0;
+
+		@media (any-hover: hover) {
+			.activity__slide:hover & {
+				opacity: 1;
+			}
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:active svg {
+			fill: #d10ed1;
+		}
+		&:active span {
+			border-color: #d10ed1;
+		}
+	}
+
+	span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("width", 120, 60);
+		aspect-ratio: 1 / 1;
+		border-radius: 50%;
+		background-color: rgba(255, 255, 255, 0.7);
+		// backdrop-filter: blur(toRem(5));
+		border: toRem(2) solid #10a3da;
+		transition: border-color 0.3s;
+
+		svg {
+			@include adaptiveValue("width", 39, 22);
+			aspect-ratio: 39 / 50;
+			// fill: var(--bg-fourth);
+			fill: #10a3da;
+			transition: fill 0.3s;
+
+			._playing & {
+				transform: scale(2.2);
+			}
+		}
+	}
+
+	// .play-btn__stop
+	&__stop {
+		display: none;
+
+		._playing & {
+			display: block;
+		}
+	}
+	// .play-btn__play
+	&__play {
+		._playing & {
+			display: none;
+		}
+	}
+}

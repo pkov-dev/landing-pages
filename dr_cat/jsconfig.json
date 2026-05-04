@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"baseUrl": ".",
+		"types": ["vite/client"],
+		"paths": {
+			"@js/*": ["src/js/*"],
+			"@styles/*": ["src/styles/*"],
+			"@components/*": ["src/components/*"]
+		}
+	},
+	"include": ["src", "vite.config.js"]
+}

@@ -1,0 +1,139 @@
+.membership {
+	// .membership__container
+	&__container {
+		max-width: toRem(1264);
+	}
+	// .membership__header
+	&__header {
+		@include adaptiveValue('margin-bottom', 65, 30);
+	}
+	// .membership__body
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(toRem(304.5), 1fr));
+		gap: toRem(24);
+		&:not(:last-child) {
+			margin-bottom: toRem(17);
+		}
+
+		@media (max-width: $mobileSmall) {
+			grid-template-columns: repeat(auto-fill, minmax(toRem(290), 1fr));
+		}
+	}
+	// .membership__card
+	&__card {
+	}
+	// .membership__img
+	&__img {
+		text-align: center;
+		img {
+			aspect-ratio: 758/200;
+			width: 68.288288%; /* 758/1110 */
+		}
+	}
+}
+
+.card-membership {
+	padding: toRem(24);
+	background-color: var(--bg-secondary);
+	align-self: flex-start;
+	border-radius: toRem(20);
+
+	@media (min-width: $tablet) {
+		margin-top: toRem(40);
+		&:nth-child(3n + 1) {
+			border-radius: toRem(20) 0 0 toRem(20);
+		}
+		&:nth-child(3n + 2) {
+			border-radius: toRem(20);
+		}
+		&:nth-child(3n + 3) {
+			border-radius: 0 toRem(20) toRem(20) 0;
+		}
+		&:nth-child(n + 4) {
+			margin-top: toRem(0);
+		}
+	}
+
+	// .card-membership--active
+	&--active {
+		background-color: var(--bg-accent);
+		margin-top: toRem(0);
+	}
+	// .card-membership__title
+	&__title {
+		color: var(--text-third);
+		@include adaptiveValue('font-size', 32, 24);
+		font-weight: 700;
+		line-height: 1.25;
+
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 37, 20);
+		}
+		.card-membership--active & {
+			color: var(--text-fourth);
+		}
+	}
+	// .card-membership__subtitle
+	&__subtitle {
+		color: var(--text-fifth);
+		@include adaptiveValue('font-size', 22, 18);
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 29, 15);
+		}
+	}
+	// .card-membership__list
+	&__list {
+		padding-bottom: toRem(22);
+		border-bottom: toRem(1) dashed var(--text-fifth);
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 65, 20);
+		}
+	}
+	// .card-membership__item
+	&__item {
+		color: var(--text-third);
+		display: flex;
+		align-items: center;
+		gap: toRem(10);
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 20, 14);
+		}
+
+		.card-membership--active & {
+			color: var(--text-fourth);
+		}
+
+		&::before {
+			content: '';
+			width: toEm(20, 16);
+			height: toEm(20, 16);
+			flex-shrink: 0;
+			background: url('@img/icons/check.svg') 0 0 no-repeat;
+
+			.card-membership--active & {
+				background: url('@img/icons/check-white.svg') 0 0 no-repeat;
+			}
+		}
+	}
+	// .card-membership__price
+	&__price {
+		color: var(--text-third);
+		@include adaptiveValue('font-size', 32, 24);
+		font-weight: 700;
+
+		.card-membership--active & {
+			color: var(--text-fourth);
+		}
+		sub {
+			@include adaptiveValue('font-size', 18, 14);
+			font-weight: 400;
+		}
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 24, 15);
+		}
+	}
+	// .card-membership__button
+	&__button {
+	}
+}

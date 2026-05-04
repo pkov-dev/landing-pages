@@ -1,0 +1,113 @@
+[class*="--blue"] {
+	background: var(--blueBright-gr);
+}
+
+[class*="--blue-dark"] {
+	background: var(--blueDark-gr);
+}
+
+[class*="--red"] {
+	background: var(--redBright-gr);
+}
+
+[class*="--red-dark"] {
+	background: var(--redDark-gr);
+}
+
+h2 {
+	@include adaptiveValue("padding-left", 40, 20, $containerWidth, 768);
+	&:not(:last-child) {
+		@include adaptiveValue("margin-bottom", 70, 25);
+	}
+}
+
+.page {
+	display: grid;
+	@include adaptiveValue("row-gap", 40, 10);
+	// .page__hero
+	&__hero {
+	}
+	// .page__opportunities
+	&__opportunities {
+	}
+	// .page__course
+	&__course {
+	}
+
+	// .page__benefits
+	&__benefits {
+	}
+
+	// .page__contact
+	&__contact {
+	}
+	// .page__call-back
+	&__call-back {
+	}
+}
+
+.run {
+	span {
+		transition-property: opacity;
+		display: inline-block;
+		opacity: 0;
+		margin-right: toRem(1);
+	}
+}
+
+.hero {
+	// .hero__container
+	&__container {
+	}
+	// .hero__top
+
+	&__top {
+		h1 {
+			span {
+			}
+		}
+	}
+
+	// .hero__item
+	&__item {
+	}
+	// .hero__logo
+	&__logo {
+		width: toRem(160);
+		height: toRem(43);
+		object-fit: contain;
+	}
+}
+
+.opportunities {
+	// .opportunities__container
+	&__container {
+	}
+	// .opportunities__top
+	&__top {
+	}
+}
+
+.course {
+	// .course__container
+	&__container {
+	}
+}
+
+.benefits {
+	// .benefits__container
+	&__container {
+	}
+	// .benefits__top
+	&__top {
+	}
+}
+
+.contact {
+	// .contact__container
+	&__container {
+	}
+	// .contact__top
+	&__top {
+	}
+}

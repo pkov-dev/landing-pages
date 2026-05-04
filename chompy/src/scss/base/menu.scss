@@ -1,0 +1,305 @@
+.menu {
+	@media (max-width: $tablet) {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+
+		@media (min-width: $tablet) {
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: toRem(1.5);
+			background-color: var(--text-primary);
+			bottom: 0;
+			left: 0;
+		}
+
+		& > .menu__link {
+			border-right: solid var(--text-primary);
+			border-bottom: solid var(--text-primary);
+			padding: toRem(10);
+
+			position: relative;
+		}
+
+		& > .menu__link-bue {
+			flex-grow: 1;
+			border-bottom: solid var(--text-primary);
+			background-color: var(--text-red);
+		}
+
+		& > .menu__link:has(.menu__img-mob) {
+			@media (max-width: $tablet) {
+				@include adaptiveValue('width', 147, 101, 0, 992, 320);
+				background-color: var(--text-white);
+			}
+		}
+	}
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		@media (max-width: $tablet) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			left: -100%;
+			top: 0;
+			overflow: auto;
+			padding-left: toRem(15);
+			padding-right: toRem(15);
+			padding-bottom: toRem(30);
+			padding-top: toRem(120);
+			transition: left 0.3s;
+			display: flex;
+			background-color: var(--blue-color);
+
+			.menu-open & {
+				left: 0;
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		@media (min-width: $tablet) {
+			border-bottom: solid var(--text-primary);
+			@include adaptiveValue('border-bottom-width', 8, 4, 0, 1920, 992);
+		}
+
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			gap: toRem(30);
+			justify-content: center;
+		}
+	}
+	// .menu__item
+	&__item {
+		@media (min-width: $tablet) {
+			flex-grow: 1;
+			border-right: solid var(--text-primary);
+			@include adaptiveValue('border-right-width', 8, 4, 0, 1920, 992);
+		}
+
+		&:has(.menu__link-bue) {
+			background-color: var(--text-red);
+			overflow: hidden;
+		}
+
+		&:nth-child(3) {
+			border: none;
+		}
+		&:nth-child(4) {
+			display: none;
+			@media (min-width: $tablet) {
+				display: block;
+				border: none;
+			}
+		}
+	}
+	// .menu__link
+	&__link {
+		color: var(--text-primary);
+		font-weight: 400;
+		line-height: 1.2;
+		text-align: center;
+		background-color: transparent;
+		transition: color 0.3s;
+		width: 100%;
+		padding-right: toRem(5);
+		@include adaptiveValue('font-size', 30, 18, 2, 1920, 992);
+		@include adaptiveValue('font-size', 26, 24, 3, 991.98, 320);
+		@include adaptiveValue('padding-top', 14, 10, 0, 1920, 992);
+		@include adaptiveValue('padding-bottom', 14, 10, 0, 1920, 992);
+		// @include adaptiveValue('padding-right', 40, 10, 0, 1920, 992);
+		@include adaptiveValue('padding-left', 40, 10, 0, 1920, 992);
+
+		@media (max-width: $mobile) {
+			padding-top: toRem(10);
+			padding-bottom: toRem(10);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--blue-color);
+			}
+		}
+	}
+	&__link-logo {
+		border: none;
+		padding: 0;
+		position: relative;
+		transition: transform 0.3s;
+		will-change: transform;
+		@include adaptiveValue('width', 590, 368, 0, 1920, 992);
+
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.01);
+			}
+		}
+	}
+	// .menu__link-bue
+	&__link-bue {
+		width: 100%;
+		color: var(--text-white);
+		position: relative;
+		z-index: 4;
+		font-weight: 400;
+		line-height: 1.2;
+		text-align: center;
+		padding-right: toRem(5);
+		@include adaptiveValue('font-size', 30, 18, 0, 1920, 992);
+		@include adaptiveValue('padding-top', 14, 10, 0, 1920, 992);
+		@include adaptiveValue('padding-bottom', 14, 10, 0, 1920, 992);
+		// @include adaptiveValue('padding-right', 44, 10, 0, 1920, 992);
+		@include adaptiveValue('padding-left', 44, 10, 0, 1920, 992);
+
+		@media (max-width: $mobile) {
+			padding-top: toRem(10);
+			padding-bottom: toRem(10);
+		}
+
+		@media (min-width: $tablet) {
+			height: 100%;
+		}
+
+		@media (any-hover: hover) {
+			&:hover::before {
+				transform: translate(0, 0);
+			}
+		}
+		@media (min-width: $tablet) {
+			&::before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				transform: translate(0, 100%);
+				background-color: var(--blue-color);
+				z-index: -1;
+				pointer-events: none;
+				transition: transform 0.3s;
+			}
+		}
+	}
+
+	// .menu__img
+	&__img {
+		display: none;
+
+		@media (min-width: $tablet) {
+			display: block;
+			position: absolute;
+			width: 111%;
+			left: -10%;
+			object-fit: contain;
+			aspect-ratio: 590 / 132;
+			@include adaptiveValue('top', -58, -44, 0, 1920, 1200);
+
+			@media (min-width: $tablet) {
+			}
+		}
+	}
+
+	// .menu__img-mob
+	&__img-mob {
+		display: none;
+
+		@media (max-width: $tablet) {
+			display: block;
+			position: absolute;
+			width: 116%;
+			top: 50%;
+			transform: translate(0, -56%);
+			object-fit: cover;
+			@include adaptiveValue('left', -31, -21, 0, 992, 320);
+
+			@media (max-width: $mobile) {
+				width: 260%;
+			}
+
+			@media (min-width: $tablet) {
+				aspect-ratio: 560 / 144;
+			}
+		}
+	}
+}
+
+//Burger Icon
+.icon-menu {
+	display: none;
+	transition: box-shadow 0.3s;
+
+	@media (max-width: $tablet) {
+		flex-shrink: 0;
+		display: block;
+		position: relative;
+		width: toRem(44);
+		height: toRem(44);
+		border-bottom: solid var(--text-primary);
+		background-color: var(--blue-color);
+
+		z-index: 5;
+
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: '';
+			transition:
+				transform 0.3s ease,
+				opacity 0.3s ease,
+				top 0.3s ease,
+				bottom 0.3s ease;
+			right: toRem(7);
+			position: absolute;
+			width: toRem(30);
+			height: toRem(2);
+			background-color: var(--text-primary);
+
+			border-radius: toRem(3);
+			backface-visibility: hidden;
+		}
+		&::before {
+			top: toRem(10);
+		}
+		&::after {
+			bottom: toRem(10);
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				opacity: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				backface-visibility: hidden;
+				transform: rotate(45deg);
+				transition: 0.3s;
+				top: calc(50% - toRem(1));
+			}
+			&::after {
+				backface-visibility: hidden;
+				transform: rotate(-405deg);
+				transition: 0.3s;
+				bottom: calc(50% - toRem(1));
+			}
+		}
+	}
+}

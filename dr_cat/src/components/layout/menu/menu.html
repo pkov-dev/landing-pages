@@ -1,0 +1,34 @@
+<div class="header__menu menu">
+	<nav class="menu__body">
+		<ul class="menu__list">
+			<each loop='item in [
+					{"href": "#","ancor": "Home", "scrollTo": ".hero"},
+					{"href": "#","ancor": "How to Buy", "scrollTo": ".buy"},
+					{"href": "#","ancor": "About", "scrollTo": ".about"},
+					{"href": "#","ancor": "Tokenomics", "scrollTo": ".tokenomics"},
+					{"href": "#","ancor": "FAQ", "scrollTo": ".faqos"}
+				]'>
+				<if condition="'[[active]]' === '[[item.ancor]]'">
+					<li class="menu__item">
+						<a href="[[item.href]]" data-fls-scrollto="[[item.scrollTo]]" data-fls-scrollto-header
+							class="menu__link menu__link--active">[[item.ancor]]</a>
+					</li>
+				</if>
+				<else>
+					<li class="menu__item">
+						<a href="[[item.href]]" data-fls-scrollto="[[item.scrollTo]]" data-fls-scrollto-header class="
+							menu__link">[[item.ancor]]</a>
+					</li>
+				</else>
+			</each>
+		</ul>
+		<div class="header__social social-header">
+			<a href="#" target="_blank" aria-label="social X" class="social-header__link">
+				<img src="@img/header/social/x.svg" alt="Image">
+			</a>
+			<a href="#" target="_blank" aria-label="social telegram" class="social-header__link">
+				<img src="@img/header/social/bxl_telegram.svg" alt="Image">
+			</a>
+		</div>
+	</nav>
+</div>

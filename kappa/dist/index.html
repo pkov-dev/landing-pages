@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>KAPPA</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="description" content="KAPPA">
+	<style>
+		body {
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+		}
+
+		.loaded body {
+			opacity: 1;
+			visibility: visible;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20260503132434">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="overlay"></div>
+		<div class="menu-open-bg"></div>
+		<header class="header">
+			<div class="header__container">
+				<a data-goto=".hero" data-goto-header href="#" aria-label="logotype" class="header__logo">
+					<img src="img/logo.webp" alt="logotype">
+				</a>
+				<div class="header__right">
+					<div class="header__menu menu">
+						<button type="button" class="menu__icon icon-menu" aria-label=" open / close menu"><span></span></button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a data-goto=".buy__container" data-goto-top="-100" data-goto-header href="#" class="menu__link">
+										HOW TO BUY
+									</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto=".tokenomiks__container" data-goto-header href="#" class="menu__link">
+										TOKENOMICS
+									</a>
+								</li>
+							</ul>
+							<a href="#" class="menu__button button">
+								<span>BUY NOW</span>
+							</a>
+							<div class="menu__social">
+								<a href="#" target="_blank" class="menu__social-link social-link social-link--tg">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 28" fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M27.4908 0.172899C27.858 0.0198062 28.26 -0.0329945 28.6548 0.019992C29.0496 0.0729784 29.4229 0.229815 29.7358 0.474178C30.0486 0.718541 30.2896 1.0415 30.4337 1.40943C30.5778 1.77736 30.6197 2.17683 30.555 2.56624L27.1847 22.8154C26.8577 24.7686 24.6941 25.8887 22.8855 24.9158C21.3727 24.1018 19.1258 22.8478 17.1048 21.5392C16.0943 20.8842 12.9988 18.7868 13.3793 17.2942C13.7062 16.0181 18.9074 11.2226 21.8795 8.37147C23.046 7.25134 22.514 6.60517 21.1365 7.63551C17.7156 10.1937 12.2231 14.084 10.4072 15.1791C8.80521 16.1447 7.97004 16.3095 6.97142 16.1447C5.14952 15.8444 3.45988 15.3793 2.08082 14.8126C0.217317 14.0472 0.307966 11.5096 2.07934 10.7707L27.4908 0.172899Z" fill="#FDF9D4" />
+									</svg>
+								</a>
+								<a href="#" target="_blank" class="menu__social-link social-link social-link--x">
+									<svg viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<mask id="mask0_323_4528" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="29" height="29">
+											<path d="M0 0H28.4875V28.4875H0V0Z" fill="white" />
+										</mask>
+										<g mask="url(#mask0_323_4528)">
+											<path d="M22.4334 1.33447H26.8022L17.2589 12.2696L28.487 27.1523H19.6966L12.8067 18.1279L4.93192 27.1523H0.559088L10.7658 15.4521L-0.000488281 1.33651H9.01378L15.2322 9.58364L22.4334 1.33447ZM20.8971 24.5315H23.3186L7.69114 3.81899H5.09471L20.8971 24.5315Z" fill="#FDF9D4" />
+										</g>
+									</svg>
+								</a>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="page__hero hero">
+				<div class="hero__bg">
+					<img src="img/hero/bg.webp" alt="Image">
+					<img src="img/hero/decor.webp" alt="Image">
+				</div>
+				<div class="hero__img">
+					<img src="img/hero/main.webp" alt="Image">
+					<img src="img/hero/grass.webp" alt="Image">
+				</div>
+				<div class="hero__container">
+					<div class="hero__title">
+						<h1>KAPPA</h1>
+						<div class="hero__img-title">
+							<img class="ibg" src="img/hero/title.webp" alt="Image">
+							<img src="img/hero/herologo.webp" alt="Image">
+						</div>
+					</div>
+
+					<div class="hero__bottom">
+						<div class="hero__actions">
+							<a href="#" class="hero__button button">
+								<span>
+									BUY NOW
+								</span>
+							</a>
+							<div class="hero__social">
+								<a href="#" aria-label="social X" target="_blank" class="hero__link social-link social-link--x">
+									<svg viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<mask id="mask0_26_1157" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="49" height="49">
+											<path d="M0.651855 0.79744H48.6519V48.7974H0.651855V0.79744Z" fill="white" />
+										</mask>
+										<g mask="url(#mask0_26_1157)">
+											<path d="M38.4515 3.04572H45.8127L29.7327 21.4709L48.6516 46.5474H33.8401L22.231 31.3417L8.96241 46.5474H1.59441L18.7921 26.8331L0.65155 3.04914H15.8401L26.3178 16.9451L38.4515 3.04572ZM35.863 42.1314H39.943L13.6116 7.232H9.23669L35.863 42.1314Z" fill="#FDF9D4" />
+										</g>
+									</svg>
+								</a>
+								<a href="#" target="_blank" aria-label="social telegram" class="hero__link social-link social-link--tg">
+									<svg viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M40.6506 0.967208C41.2066 0.733187 41.8152 0.652475 42.4129 0.733472C43.0107 0.814468 43.5759 1.05421 44.0496 1.42775C44.5233 1.80129 44.8882 2.29496 45.1064 2.85739C45.3245 3.41982 45.388 4.03045 45.2901 4.62571L40.187 35.579C39.692 38.5647 36.416 40.277 33.6778 38.7897C31.3873 37.5455 27.9853 35.6285 24.9253 33.6282C23.3953 32.627 18.7085 29.4207 19.2845 27.1392C19.7796 25.1885 27.6545 17.858 32.1545 13.4997C33.9208 11.7875 33.1153 10.7997 31.0296 12.3747C25.85 16.2852 17.534 22.232 14.7845 23.906C12.359 25.382 11.0945 25.634 9.58255 25.382C6.82405 24.923 4.2658 24.212 2.1778 23.3457C-0.643703 22.1757 -0.506453 18.2967 2.17555 17.1672L40.6506 0.967208Z" fill="#FDF9D4" />
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="page__buy buy">
+				<div class="buy__bg">
+					<img src="img/buy/bg.webp" alt="Image">
+				</div>
+				<div data-watch="navigator" class="buy__container">
+					<div data-watch-threshold="0.3" data-watch data-watch-once class="buy__title">
+						<h2>How to buy</h2>
+						<img class="fall-buy" src="img/buy/tilte.webp" alt="Image">
+					</div>
+					<ul data-watch-threshold="0.5" data-watch data-watch-once class="buy__list">
+						<li data-watch-threshold="0.6" data-watch data-watch-once class="buy__item item-buy">
+							<div class="item-buy__bg">
+								<img src="img/buy/leave1.webp" alt="Image">
+							</div>
+							<div class="item-buy__header">
+								<div class="item-buy__wrp">
+									<div class="item-buy__numb">
+										<span>1</span>
+									</div>
+									<h3>
+										Lorem ipsum
+									</h3>
+								</div>
+							</div>
+							<div class="item-buy__text">
+								<p>
+									Download MetaMask or your preferred walleе from the app storeGoogle Play or as a
+									Chrome extension from metamask io
+								</p>
+							</div>
+						</li>
+						<li data-watch-threshold="0.6" data-watch data-watch-once class="buy__item item-buy">
+							<div class="item-buy__bg">
+								<img src="img/buy/leave2.webp" alt="Image">
+								<img src="img/buy/leave3.webp" alt="Image">
+							</div>
+							<div class="item-buy__header">
+								<div class="item-buy__wrp">
+									<div class="item-buy__numb">
+										<span>2</span>
+									</div>
+									<h3>
+										Lorem ipsum
+									</h3>
+								</div>
+							</div>
+							<div class="item-buy__text">
+								<p>
+									Download MetaMask or your preferred walleе from the app storeGoogle Play or as a
+									Chrome extension from metamask io
+								</p>
+							</div>
+						</li>
+						<li data-watch-threshold="0.6" data-watch data-watch-once class="buy__item item-buy">
+							<div class="item-buy__bg">
+								<img src="img/buy/leave4.webp" alt="Image">
+							</div>
+							<div class="item-buy__header">
+								<div class="item-buy__wrp">
+									<div class="item-buy__numb">
+										<span>3</span>
+									</div>
+									<h3>
+										Lorem ipsum
+									</h3>
+								</div>
+							</div>
+							<div class="item-buy__text">
+								<p>
+									Download MetaMask or your preferred walleе from the app storeGoogle Play or as a
+									Chrome extension from metamask io
+								</p>
+							</div>
+						</li>
+						<li data-watch-threshold="0.6" data-watch data-watch-once class="buy__item item-buy">
+							<div class="item-buy__bg">
+								<img src="img/buy/leave5.webp" alt="Image">
+							</div>
+							<div class="item-buy__header">
+								<div class="item-buy__wrp">
+									<div class="item-buy__numb">
+										<span>4</span>
+									</div>
+									<h3>
+										Lorem ipsum
+									</h3>
+								</div>
+							</div>
+							<div class="item-buy__text">
+								<p>
+									Download MetaMask or your preferred walleе from the app storeGoogle Play or as a
+									Chrome extension from metamask io
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div data-watch-threshold="0.5" data-watch data-watch-once class="buy__img">
+					<img class="fall-buy ibg" src="img/buy/kappa.webp" alt="Image">
+				</div>
+			</section>
+
+			<section class="page__tokenomiks tokenomiks">
+				<div class="tokenomiks__bg">
+					<img src="img/tokenomiks/bg.webp" alt="Image">
+				</div>
+				<div data-watch="navigator" class="tokenomiks__container">
+					<div data-watch-threshold="0.3" data-watch data-watch-once class="tokenomiks__img">
+						<img src="img/tokenomiks/kappa.webp" alt="Image">
+					</div>
+					<div class="tokenomiks__content">
+						<div data-watch-threshold="0.6" data-watch data-watch-once class="tokenomiks__title title-block">
+							<h2>Tokenomiks</h2>
+
+							<div class="title-block__bg-title">
+							</div>
+							<div class="title-block__img-title">
+								<img src="img/tokenomiks/title.webp" alt="Image">
+							</div>
+						</div>
+						<div class="tokenomiks__card card-tokenomiks">
+							<div class="card-tokenomiks__items">
+								<div class="card-tokenomiks__item card-tokenomiks__item--lp">
+									<p>LOCKED</p>
+								</div>
+								<div class="card-tokenomiks__item card-tokenomiks__item--tax">
+									<p>0/0</p>
+								</div>
+							</div>
+							<div class="card-tokenomiks__item card-tokenomiks__item card-tokenomiks__item--supply">
+								<p>151 000 000</p>
+							</div>
+							<div class="card-tokenomiks__cn">
+								<div data-clipboard class="cn">
+									<span data-clipboardEl class="cn__address">
+										0x873208740r3284hd93865h
+									</span>
+									<button type="button" data-clipboardBtn aria-label="copy text" class="cn__button">
+										<svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M29.5312 3.82812H12.0312C11.5961 3.82812 11.1788 4.00098 10.8712 4.30865C10.5635 4.61633 10.3906 5.03363 10.3906 5.46875V10.3906H5.46875C5.03363 10.3906 4.61633 10.5635 4.30865 10.8712C4.00098 11.1788 3.82812 11.5961 3.82812 12.0312V29.5312C3.82812 29.9664 4.00098 30.3837 4.30865 30.6913C4.61633 30.999 5.03363 31.1719 5.46875 31.1719H22.9688C23.4039 31.1719 23.8212 30.999 24.1288 30.6913C24.4365 30.3837 24.6094 29.9664 24.6094 29.5312V24.6094H29.5312C29.9664 24.6094 30.3837 24.4365 30.6913 24.1288C30.999 23.8212 31.1719 23.4039 31.1719 22.9688V5.46875C31.1719 5.03363 30.999 4.61633 30.6913 4.30865C30.3837 4.00098 29.9664 3.82812 29.5312 3.82812ZM21.3281 27.8906H7.10938V13.6719H21.3281V27.8906ZM27.8906 21.3281H24.6094V12.0312C24.6094 11.5961 24.4365 11.1788 24.1288 10.8712C23.8212 10.5635 23.4039 10.3906 22.9688 10.3906H13.6719V7.10938H27.8906V21.3281Z" fill="black" />
+										</svg>
+									</button>
+									<div data-cnHint class="cn__hint">Copied to clipboard</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__bg">
+				<img src="img/join/bg.webp" alt="Image">
+				<img src="img/join/leaves.webp" alt="Image">
+			</div>
+			<section class="footer__join join">
+				<div class="join__container">
+					<div class="join__content">
+						<div class="join__title" data-watch-threshold="0.4" data-watch-once data-watch>
+							<img class="ibg" src="img/join/title.webp" alt="Image">
+						</div>
+						<div class="join__about" data-watch-threshold="0.4" data-watch data-watch-once>
+							<div class="join__about-wrp">
+								<p>
+									Dorem ipsum dolor sit amet consectetur adipiscing elit Nunc vulputate libero et
+									velit interdum ac aliquet odio mattis Class aptent taciti sociosqu ad litora
+									torquent per conubia nostra per
+								</p>
+							</div>
+						</div>
+						<div class="join__actions" data-watch-threshold="0.4" data-watch data-watch-once>
+							<a href="#" class="join__button button">
+								<span>
+									BUY NOW
+								</span>
+							</a>
+							<div class="join__social">
+								<a href="#" aria-label="social X" target="_blank" class="join__link social-link social-link--x">
+									<svg viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<mask id="mask0_26_1157" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="49" height="49">
+											<path d="M0.651855 0.79744H48.6519V48.7974H0.651855V0.79744Z" fill="white" />
+										</mask>
+										<g mask="url(#mask0_26_1157)">
+											<path d="M38.4515 3.04572H45.8127L29.7327 21.4709L48.6516 46.5474H33.8401L22.231 31.3417L8.96241 46.5474H1.59441L18.7921 26.8331L0.65155 3.04914H15.8401L26.3178 16.9451L38.4515 3.04572ZM35.863 42.1314H39.943L13.6116 7.232H9.23669L35.863 42.1314Z" fill="#FDF9D4" />
+										</g>
+									</svg>
+								</a>
+								<a href="#" target="_blank" aria-label="social telegram" class="join__link social-link social-link--tg">
+									<svg viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M40.6506 0.967208C41.2066 0.733187 41.8152 0.652475 42.4129 0.733472C43.0107 0.814468 43.5759 1.05421 44.0496 1.42775C44.5233 1.80129 44.8882 2.29496 45.1064 2.85739C45.3245 3.41982 45.388 4.03045 45.2901 4.62571L40.187 35.579C39.692 38.5647 36.416 40.277 33.6778 38.7897C31.3873 37.5455 27.9853 35.6285 24.9253 33.6282C23.3953 32.627 18.7085 29.4207 19.2845 27.1392C19.7796 25.1885 27.6545 17.858 32.1545 13.4997C33.9208 11.7875 33.1153 10.7997 31.0296 12.3747C25.85 16.2852 17.534 22.232 14.7845 23.906C12.359 25.382 11.0945 25.634 9.58255 25.382C6.82405 24.923 4.2658 24.212 2.1778 23.3457C-0.643703 22.1757 -0.506453 18.2967 2.17555 17.1672L40.6506 0.967208Z" fill="#FDF9D4" />
+									</svg>
+								</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<div class="footer__top">
+				<div class="footer__container">
+					<div class="footer__left menu-footer">
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a data-goto=".buy__container" data-goto-top="-100" data-goto-header href="#" class="menu-footer__link">
+									HOW TO BUY
+								</a>
+							</li>
+							<li class="menu-footer__item">
+								<a data-goto=".tokenomiks__container" data-goto-header href="#" class="menu-footer__link">
+									TOKENOMICS
+								</a>
+							</li>
+						</ul>
+						<div class="footer__social social-block ">
+							<a href="#" aria-label="social X" target="_blank" class="social-block__link social-link social-link--x">
+								<svg viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="mask0_26_1156" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="49" height="49">
+										<path d="M0.651855 0.79744H48.6519V48.7974H0.651855V0.79744Z" fill="white" />
+									</mask>
+									<g mask="url(#mask0_26_1156)">
+										<path d="M38.4515 3.04572H45.8127L29.7327 21.4709L48.6516 46.5474H33.8401L22.231 31.3417L8.96241 46.5474H1.59441L18.7921 26.8331L0.65155 3.04914H15.8401L26.3178 16.9451L38.4515 3.04572ZM35.863 42.1314H39.943L13.6116 7.232H9.23669L35.863 42.1314Z" fill="#FDF9D4" />
+									</g>
+								</svg>
+							</a>
+							<a href="#" aria-label="social telegram" target="_blank" class="social-block__link social-link social-link--tg">
+								<svg viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M40.6506 0.967208C41.2066 0.733187 41.8152 0.652475 42.4129 0.733472C43.0107 0.814468 43.5759 1.05421 44.0496 1.42775C44.5233 1.80129 44.8882 2.29496 45.1064 2.85739C45.3245 3.41982 45.388 4.03045 45.2901 4.62571L40.187 35.579C39.692 38.5647 36.416 40.277 33.6778 38.7897C31.3873 37.5455 27.9853 35.6285 24.9253 33.6282C23.3953 32.627 18.7085 29.4207 19.2845 27.1392C19.7796 25.1885 27.6545 17.858 32.1545 13.4997C33.9208 11.7875 33.1153 10.7997 31.0296 12.3747C25.85 16.2852 17.534 22.232 14.7845 23.906C12.359 25.382 11.0945 25.634 9.58255 25.382C6.82405 24.923 4.2658 24.212 2.1778 23.3457C-0.643703 22.1757 -0.506453 18.2967 2.17555 17.1672L40.6506 0.967208Z" fill="#FDF9D4" />
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20260503132434"></script>
+</body>
+
+</html>

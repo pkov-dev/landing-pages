@@ -1,0 +1,171 @@
+//====================================================================================================
+.footer {
+	background: url('@img/faqos/bg.png');
+	// .footer__wrapper
+	&__wrapper {
+		background: url('@img/footer/bg.png');
+		@include adaptiveValue('border-top-left-radius', 100, 60);
+		@include adaptiveValue('border-top-right-radius', 100, 60);
+	}
+
+	// .footer__container
+	&__container {
+		display: flex;
+		gap: toRem(15);
+		position: relative;
+		@include adaptiveValue('padding-top', 82, 40, 0, 1600, 768);
+		@include adaptiveValue('padding-bottom', 62, 30);
+		@include adaptiveValue('padding-left', 15, 30, 2, $containerWidth, 768);
+		@include adaptiveValue('padding-right', 15, 30, 2, $containerWidth, 768);
+		@include adaptiveValue('padding-left', 30, 15, 3, $containerWidth, 320);
+		@include adaptiveValue('padding-right', 30, 15, 3, $containerWidth, 320);
+
+		@media (max-width: toEm($mobile)) {
+			flex-direction: column-reverse;
+			align-items: center;
+		}
+	}
+	// .footer__left
+	&__left {
+		flex: 1 1 flBasis(5, 15, 875);
+
+		@media (max-width: toEm($mobile)) {
+			width: 100%;
+		}
+	}
+	// .footer__top
+	&__top {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 37, 20);
+		}
+	}
+	// .footer__bottom
+	&__bottom {
+		@include adaptiveValue('font-size', 30, 12);
+		font-weight: 500;
+		text-transform: uppercase;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: toRem(20);
+	}
+	// .footer__address
+	&__address {
+		color: rgba(255, 255, 255, 0.4);
+		display: flex;
+		@include adaptiveValue('column-gap', 20, 10);
+		align-items: center;
+
+		p {
+			@extend %elipsis;
+		}
+	}
+	// .footer__button
+	&__button {
+		width: toRem(36);
+		@include adaptiveValue('width', 36, 20);
+		aspect-ratio: 1;
+		background: url('@img/footer/copy.svg') center / contain no-repeat;
+		opacity: 0.1;
+
+		transition: opacity 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
+	// .footer__copy
+	&__copy {
+		color: rgba(255, 255, 255, 0.3);
+		flex-shrink: 0;
+	}
+	// .footer__img
+	&__img {
+		flex: 1 1 39.0070921986%;
+		margin-top: toRem(-85);
+		text-align: center;
+		pointer-events: none;
+		overflow: hidden;
+
+		img {
+			width: 48%;
+			object-fit: cover;
+			transform: translate(0, 100%);
+
+			.--watcher-view & {
+				animation: footerImg 0.5s ease forwards 0.6s;
+			}
+
+			@keyframes footerImg {
+				100% {
+					transform: translate(0, 0);
+				}
+			}
+
+			@media (min-width: toEm($mobile)) {
+				width: 100%;
+				position: absolute;
+				width: 39%;
+				aspect-ratio: 628/ 647;
+				bottom: 0;
+				right: -5%;
+			}
+		}
+	}
+}
+.top-footer {
+	display: flex;
+	gap: toRem(30);
+	justify-content: space-between;
+	align-items: flex-start;
+	position: relative;
+
+	&:not(:last-child) {
+		@include adaptiveValue('padding-bottom', 37, 20);
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			@include adaptiveValue('height', 8, 4);
+			bottom: 0;
+			left: 0;
+			background-color: #d9d9d9;
+
+			.--watcher-view & {
+				animation: footerLine 0.5s ease forwards;
+			}
+
+			@keyframes footerLine {
+				100% {
+					width: 100%;
+				}
+			}
+		}
+	}
+	// .top-footer__column
+	&__column {
+		display: grid;
+		gap: toRem(4);
+	}
+	// .top-footer__link
+	&__link {
+		color: var(--text-inverse);
+		font-family: 'Crog', sans-serif;
+		@include adaptiveValue('font-size', 64, 40, 2, 1600, 992);
+		@include adaptiveValue('font-size', 40, 22, 3, 992);
+		font-weight: 700;
+		text-transform: uppercase;
+		transition: color 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--bg-primary);
+			}
+		}
+	}
+}
+
+//====================================================================================================

@@ -1,0 +1,31 @@
+.about {
+	background-color: $lightColor;
+	@include adaptiveValue("padding-top", 120, 80);
+	@include adaptiveValue("padding-bottom", 120, 80);
+	// .about__container
+	&__container {
+		display: flex;
+		column-gap: toRem(25);
+		flex-wrap: wrap;
+		@include adaptiveValue("row-gap", 48, 32);
+	}
+	// .about__title
+	&__title {
+		flex: 1 1 flBasis(2, 25);
+		min-width: toRem(357);
+	}
+	// .about__text
+	&__text {
+		@extend .about__title;
+
+		@media (min-width: $mobile) {
+			padding-top: toRem(47);
+		}
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: toRem(15);
+			}
+		}
+	}
+}

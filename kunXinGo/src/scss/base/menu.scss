@@ -1,0 +1,154 @@
+.menu {
+	@media (max-width: $tablet) {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 100%;
+		top: 0;
+		overflow: auto;
+		padding: toRem(70) toRem(40) toRem(40);
+		@include adaptiveValue("padding-left", 40, 16, 0, 992, 360);
+		transition: left 0.3s;
+		background-color: $lightColor;
+
+		.menu-open & {
+			left: 0;
+
+			&::before {
+				left: 0;
+			}
+		}
+	}
+
+	// .menu__icon
+	&__icon {
+	}
+
+	// .menu__body
+	&__body {
+		.menu-open & {
+			@media (max-width: $tablet) {
+				display: flex;
+				height: 100%;
+				gap: toRem(30);
+				justify-content: space-between;
+				flex-direction: column;
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		@include adaptiveValue("column-gap", 32, 12, 0, $containerWidth, 992);
+		row-gap: toRem(10);
+		flex-wrap: wrap;
+
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			gap: toRem(24);
+			flex-grow: 1;
+		}
+	}
+	// .menu__item
+	&__item {
+		transition: color 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $hoverColor;
+			}
+		}
+	}
+	// .menu__link
+	&__link {
+		@media (max-width: $mobile) {
+		}
+	}
+}
+
+// .menu {
+
+//   }
+//   .menu-global {
+
+//   }
+//   .menu-top {
+// 	top: 0;
+//   }
+//   .menu-middle {
+// 	top: 18px;
+//   }
+//   .menu-bottom {
+// 	top: 36px;
+//   }
+//   .menu-top-click {
+
+//   }
+//   .menu-middle-click {
+// 	opacity: 0;
+//   }
+//   .menu-bottom-click {
+
+//   }
+
+//Burger Icon
+.icon-menu {
+	display: none;
+
+	@media (max-width: $tablet) {
+		display: block;
+		position: relative;
+		width: toRem(30);
+		height: toRem(18);
+		z-index: 5;
+
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			position: absolute;
+			width: 100%;
+			right: 0;
+			height: toRem(2);
+			background-color: #000;
+			border-radius: toRem(3);
+			backface-visibility: hidden;
+			// 	transition: 0.55s;
+		}
+		&::before {
+			top: toRem(0);
+		}
+		&::after {
+			bottom: toRem(0);
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				opacity: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				backface-visibility: hidden;
+				transform: rotate(45deg);
+				transition: 0.3s;
+				top: calc(50% - toRem(1));
+			}
+			&::after {
+				backface-visibility: hidden;
+				transform: rotate(-405deg);
+				transition: 0.3s;
+				bottom: calc(50% - toRem(1));
+			}
+		}
+	}
+}

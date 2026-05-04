@@ -1,0 +1,39 @@
+.page-shippers {
+	padding-top: toRem(80);
+	// .page-shippers__hero
+	&__hero {
+	}
+	// .page-shippers__partners
+	&__partners {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+	// .page-shippers__strategy
+	&__strategy {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+	// .page-shippers__transparency
+	&__transparency {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+	// .page-shippers__monney
+	&__monney {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+	// .page-shippers__features
+	&__features {
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 100, 50);
+		}
+	}
+}
+
+@import 'transparency';
+@import 'monney';

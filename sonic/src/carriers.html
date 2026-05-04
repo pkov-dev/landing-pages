@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('html/_head.htm',{
+"title":"Carriers"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page-shippers">
+			<section class="page-shippers__hero hero">
+				<div class="hero__content">
+					<div class="hero__container">
+						<div class="hero__header hero-header">
+							<div class="hero-header__label">
+								<div class="hero-header__announcement">
+									We’re expanding!
+								</div>
+								<a href="#" class="hero-header__network">
+									Join our carrier network
+								</a>
+							</div>
+							<h1 class="hero-header__title">
+								On the Road to Growth Together
+							</h1>
+							<div class="hero-header__text">
+								<p>
+									Drive into new opportunities and become a part of our carrier family, where every
+									mile counts and every journey matters.
+								</p>
+							</div>
+							<div class="hero-header__buttons buttons">
+								<a href="#" class="buttons__button button button--arr">
+									Get Set Up
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hero__image">
+					<picture>
+						<source srcset="img/carriers/hero/main.webp" media="(min-width: 992px)">
+						<source srcset="img/carriers/hero/main-small.webp" media="(max-width: 991.98px)">
+						<img src="img/carriers/hero/main.webp" alt="image">
+					</picture>
+				</div>
+			</section>
+			<section class="page-shippers__partners partners">
+				<div class="partners__container">
+					<h2 class="partners__title">
+						Partnering With
+					</h2>
+					<div class="partners__items">
+						<img class="partners__item" src="@img/home/partners/boltshift.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/lightbox.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/feather-dev.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/spherule.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/global-bank.svg" alt="Image">
+						<img class="partners__item" src="@img/home/partners/niether.svg" alt="Image">
+					</div>
+				</div>
+			</section>
+			<section class="page-shippers__features features features--goto">
+				<div class="features__header header-block header-block--center">
+					<div class="header-block__label">
+						Features
+					</div>
+					<h2 class="header-block__title">
+						Dedicated Support, Year Round
+					</h2>
+					<div class="header-block__text">
+						<p>
+							America moves on trucks, but trucks don’t roll without freight. We're on standby 24/7,
+							365 days a year, ensuring your freight finds its way with the right trucks.
+						</p>
+					</div>
+				</div>
+				<article class="features__item item-features">
+					<div class="item-features__container">
+						<div class="item-features__wrapper">
+							<div class="item-features__content">
+								<div class="item-features__icon circle-icon _icon-dryage"></div>
+								<h3 class="item-features__title">
+									Flexible Payment Options
+								</h3>
+								<div class="item-features__text">
+									<p>
+										Drive with us and enjoy the simplicity of fast, hassle-free payments designed to
+										keep pace with your schedule.
+									</p>
+								</div>
+								<ul class="item-features__list list-features">
+									<li class="list-features__item _icon-check">
+										Convenient Quickpay program.
+									</li>
+									<li class="list-features__item _icon-check">
+										Easy invoicing system.
+									</li>
+									<li class="list-features__item _icon-check">
+										Payments made by mail, direct deposit, or directly to factoring companies.
+									</li>
+								</ul>
+							</div>
+						</div>
+						<img class="item-features__img ibg ibg--top" data-src="@img/carriers/features/01.jpg"
+							alt="Image">
+					</div>
+
+				</article>
+				<article class="features__item item-features item-features--reverse">
+					<div class="item-features__container">
+						<img class="item-features__img ibg ibg--top" data-src="@img/carriers/features/02.jpg"
+							alt="Image">
+						<div class="item-features__content">
+							<div class="item-features__wrapper">
+								<div class="item-features__icon circle-icon _icon-smooz"></div>
+								<h3 class="item-features__title">
+									Smooth Accessorial Requests
+								</h3>
+								<div class="item-features__text">
+									<p>
+										We get it — time is money. That's why we've made additional service requests
+										like detention or layovers easy and fair.
+									</p>
+								</div>
+								<ul class="item-features__list list-features">
+									<li class="list-features__item _icon-check">
+										Effortless submission for detention and layover compensation.
+									</li>
+									<li class="list-features__item _icon-check">
+										Fair, clear rates for all accessorial services.
+									</li>
+									<li class="list-features__item _icon-check">
+										Support that recognizes and responds to your operational needs.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+		@@include('html/_offer-card.htm',{})
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+
+
+</body>
+
+</html>
