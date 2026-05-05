@@ -1,0 +1,232 @@
+//====================================================================================================
+
+.footer {
+	position: relative;
+	z-index: 3;
+
+	&__top {
+		position: relative;
+		border-top: toRem(3) solid #000;
+		background-color: #dff7ff;
+		@include adaptiveValue('padding-bottom', 50, 30);
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 80%;
+			transform: translateY(10%);
+			background: url('../img/footer/bg.svg') center / cover no-repeat;
+		}
+	}
+
+	&__container {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__top-body {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: toRem(1340);
+		width: 100%;
+		@media (max-width: $mobile) {
+			flex-direction: column-reverse;
+			align-items: center;
+			padding-top: toRem(30);
+		}
+	}
+
+	&__top-logo {
+		position: relative;
+		z-index: 2;
+		flex-shrink: 0;
+		@include adaptiveValue('width', 333, 260, 2, $containerWidth, 767.98);
+		@media (max-width: $mobile) {
+			align-self: center;
+		}
+		& img {
+			width: 100%;
+		}
+	}
+
+	&__top-content {
+		display: flex;
+		align-items: flex-start;
+		@include adaptiveValue('column-gap', 160, 40, 2, $containerWidth, 767.98);
+		@media (max-width: $mobile) {
+			width: 100%;
+			flex-direction: column;
+			align-self: center;
+			text-align: center;
+		}
+	}
+
+	&__top-menu {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: toRem(20);
+		@media (max-width: $mobile) {
+			width: 100%;
+			row-gap: toRem(15);
+			align-items: center;
+			margin-bottom: toRem(30);
+		}
+	}
+
+	&__top-menu-item {
+		color: #000;
+		font-family: 'Paygon';
+		font-style: normal;
+		font-size: toRem(20);
+		font-weight: 800;
+		line-height: 100%;
+		text-transform: uppercase;
+		transition: color 0.2s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--bg-secondary);
+			}
+		}
+	}
+
+	&__top-contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: toRem(20);
+		@media (max-width: $mobile) {
+			width: 100%;
+			align-items: center;
+			row-gap: toRem(15);
+		}
+	}
+
+	&__top-contacts-row {
+		&:nth-child(1) {
+			& ul {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				row-gap: toRem(10);
+				@media (max-width: $mobile) {
+					align-items: center;
+				}
+				& li {
+					& a {
+						display: flex;
+						align-items: center;
+						column-gap: toRem(10);
+						@media (any-hover: hover) {
+							&:hover {
+								& span {
+									color: var(--bg-secondary);
+								}
+								& svg path {
+									fill: var(--bg-secondary);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&:nth-child(2) {
+			& ul {
+				display: flex;
+				align-items: center;
+				column-gap: toRem(20);
+				@media (max-width: $mobile) {
+					align-items: center;
+					justify-content: center;
+					column-gap: toRem(15);
+				}
+				& li {
+					& a {
+						@media (any-hover: hover) {
+							&:hover {
+								& svg path {
+									fill: var(--bg-secondary);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		& h3 {
+			color: #000;
+			font-family: 'Paygon';
+			font-style: normal;
+			font-size: toRem(20);
+			font-weight: 800;
+			line-height: 100%;
+			text-transform: uppercase;
+			margin-bottom: toRem(15);
+		}
+		& ul {
+			& li {
+				& a {
+					& span {
+						color: #000;
+						font-family: 'Paygon';
+						font-size: toRem(18);
+						font-style: normal;
+						font-weight: 400;
+						line-height: normal;
+						transition: color 0.2s ease 0s;
+					}
+					& svg path {
+						transition: fill 0.2s ease 0s;
+					}
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		position: relative;
+		z-index: 2;
+		background-color: #141414;
+		padding: toRem(15) 0;
+	}
+
+	&__bottom-body {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@media (max-width: $mobile) {
+			flex-direction: column-reverse;
+			row-gap: toRem(10);
+		}
+		& span {
+			color: #fff;
+			font-family: 'Paygon';
+			font-size: toRem(20);
+			font-style: normal;
+			font-weight: 800;
+			line-height: normal;
+			text-transform: uppercase;
+		}
+		& a {
+			display: flex;
+			align-items: center;
+			column-gap: toRem(4);
+			@media (any-hover: hover) {
+				&:hover {
+					& span {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}
+
+//====================================================================================================

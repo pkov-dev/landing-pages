@@ -1,0 +1,56 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-bottom: var(--border);
+
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(20);
+		padding-top: toRem(5);
+		padding-bottom: toRem(5);
+		align-items: center;
+		position: relative;
+		z-index: 1;
+	}
+	// .header__logo
+	&__logo {
+		aspect-ratio: 213/ 63;
+		flex-shrink: 0;
+		position: relative;
+		z-index: 5;
+
+		@include adaptiveValue('width', 213, 198, 2, $containerWidth, 991.98);
+		@include adaptiveValue('width', 200, 190, 3, 991.98, 320);
+
+		@media (max-width: $tablet) {
+			order: 1;
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__button
+	&__button {
+		position: relative;
+		z-index: 2;
+		min-width: toRem(248);
+		@include adaptiveValue('min-width', 248, 200, 1, $containerWidth, 991.98);
+
+		@media (max-width: $tablet) {
+			order: 2;
+			width: max-content;
+		}
+	}
+}

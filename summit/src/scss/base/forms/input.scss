@@ -1,0 +1,110 @@
+//<INPUT>
+// Сніппет (HTML): inp
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.input {
+	border-radius: toRem(15);
+	border: toRem(2) solid #000;
+	background-color: #f6f6f6;
+	width: 100%;
+	height: toRem(68);
+	padding: toRem(10) toRem(30);
+	// color: #000;
+	line-height: 90%;
+	font-size: toRem(24);
+	caret-color: inherit;
+
+	// .input--file
+	&--file {
+		position: absolute;
+		top: 50%;
+		left: calc(50% - toRem(2));
+		transform: translate(-50%, -50%);
+		z-index: -1;
+	}
+
+	&::placeholder {
+		color: #7b7b7b;
+		font-family: 'Paygon';
+		line-height: 90%;
+		font-size: toRem(24);
+	}
+	@media (max-width: $mobileSmall) {
+		// height: toRem(62);
+	}
+
+	&._form-focus {
+	}
+	&._form-error {
+		border: toRem(2) solid red;
+	}
+}
+.input[placeholder]:not([data-placeholder-nohiden]) {
+	&::placeholder {
+		transition: opacity 0.3s;
+	}
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}
+
+.form__file-label {
+	display: block;
+	border-radius: toRem(15);
+	width: calc(100% - toRem(4));
+	height: toRem(64);
+	background-color: #fff;
+	padding: toRem(8) toRem(28);
+	font-family: 'Paygon';
+	font-size: toRem(24);
+	color: #7b7b7b;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: toRem(10);
+	cursor: pointer;
+	transition: color 0.2s;
+	will-change: color;
+
+	span {
+		display: block;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--bg-secondary);
+		}
+		&:hover img {
+			transform: scale(1.1);
+		}
+	}
+
+	img {
+		width: toRem(30);
+		transition: transform 0.2s;
+		will-change: transform;
+	}
+}
+
+textarea.input {
+	resize: none;
+	padding: 0px 0px;
+}
+
+input[type='file' i]::-webkit-file-upload-button {
+	display: none;
+	// opacity: 0;
+}
+input[type='file' i]::-webkit-file-upload-button + span {
+	display: none;
+}
