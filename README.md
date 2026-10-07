@@ -10,6 +10,7 @@ These projects reflect my growth in frontend development — from early layouts 
 
 All projects listed below are **commercial** and optimized for performance, achieving **90+ scores across PageSpeed metrics**.
 
+- [Axelife](https://cozy-dango-4cc599.netlify.app/)
 - [NEARKAT](https://fanciful-sunflower-24ef33.netlify.app/)
 - [DR. CAT](https://clinquant-sopapillas-8d48c7.netlify.app/)
 - [BULBASEOR](https://dazzling-crostata-35528c.netlify.app/)
